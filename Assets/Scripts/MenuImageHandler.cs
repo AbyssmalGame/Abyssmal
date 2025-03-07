@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using static StatValues;
 
 
 public class MenuImageHandler : MonoBehaviour
@@ -38,10 +39,17 @@ public class MenuImageHandler : MonoBehaviour
 
     public void BuyUpgrade()
     {
+        switch (currentUpgradeIndex)
+        {
+            case 0:
+                
+                break;
+        }
+
         switch (upgradeName)
         {
             case "Suit":
-                gameManager.SetHP(upgradeValues[currentUpgradeIndex]);
+                gameManager.SetHP((int)StatValues.PlayerHP.lv1);
                 break;
             case "O2":
                 gameManager.SetOxygen(upgradeValues[currentUpgradeIndex]);
@@ -50,5 +58,6 @@ public class MenuImageHandler : MonoBehaviour
                 gameManager.SetSwimSpeed(upgradeValues[currentUpgradeIndex]);
                 break;
         }
+
     }
 }

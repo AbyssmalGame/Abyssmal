@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static StatValues;
 
 public class GameManager : MonoBehaviour
 {
+	/*
+	 * Purely used to handle default stats in game scenes. Values should only be edited inside the upgrade menus
+	 */
+
     public static GameManager Instance;
 
-    public int playerHP = 100;
-    public float oxygen = 120f;
-    public float swimSpeed = 2;
+    public int playerHP = (int) StatValues.PlayerHP.lv1;
+    public float oxygen = (float) StatValues.Oxygen.lv1; // Timer handled in game scenes
+    public float swimSpeed = (float) StatValues.SwimSpeeed.lv1;
     public int gold = 0;
     public int iron = 0;
     public int debris = 0;
@@ -35,7 +40,7 @@ public class GameManager : MonoBehaviour
 	{
 		oxygen = amount;
 	}
-	public void SetSwimSpeed(int amount)
+	public void SetSwimSpeed(float amount)
 	{
 		swimSpeed = amount;
 	}

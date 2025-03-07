@@ -365,7 +365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swimForce: 2
-  dragForce: 2
+  dragForce: 1
   minForce: 0
   minTimeBetweenStrokes: 0
   leftHandPose: {fileID: 599563762}
