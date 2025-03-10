@@ -5,12 +5,13 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] GameObject target;
-    [SerializeField] float movementSpeed = 3.0f;
-    [SerializeField] float rotationalDamp = 25f;
+    [SerializeField] float movementSpeed = 0.5f;
+    [SerializeField] float rotationalDamp = 10f;
     [SerializeField] float obstacleAvoidanceRotation = 25f;
 
-    [SerializeField] float detectionDistance = 7.5f;
+    [SerializeField] float detectionDistance = 6.0f;
 
+    [SerializeField] float raycastForwardOffset = 0.1f;
     [SerializeField] float leftRaycastOffset = 0.5f;
     [SerializeField] float rightRaycastOffset = 0.5f;
     [SerializeField] float upRaycastOffset = 0.5f;
@@ -25,7 +26,7 @@ public class EnemyMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         PathFinding();
         Move();
@@ -41,7 +42,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Move()
     {
-        transform.position += transform.forward * movementSpeed * Time.deltaTime;
+        rb.MovePosition(rb.position + movementSpeed * Time.fixedDeltaTime * transform.forward);
     }
 
     void PathFinding()
@@ -49,10 +50,10 @@ public class EnemyMovement : MonoBehaviour
         RaycastHit hit;
         Vector3 movementOffset = Vector3.zero;
 
-        Vector3 left = transform.position - transform.right * leftRaycastOffset;
-        Vector3 right = transform.position + transform.right * rightRaycastOffset;
-        Vector3 up = transform.position + transform.up * upRaycastOffset;
-        Vector3 down = transform.position - transform.up * downRaycastOffset;
+        Vector3 left = transform.position - (transform.forward * raycastForwardOffset) - transform.right * leftRaycastOffset;
+        Vector3 right = transform.position - (transform.forward * raycastForwardOffset) + transform.right * rightRaycastOffset;
+        Vector3 up = transform.position - (transform.forward * raycastForwardOffset) + transform.up * upRaycastOffset;
+        Vector3 down = transform.position - (transform.forward * raycastForwardOffset) - transform.up * downRaycastOffset;
 
         Debug.DrawRay(left, transform.forward * detectionDistance, Color.blue);
         Debug.DrawRay(right, transform.forward * detectionDistance, Color.blue);
