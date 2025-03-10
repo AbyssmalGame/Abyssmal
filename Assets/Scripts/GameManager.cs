@@ -11,9 +11,9 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
 
-    public int playerHP = (int) StatValues.PlayerHP.lv1;
-    public float oxygen = (float) StatValues.Oxygen.lv1; // Timer handled in game scenes
-    public float swimSpeed = (float) StatValues.SwimSpeeed.lv1;
+    public int playerHP = StatValues.PlayerHPLevels[0];
+    public float oxygen = StatValues.OxygenLevels[0]; 
+    public float swimSpeed = StatValues.SwimSpeedLevels[0];
     public int gold = 0;
     public int iron = 0;
     public int debris = 0;
@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     {
         playerHP = amount;
     }
-	public void SetOxygen(int amount)
+	public void SetOxygen(float amount)
 	{
 		oxygen = amount;
 	}

@@ -9,10 +9,8 @@ public class MenuImageHandler : MonoBehaviour
     public GameManager gameManager;
     public TMPro.TextMeshProUGUI upgradeValueText;
     public string upgradeName;
-    public Image upgradeImageUI;    
+    public Image upgradeImageUI;
     public List<Sprite> upgradeSprites;
-    public List<int> upgradeValues;
-    
 
     private int currentUpgradeIndex = 0;
 
@@ -33,29 +31,37 @@ public class MenuImageHandler : MonoBehaviour
 
     private void UpdateUI()
     {
-        upgradeImageUI.sprite = upgradeSprites[currentUpgradeIndex];
-        upgradeValueText.text = upgradeName + upgradeValues[currentUpgradeIndex];
+        switch (upgradeName)
+        {
+            case "Suit":
+                upgradeImageUI.sprite = upgradeSprites[currentUpgradeIndex];
+                upgradeValueText.text = "Suit upgrade granting " + StatValues.PlayerHPLevels[currentUpgradeIndex] + " HP";
+                break;
+            case "Oxygen":
+                upgradeImageUI.sprite = upgradeSprites[currentUpgradeIndex];
+                upgradeValueText.text = "Oxygen upgrade granting " + StatValues.OxygenLevels[currentUpgradeIndex] + " O2";
+                break;
+            case "SwimSpeed":
+                upgradeImageUI.sprite = upgradeSprites[currentUpgradeIndex];
+                upgradeValueText.text = "Flipper upgrade granting " + StatValues.PlayerHPLevels[currentUpgradeIndex] + "x speed";
+                break;
+        }
+        
+        
     }
 
     public void BuyUpgrade()
     {
-        switch (currentUpgradeIndex)
-        {
-            case 0:
-                
-                break;
-        }
-
         switch (upgradeName)
         {
             case "Suit":
-                gameManager.SetHP((int)StatValues.PlayerHP.lv1);
+                gameManager.SetHP(StatValues.PlayerHPLevels[currentUpgradeIndex]);
                 break;
-            case "O2":
-                gameManager.SetOxygen(upgradeValues[currentUpgradeIndex]);
+            case "Oxygen":
+                gameManager.SetOxygen(StatValues.OxygenLevels[currentUpgradeIndex]);
                 break;
-            case "Flippers":
-                gameManager.SetSwimSpeed(upgradeValues[currentUpgradeIndex]);
+            case "SwimSpeed":
+                gameManager.SetSwimSpeed(StatValues.SwimSpeedLevels[currentUpgradeIndex]);
                 break;
         }
 
