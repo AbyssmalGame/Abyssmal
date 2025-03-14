@@ -19,34 +19,70 @@ public class HostileEnemySwimmingMovement : MonoBehaviour
     [SerializeField] private float downRaycastOffset = 0.5f;
 
     [Header("Idle Settings")]
+    [SerializeField] private float idleMovementSpeed = 0.1f;
     [SerializeField] private float hostileDetectionDistance = 20.0f;
-    [SerializeField] private float minimumIdleTime = 5.0f;
-    [SerializeField] private float maximumIdleTime = 30.0f;
-    [SerializeField] private float minimumNextDistance = 2.0f;
-    [SerializeField] private float maximumNextDistance = 10.0f;
+    [SerializeField] private float minimumIdleTime = 0f;
+    [SerializeField] private float maximumIdleTime = 10.0f;
+    [SerializeField] private float minimumNextDistance = 1.0f;
+    [SerializeField] private float maximumNextDistance = 3.0f;
 
     private Rigidbody rb;
     private Vector3 currentTarget;
+
+    private bool playerDetected = false;
+    private bool isIdle = false;
+    private bool isMoving = false;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        currentTarget = target.transform.position;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        currentTarget = target.transform.position;
-        Move();
+        playerDetected = Vector3.Distance(target.transform.position, transform.position) < hostileDetectionDistance ? true : false;
+        if (!playerDetected && !isIdle)
+        {
+            StartCoroutine("IdleMove");
+        }
+        else if (playerDetected)
+        {
+            currentTarget = target.transform.position; 
+            Move();
+        } else if (isMoving && isIdle)
+        {
+            Move();
+        }
     }
 
     void Move()
     {
-        PathFinding();
-        rb.MovePosition(rb.position + movementSpeed * Time.fixedDeltaTime * transform.forward);
-        rb.angularVelocity = Vector3.zero;
-        rb.velocity = Vector3.zero;
+        if (Vector3.Distance(transform.position, currentTarget) > 0.2)
+        {
+            PathFinding();
+            if (isIdle)
+            {
+                rb.MovePosition(rb.position + idleMovementSpeed * Time.fixedDeltaTime * transform.forward);
+            } else
+            {
+                rb.MovePosition(rb.position + movementSpeed * Time.fixedDeltaTime * transform.forward);
+            }
+            rb.angularVelocity = Vector3.zero;
+            rb.velocity = Vector3.zero;
+        } else
+        {
+            isMoving = false;
+            isIdle = false;
+        }
     }
 
     void Turn()
@@ -99,12 +135,32 @@ public class HostileEnemySwimmingMovement : MonoBehaviour
         }
     }
 
-    void IdleMove()
+    void SetIdleTarget()
     {
         float randomX = Random.Range(transform.position.x - minimumNextDistance, transform.position.x + maximumNextDistance);
         float randomY = Random.Range(transform.position.y - minimumNextDistance, transform.position.y + maximumNextDistance);
         float randomZ = Random.Range(transform.position.z - minimumNextDistance, transform.position.z + maximumNextDistance);
         Vector3 randomTarget = new Vector3(randomX, randomY, randomZ);
         currentTarget = randomTarget;
+    }
+
+    IEnumerator IdleMove()
+    {
+        isIdle = true;
+        int idleTimePassed = 0;
+        float idleTime = Random.Range(minimumIdleTime, maximumIdleTime);
+        while (!playerDetected && idleTimePassed <= idleTime)
+        {
+            yield return new WaitForSeconds(1);
+            idleTimePassed++;
+        }
+        if (playerDetected)
+        {
+            yield break;
+        } else
+        {
+            SetIdleTarget();
+            isMoving = true;
+        }
     }
 }
