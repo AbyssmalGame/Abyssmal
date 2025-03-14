@@ -53,6 +53,11 @@ public class GameManager : MonoBehaviour
 		weapon2 = weapon;
 	}
 
+	public static float GetSpeed()
+    {
+		return  Instance.swimSpeed;
+    }
+
 	public void AddGold(int amount) { gold += amount; }
 	public void SpendGold(int amount) { if (gold >= amount) gold -= amount; }
 	public void AddIron(int amount) { iron += amount; }

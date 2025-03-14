@@ -6,7 +6,7 @@ using static StatValues;
 
 public class MenuImageHandler : MonoBehaviour
 {
-    public GameManager gameManager;
+    private GameManager gameManager;
     public TMPro.TextMeshProUGUI upgradeValueText;
     public string upgradeName;
     public Image upgradeImageUI;
@@ -16,7 +16,13 @@ public class MenuImageHandler : MonoBehaviour
 
     void Start()
     {
+        gameManager = GetComponent<GameManager>();
         UpdateUI();
+    }
+
+    private void Awake()
+    {
+        gameManager = GetComponent<GameManager>();
     }
 
     public void SwitchUpgrade(int direction)

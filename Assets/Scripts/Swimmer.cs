@@ -7,7 +7,7 @@ using Valve.VR;
 public class Swimmer : MonoBehaviour
 {
 	[Header("Values")]
-	[SerializeField] float swimForce = 2f;
+	[SerializeField] float swimForce = 1f;
 	[SerializeField] float dragForce = 1f;
 	[SerializeField] float minForce;
 	[SerializeField] float minTimeBetweenStrokes;
@@ -25,7 +25,10 @@ public class Swimmer : MonoBehaviour
 		_rigidbody = GetComponent<Rigidbody>();
 		_rigidbody.useGravity = false;
 		_rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+		UpdateSwimSpeed();	
 	}
+
+
 
 	void FixedUpdate()
 	{
@@ -53,5 +56,11 @@ public class Swimmer : MonoBehaviour
 		{
 			_rigidbody.AddForce(-_rigidbody.velocity * dragForce, ForceMode.Acceleration);
 		}
+	}
+
+	public void UpdateSwimSpeed()
+    {
+		swimForce = GameManager.GetSpeed();
+
 	}
 }
