@@ -56,7 +56,8 @@ public class HostileEnemySwimmingMovement : MonoBehaviour
         }
         else if (playerDetected)
         {
-            currentTarget = target.transform.position; 
+            currentTarget = target.transform.position;
+            isIdle = false;
             Move();
         } else if (isMoving && isIdle)
         {
