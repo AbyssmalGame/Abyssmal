@@ -11,18 +11,20 @@ public class MenuImageHandler : MonoBehaviour
     public string upgradeName;
     public Image upgradeImageUI;
     public List<Sprite> upgradeSprites;
+    public Button equipButton;
+    public TMPro.TextMeshProUGUI equipText;
 
     private int currentUpgradeIndex = 0;
 
     void Start()
     {
-        gameManager = GetComponent<GameManager>();
         UpdateUI();
     }
-
+        
     private void Awake()
     {
-        gameManager = GetComponent<GameManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        
     }
 
     public void SwitchUpgrade(int direction)
@@ -33,6 +35,8 @@ public class MenuImageHandler : MonoBehaviour
             currentUpgradeIndex += direction;
             UpdateUI();
         }
+
+
     }
 
     private void UpdateUI()
@@ -61,15 +65,25 @@ public class MenuImageHandler : MonoBehaviour
         switch (upgradeName)
         {
             case "Suit":
-                gameManager.SetHP(StatValues.PlayerHPLevels[currentUpgradeIndex]);
+
+                gameManager.SetHP((int) StatValues.PlayerHPLevels[currentUpgradeIndex].levelValue);
                 break;
             case "Oxygen":
-                gameManager.SetOxygen(StatValues.OxygenLevels[currentUpgradeIndex]);
+                gameManager.SetOxygen(StatValues.OxygenLevels[currentUpgradeIndex].levelValue);
                 break;
             case "SwimSpeed":
-                gameManager.SetSwimSpeed(StatValues.SwimSpeedLevels[currentUpgradeIndex]);
+                gameManager.SetSwimSpeed(StatValues.SwimSpeedLevels[currentUpgradeIndex].levelValue);
                 break;
         }
-
     }
+
+    private bool CheckUpgradeCost(Upgrade price)
+    {
+        if ((gameManager.gold >= price.goldCost) && (gameManager.iron >= price.ironCost) && (gameManager.debris >= price.debrisCost))
+        {
+            return true;
+        }
+        return false;
+    }
+    
 }

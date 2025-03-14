@@ -26,9 +26,32 @@ public class LaserPointerHandler : MonoBehaviour
         }
     }
 
+    /* public void PointerInside(object sender, PointerEventArgs e)
+    {
+        if (e.target.gameObject.GetComponent<EventTrigger>() != null)
+        {
+            e.target.gameObject.GetComponent<EventTrigger>().OnPointerEnter.Invoke();
+        }
+    } */
+
     public void PointerInside(object sender, PointerEventArgs e)
     {
+        EventTrigger trigger = e.target.gameObject.GetComponent<EventTrigger>();
 
+        if (trigger != null)
+        {
+            // Find the OnPointerEnter event in the EventTrigger
+            EventTrigger.Entry entry = trigger.triggers.Find(x => x.eventID == EventTriggerType.PointerEnter);
+
+            if (entry != null)
+            {
+                // Manually invoke all callbacks in the event
+                for ( int i = 0; i < entry.callback.GetPersistentEventCount(); i++)
+                {
+                    entry.callback.Invoke(new PointerEventData(EventSystem.current));
+                }
+            }
+        }
     }
 
     public void PointerOutside(object sender, PointerEventArgs e)

@@ -11,9 +11,9 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
 
-    public int playerHP = StatValues.PlayerHPLevels[0];
-    public float oxygen = StatValues.OxygenLevels[0]; 
-    public float swimSpeed = StatValues.SwimSpeedLevels[0];
+    public int playerHP = (int) StatValues.PlayerHPLevels[0].levelValue;
+    public float oxygen = StatValues.OxygenLevels[0].levelValue; 
+    public float swimSpeed = StatValues.SwimSpeedLevels[0].levelValue;
     public int gold = 0;
     public int iron = 0;
     public int debris = 0;
