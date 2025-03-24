@@ -1485,11 +1485,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHP: 100
-  oxygen: 120
+  oxygen: 600
   swimSpeed: 1
-  gold: 0
-  iron: 0
-  debris: 0
+  gold: 2
+  iron: 2
+  debris: 2
   weapon1: harpoon
   weapon2: none
 --- !u!4 &386345836
@@ -7927,6 +7927,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1807439565}
     m_Modifications:
+    - target: {fileID: 2932697787589274743, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932697787589274743, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932697787589274743, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3901025309852199056, guid: 65b8d79a561ac66408bd17c23a3c241c,
         type: 3}
       propertyPath: m_Pivot.x

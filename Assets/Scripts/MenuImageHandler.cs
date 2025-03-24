@@ -44,20 +44,50 @@ public class MenuImageHandler : MonoBehaviour
         switch (upgradeName)
         {
             case "Suit":
+                
                 upgradeImageUI.sprite = upgradeSprites[currentUpgradeIndex];
-                upgradeValueText.text = "Suit upgrade granting " + StatValues.PlayerHPLevels[currentUpgradeIndex] + " HP";
+                upgradeValueText.text = "Suit upgrade granting " + StatValues.PlayerHPLevels[currentUpgradeIndex].levelValue + " HP";
+                UpdateButtonUI(StatValues.PlayerHPLevels[currentUpgradeIndex], gameManager.playerHP);
                 break;
             case "Oxygen":
                 upgradeImageUI.sprite = upgradeSprites[currentUpgradeIndex];
-                upgradeValueText.text = "Oxygen upgrade granting " + StatValues.OxygenLevels[currentUpgradeIndex] + " O2";
+                upgradeValueText.text = "Oxygen upgrade granting " + StatValues.OxygenLevels[currentUpgradeIndex].levelValue + " O2";
+                UpdateButtonUI(StatValues.OxygenLevels[currentUpgradeIndex], gameManager.oxygen);
                 break;
             case "SwimSpeed":
                 upgradeImageUI.sprite = upgradeSprites[currentUpgradeIndex];
-                upgradeValueText.text = "Flipper upgrade granting " + StatValues.PlayerHPLevels[currentUpgradeIndex] + "x speed";
+                upgradeValueText.text = "Flipper upgrade granting " + StatValues.SwimSpeedLevels[currentUpgradeIndex].levelValue + "x speed";
+                UpdateButtonUI(StatValues.SwimSpeedLevels[currentUpgradeIndex], gameManager.swimSpeed);
                 break;
         }
-        
-        
+    }
+
+    private void UpdateButtonUI(Upgrade upgrade, float levelValComapre)
+    {
+        if (upgrade.isOwned)
+        {
+            if (upgrade.levelValue != levelValComapre)
+            {
+                equipText.SetText("Equip");
+                equipButton.GetComponent<Image>().color = Color.white;
+            }
+            else
+            {
+                equipText.SetText("Equipped");
+                equipButton.GetComponent<Image>().color = Color.gray;
+            }
+        }
+        else
+        {
+            equipText.SetText("Purchase");
+            if (CheckUpgradeCost(upgrade)) 
+            {
+                equipButton.GetComponent<Image>().color = Color.green;
+            } else
+            {
+                equipButton.GetComponent<Image>().color = Color.red;
+            }
+        }
     }
 
     public void BuyUpgrade()
@@ -65,14 +95,38 @@ public class MenuImageHandler : MonoBehaviour
         switch (upgradeName)
         {
             case "Suit":
-
-                gameManager.SetHP((int) StatValues.PlayerHPLevels[currentUpgradeIndex].levelValue);
+                if (StatValues.PlayerHPLevels[currentUpgradeIndex].isOwned || CheckUpgradeCost(StatValues.PlayerHPLevels[currentUpgradeIndex]))
+                {
+                    if (!StatValues.PlayerHPLevels[currentUpgradeIndex].isOwned)
+                    {
+                        UpdateGameManagerCosts(StatValues.PlayerHPLevels[currentUpgradeIndex]);
+                    }
+                    gameManager.SetHP((int)StatValues.PlayerHPLevels[currentUpgradeIndex].levelValue);
+                    UpdateUI();
+                }
                 break;
             case "Oxygen":
-                gameManager.SetOxygen(StatValues.OxygenLevels[currentUpgradeIndex].levelValue);
+                if (StatValues.OxygenLevels[currentUpgradeIndex].isOwned || CheckUpgradeCost(StatValues.OxygenLevels[currentUpgradeIndex]))
+                {
+                    if (!StatValues.OxygenLevels[currentUpgradeIndex].isOwned)
+                    {
+                        UpdateGameManagerCosts(StatValues.OxygenLevels[currentUpgradeIndex]);
+                    }
+                    gameManager.SetOxygen(StatValues.OxygenLevels[currentUpgradeIndex].levelValue);
+                    UpdateUI();
+                }
+                
                 break;
             case "SwimSpeed":
-                gameManager.SetSwimSpeed(StatValues.SwimSpeedLevels[currentUpgradeIndex].levelValue);
+                if (StatValues.SwimSpeedLevels[currentUpgradeIndex].isOwned || CheckUpgradeCost(StatValues.SwimSpeedLevels[currentUpgradeIndex]))
+                {
+                    if (!StatValues.SwimSpeedLevels[currentUpgradeIndex].isOwned)
+                    {
+                        UpdateGameManagerCosts(StatValues.SwimSpeedLevels[currentUpgradeIndex]);
+                    }
+                    gameManager.SetSwimSpeed(StatValues.SwimSpeedLevels[currentUpgradeIndex].levelValue);
+                    UpdateUI();
+                }
                 break;
         }
     }
@@ -84,6 +138,14 @@ public class MenuImageHandler : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    private void UpdateGameManagerCosts(Upgrade price)
+    {
+        gameManager.gold -= price.goldCost;
+        gameManager.iron -= price.ironCost;
+        gameManager.debris -= price.debrisCost;
+        price.isOwned = true;
     }
     
 }
