@@ -10,9 +10,9 @@ public class HostileEnemySwimmingMovement : MonoBehaviour
     [SerializeField] private float obstacleAvoidanceRotation = 25f;
 
     [Header("Vision Settings")]
-    [SerializeField] private GameObject target;
+    public GameObject target;
     [SerializeField] private float detectionDistance = 6.0f;
-    [SerializeField] private float raycastForwardOffset = 0.1f;
+    [SerializeField] public float raycastForwardOffset = 0.1f;
     [SerializeField] private float leftRaycastOffset = 0.5f;
     [SerializeField] private float rightRaycastOffset = 0.5f;
     [SerializeField] private float upRaycastOffset = 0.5f;
@@ -30,8 +30,9 @@ public class HostileEnemySwimmingMovement : MonoBehaviour
     private Vector3 currentTarget;
 
     private bool playerDetected = false;
-    private bool isIdle = false;
-    private bool isMoving = false;
+    [System.NonSerialized] public bool isIdle = false;
+    [System.NonSerialized] public bool isMoving = false;
+    [System.NonSerialized] public bool isAttacking = false;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +55,7 @@ public class HostileEnemySwimmingMovement : MonoBehaviour
         {
             StartCoroutine("IdleMove");
         }
-        else if (playerDetected)
+        else if (playerDetected && !isAttacking)
         {
             currentTarget = target.transform.position;
             isIdle = false;
