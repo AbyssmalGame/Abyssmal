@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using static StatValues;
 
 
-public class MenuImageHandler : MonoBehaviour
+public class MainMenuHandler : MonoBehaviour
 {
     private GameManager gameManager;
     public TMPro.TextMeshProUGUI upgradeValueText;
@@ -13,6 +13,9 @@ public class MenuImageHandler : MonoBehaviour
     public List<Sprite> upgradeSprites;
     public Button equipButton;
     public TMPro.TextMeshProUGUI equipText;
+    public GameObject costContainer;
+    private CurrencyUIHandler currencyUIHandler;
+
 
     private int currentUpgradeIndex = 0;
 
@@ -24,7 +27,7 @@ public class MenuImageHandler : MonoBehaviour
     private void Awake()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        
+        currencyUIHandler = GameObject.Find("Currency").GetComponent<CurrencyUIHandler>();
     }
 
     public void SwitchUpgrade(int direction)
@@ -44,22 +47,24 @@ public class MenuImageHandler : MonoBehaviour
         switch (upgradeName)
         {
             case "Suit":
-                
                 upgradeImageUI.sprite = upgradeSprites[currentUpgradeIndex];
                 upgradeValueText.text = "Suit upgrade granting " + StatValues.PlayerHPLevels[currentUpgradeIndex].levelValue + " HP";
                 UpdateButtonUI(StatValues.PlayerHPLevels[currentUpgradeIndex], gameManager.playerHP);
                 break;
+
             case "Oxygen":
                 upgradeImageUI.sprite = upgradeSprites[currentUpgradeIndex];
                 upgradeValueText.text = "Oxygen upgrade granting " + StatValues.OxygenLevels[currentUpgradeIndex].levelValue + " O2";
                 UpdateButtonUI(StatValues.OxygenLevels[currentUpgradeIndex], gameManager.oxygen);
                 break;
+
             case "SwimSpeed":
                 upgradeImageUI.sprite = upgradeSprites[currentUpgradeIndex];
                 upgradeValueText.text = "Flipper upgrade granting " + StatValues.SwimSpeedLevels[currentUpgradeIndex].levelValue + "x speed";
                 UpdateButtonUI(StatValues.SwimSpeedLevels[currentUpgradeIndex], gameManager.swimSpeed);
                 break;
         }
+        currencyUIHandler.updateCurrencyUI();
     }
 
     private void UpdateButtonUI(Upgrade upgrade, float levelValComapre)
