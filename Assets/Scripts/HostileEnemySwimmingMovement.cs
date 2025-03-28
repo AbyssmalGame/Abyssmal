@@ -5,7 +5,7 @@ using UnityEngine;
 public class HostileEnemySwimmingMovement : MonoBehaviour
 {
     [Header("Speed Settings")]
-    [SerializeField] private float movementSpeed = 0.5f;
+    [SerializeField] private float movementSpeed = 4.0f;
     [SerializeField] private float rotationalDamp = 10f;
     [SerializeField] private float obstacleAvoidanceRotation = 25f;
 
@@ -19,7 +19,7 @@ public class HostileEnemySwimmingMovement : MonoBehaviour
     [SerializeField] private float downRaycastOffset = 0.5f;
 
     [Header("Idle Settings")]
-    [SerializeField] private float idleMovementSpeed = 0.1f;
+    [SerializeField] private float idleMovementSpeed = 1.0f;
     [SerializeField] private float hostileDetectionDistance = 20.0f;
     [SerializeField] private float minimumIdleTime = 0f;
     [SerializeField] private float maximumIdleTime = 10.0f;
@@ -73,13 +73,12 @@ public class HostileEnemySwimmingMovement : MonoBehaviour
             PathFinding();
             if (isIdle)
             {
-                rb.MovePosition(rb.position + idleMovementSpeed * Time.fixedDeltaTime * transform.forward);
+                rb.velocity = transform.forward * idleMovementSpeed;
             } else
             {
-                rb.MovePosition(rb.position + movementSpeed * Time.fixedDeltaTime * transform.forward);
+                rb.velocity = transform.forward * movementSpeed;
             }
             rb.angularVelocity = Vector3.zero;
-            rb.velocity = Vector3.zero;
         } else
         {
             isMoving = false;
