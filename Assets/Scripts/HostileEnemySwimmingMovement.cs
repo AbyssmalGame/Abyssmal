@@ -79,6 +79,7 @@ public class HostileEnemySwimmingMovement : MonoBehaviour
                 rb.velocity = transform.forward * movementSpeed;
             }
             rb.angularVelocity = Vector3.zero;
+            isMoving = true;
         } else
         {
             isMoving = false;
