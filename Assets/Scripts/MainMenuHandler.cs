@@ -14,6 +14,9 @@ public class MainMenuHandler : MonoBehaviour
     public Button equipButton;
     public TMPro.TextMeshProUGUI equipText;
     public GameObject costContainer;
+    public TMPro.TextMeshProUGUI goldCostText;
+    public TMPro.TextMeshProUGUI ironCostText;
+    public TMPro.TextMeshProUGUI debrisCostText;
     private CurrencyUIHandler currencyUIHandler;
 
 
@@ -50,18 +53,21 @@ public class MainMenuHandler : MonoBehaviour
                 upgradeImageUI.sprite = upgradeSprites[currentUpgradeIndex];
                 upgradeValueText.text = "Suit upgrade granting " + StatValues.PlayerHPLevels[currentUpgradeIndex].levelValue + " HP";
                 UpdateButtonUI(StatValues.PlayerHPLevels[currentUpgradeIndex], gameManager.playerHP);
+                UpdateCostUI(StatValues.PlayerHPLevels[currentUpgradeIndex]);
                 break;
 
             case "Oxygen":
                 upgradeImageUI.sprite = upgradeSprites[currentUpgradeIndex];
                 upgradeValueText.text = "Oxygen upgrade granting " + StatValues.OxygenLevels[currentUpgradeIndex].levelValue + " O2";
                 UpdateButtonUI(StatValues.OxygenLevels[currentUpgradeIndex], gameManager.oxygen);
+                UpdateCostUI(StatValues.OxygenLevels[currentUpgradeIndex]);
                 break;
 
             case "SwimSpeed":
                 upgradeImageUI.sprite = upgradeSprites[currentUpgradeIndex];
                 upgradeValueText.text = "Flipper upgrade granting " + StatValues.SwimSpeedLevels[currentUpgradeIndex].levelValue + "x speed";
                 UpdateButtonUI(StatValues.SwimSpeedLevels[currentUpgradeIndex], gameManager.swimSpeed);
+                UpdateCostUI(StatValues.SwimSpeedLevels[currentUpgradeIndex]);
                 break;
         }
         currencyUIHandler.updateCurrencyUI();
@@ -151,6 +157,13 @@ public class MainMenuHandler : MonoBehaviour
         gameManager.iron -= price.ironCost;
         gameManager.debris -= price.debrisCost;
         price.isOwned = true;
+    }
+
+    private void UpdateCostUI(Upgrade price)
+    {
+        goldCostText.text = price.goldCost.ToString();
+        ironCostText.text = price.ironCost.ToString();
+        debrisCostText.text = price.debrisCost.ToString();
     }
     
 }

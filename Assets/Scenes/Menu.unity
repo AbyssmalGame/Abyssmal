@@ -1737,6 +1737,9 @@ MonoBehaviour:
   equipButton: {fileID: 1179186151}
   equipText: {fileID: 1179186150}
   costContainer: {fileID: 0}
+  goldCostText: {fileID: 1713338350}
+  ironCostText: {fileID: 1998956014}
+  debrisCostText: {fileID: 1658078419}
 --- !u!1 &342285251
 GameObject:
   m_ObjectHideFlags: 0
@@ -9194,6 +9197,9 @@ MonoBehaviour:
   equipButton: {fileID: 1740796007}
   equipText: {fileID: 1740796006}
   costContainer: {fileID: 0}
+  goldCostText: {fileID: 1649788955}
+  ironCostText: {fileID: 1694505366}
+  debrisCostText: {fileID: 2083403488}
 --- !u!1 &1585183702
 GameObject:
   m_ObjectHideFlags: 0
@@ -13126,6 +13132,9 @@ MonoBehaviour:
   equipButton: {fileID: 1217133082}
   equipText: {fileID: 1217133081}
   costContainer: {fileID: 0}
+  goldCostText: {fileID: 1025246605}
+  ironCostText: {fileID: 1242320965}
+  debrisCostText: {fileID: 1639256366}
 --- !u!1001 &2004866643
 PrefabInstance:
   m_ObjectHideFlags: 0
