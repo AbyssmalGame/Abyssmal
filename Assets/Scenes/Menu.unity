@@ -15,9 +15,9 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.1806248, g: 0.21092634, b: 0.31132078, a: 1}
+  m_FogColor: {r: 0.039729346, g: 0.034042355, b: 0.14150941, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.04
+  m_FogDensity: 0.15
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -5433,6 +5433,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 125964, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 429506, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5516,12 +5520,12 @@ PrefabInstance:
     - target: {fileID: 114000010591715100, guid: dc06161b6d97feb419f45f03b62e14b9,
         type: 3}
       propertyPath: clearanceCheckMask.m_Bits
-      value: 4294967295
+      value: 567
       objectReference: {fileID: 0}
     - target: {fileID: 114000011734077242, guid: dc06161b6d97feb419f45f03b62e14b9,
         type: 3}
       propertyPath: clearanceCheckMask.m_Bits
-      value: 4294967295
+      value: 567
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14092,12 +14096,12 @@ SphereCollider:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 512
-  m_LayerOverridePriority: 1
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.12
+  m_Radius: 0.25
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2046457668
 GameObject:
