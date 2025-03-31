@@ -93,6 +93,7 @@ public class MeleeAttacker : MonoBehaviour
         }
 
         rb.AddForce(transform.forward * attackSpeed, ForceMode.Impulse);
+        rb.freezeRotation = true;
         yield return new WaitForSeconds(attackLagTime);
 
         while (rb.velocity != Vector3.zero)
@@ -101,6 +102,7 @@ public class MeleeAttacker : MonoBehaviour
             yield return null;
         }
 
+        rb.freezeRotation = false;
         hostileEnemySwimmingMovement.isAttacking = false;
     }
 }
