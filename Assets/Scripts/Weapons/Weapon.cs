@@ -1,22 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
+using Valve.VR.InteractionSystem;
 
 public abstract class Weapon : MonoBehaviour
 {
-    public int damage;  // When balancing change this in each weapon.
-    public float fireCooldownSeconds;
+    /*  Notes ---
+     *      Need 
+     * 
+     * 
+     * 
+     * 
+     */
+    public SteamVR_Action_Boolean fireAction;
     public GameObject projectile;
+    public float shootSpeed;
+    
+    public int damage;
+    public float fireCooldownSeconds;
     public int magazine;
     public int level;
-    public GameObject projectile;
+
+
+    private Interactable interactable;
     private bool onCooldown;
 
-    public void Awake()
+    public void Start()
     {
-        
+        interactable = GetComponent<Interactable>();
     }
-    public void fireCallback()
+
+    public void Update()
+    {
+        if (interactable.attachedToHand != null)
+        {
+            SteamVR_Input_Sources source = interactable.attachedToHand.handType;
+
+            if (fireAction[source].stateDown)
+            {
+                fire();
+            }
+        }
+
+    }
+    public void fire()
     {
         if (!onCooldown)
         {
@@ -38,8 +66,14 @@ public abstract class Weapon : MonoBehaviour
              * 
              */
             magazine -= 1;
+            yield return new WaitForSeconds(fireCooldownSeconds);
             onCooldown = false;
         }
         yield return null;
+    }
+
+    private void triggerMuzzleEffect()
+    {
+        
     }
 }
