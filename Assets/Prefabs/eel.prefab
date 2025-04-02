@@ -121,7 +121,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8672498738529573358}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 68eeea75af56a5f4ea3d213702d8524b, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -147,7 +147,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 5
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3313f30ca1ced41be071eaa2d4ff76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 0.5
+  movementSpeed: 4
   rotationalDamp: 10
   obstacleAvoidanceRotation: 25
   target: {fileID: 0}
@@ -207,12 +207,12 @@ MonoBehaviour:
   rightRaycastOffset: 0.5
   upRaycastOffset: 0.5
   downRaycastOffset: 0.5
-  idleMovementSpeed: 0.1
+  idleMovementSpeed: 1
   hostileDetectionDistance: 20
-  minimumIdleTime: 10
-  maximumIdleTime: 30
-  minimumNextDistance: 30
-  maximumNextDistance: 30
+  minimumIdleTime: 0
+  maximumIdleTime: 10
+  minimumNextDistance: 1
+  maximumNextDistance: 3
 --- !u!114 &816764736815992705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,6 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageAmount: 10
   attackRange: 5
-  decelerationSpeed: 0.1
-  attackChargeTime: 1
-  attackSpeed: 10
+  decelerationSpeed: 1
+  attackChargeTime: 2
+  attackSpeed: 12
+  attackLagTime: 0.2
