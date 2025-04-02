@@ -801,6 +801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f6b93783ead50e4b80949438a5b2c1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneLoader: {fileID: 1563153029}
 --- !u!64 &1351541768
 MeshCollider:
   m_ObjectHideFlags: 0
