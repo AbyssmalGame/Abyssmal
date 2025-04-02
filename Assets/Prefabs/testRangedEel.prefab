@@ -26,7 +26,7 @@ PrefabInstance:
     - target: {fileID: 944004166843456233, guid: df276918a81769f48926ef9d25ef0f35,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.208342
+      value: -3.2
       objectReference: {fileID: 0}
     - target: {fileID: 944004166843456233, guid: df276918a81769f48926ef9d25ef0f35,
         type: 3}
@@ -36,7 +36,7 @@ PrefabInstance:
     - target: {fileID: 944004166843456233, guid: df276918a81769f48926ef9d25ef0f35,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.5006254
+      value: -4.8
       objectReference: {fileID: 0}
     - target: {fileID: 944004166843456233, guid: df276918a81769f48926ef9d25ef0f35,
         type: 3}
@@ -75,6 +75,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1415768624006224273, guid: df276918a81769f48926ef9d25ef0f35,
         type: 3}
+      propertyPath: lengthInSec
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1415768624006224273, guid: df276918a81769f48926ef9d25ef0f35,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1415768624006224273, guid: df276918a81769f48926ef9d25ef0f35,
+        type: 3}
       propertyPath: ClampVelocityModule.enabled
       value: 0
       objectReference: {fileID: 0}
@@ -82,6 +92,11 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1415768624006224273, guid: df276918a81769f48926ef9d25ef0f35,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1415768624006224273, guid: df276918a81769f48926ef9d25ef0f35,
         type: 3}
