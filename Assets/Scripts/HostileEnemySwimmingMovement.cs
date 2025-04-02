@@ -42,12 +42,6 @@ public class HostileEnemySwimmingMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    // Update is called once per frame
     void LateUpdate()
     {
         playerDetected = Vector3.Distance(target.transform.position, transform.position) < hostileDetectionDistance ? true : false;
