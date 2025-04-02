@@ -43,6 +43,9 @@ public abstract class Weapon : MonoBehaviour
             {
                 fire();
             }
+        } else if (Input.GetKeyDown(KeyCode.Space))
+        {
+            fire();
         }
 
     }
@@ -69,8 +72,8 @@ public abstract class Weapon : MonoBehaviour
              * 
              */
             magazine -= 1;
-            Rigidbody projectileRB = Instantiate(projectile, barrelPivot.transform.position, barrelPivot.transform.rotation).GetComponent<Rigidbody>();
-            projectileRB.velocity = barrelPivot.transform.forward * shootSpeed;
+            Rigidbody projectileRB = Instantiate(projectile, barrelPivot.transform.position, barrelPivot.transform.localRotation).GetComponent<Rigidbody>();
+            projectileRB.velocity = barrelPivot.transform.right * shootSpeed;
             yield return new WaitForSeconds(fireCooldownSeconds);
             onCooldown = false;
         } else
