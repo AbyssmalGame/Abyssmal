@@ -4847,8 +4847,7 @@ MonoBehaviour:
   swimAction:
     actionPath: /actions/default/in/Swim
     needsReinit: 0
-  trackingReference: {fileID: 0}
-  gameManager: {fileID: 1779427755}
+  trackingReference: {fileID: 1528556446}
 --- !u!54 &1528556444
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4876,6 +4875,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!4 &1528556446 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1995520650}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1539184977
 GameObject:
   m_ObjectHideFlags: 0
@@ -6772,8 +6777,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 679477229}
-  - {fileID: 1995520650}
   - {fileID: 381159027}
   - {fileID: 861786551}
   - {fileID: 458759103}
   - {fileID: 1779427756}
+  - {fileID: 1995520650}

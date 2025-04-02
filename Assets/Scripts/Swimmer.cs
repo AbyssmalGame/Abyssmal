@@ -20,7 +20,7 @@ public class Swimmer : MonoBehaviour
 	Rigidbody _rigidbody;
 	float _cooldownTimer;
 
-	void Awake()
+	void Start()
 	{
 		_rigidbody = GetComponent<Rigidbody>();
 		_rigidbody.useGravity = false;
