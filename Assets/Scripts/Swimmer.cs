@@ -4,6 +4,7 @@ using UnityEngine;
 using Valve.VR;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(AudioSource))]
 public class Swimmer : MonoBehaviour
 {
 	[Header("Values")]
@@ -16,9 +17,11 @@ public class Swimmer : MonoBehaviour
 	[SerializeField] SteamVR_Behaviour_Pose rightHandPose;
 	[SerializeField] SteamVR_Action_Boolean swimAction;
 	[SerializeField] Transform trackingReference;
+	[SerializeField] AudioClip swimSound;
 
 	Rigidbody _rigidbody;
 	float _cooldownTimer;
+	AudioSource _audioSource;
 
 	void Awake()
 	{
@@ -26,6 +29,10 @@ public class Swimmer : MonoBehaviour
 		_rigidbody.useGravity = false;
 		_rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
 		UpdateSwimSpeed();	
+
+		_audioSource= GetComponent<AudioSource>();
+		_audioSource.loop = false;
+		_audioSource.playOnAwake = false;
 	}
 
 
@@ -50,6 +57,11 @@ public class Swimmer : MonoBehaviour
 				Vector3 worldVelocity = trackingReference.TransformDirection(localVelocity);
 				_rigidbody.AddForce(worldVelocity * swimForce, ForceMode.Acceleration);
 				_cooldownTimer = 0f;
+
+				if (!_audioSource.isPlaying) 
+				{
+					_audioSource.PlayOneShot(swimSound);
+				}
 			}
 		}
 		if (_rigidbody.velocity.sqrMagnitude > 0.01f)
