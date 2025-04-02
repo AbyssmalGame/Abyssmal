@@ -85,6 +85,38 @@
       "name": "/actions/mixedreality/in/ExternalCamera",
       "type": "pose",
       "requirement": "optional"
+    },
+    {
+      "name": "/actions/holdingGunLeft/in/Swim",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/holdingGunLeft/in/SpawnReload",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/holdingGunLeft/in/Fire",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/holdingGunLeft/in/SwapWeapon",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/holdingGunRight/in/Swim",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/holdingGunRight/in/SpawnReloadProjectile",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/holdingGunRight/in/Fire",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/holdingGunRight/in/SwapWeapon",
+      "type": "boolean"
     }
   ],
   "action_sets": [
@@ -102,6 +134,14 @@
     },
     {
       "name": "/actions/mixedreality",
+      "usage": "single"
+    },
+    {
+      "name": "/actions/holdingGunLeft",
+      "usage": "leftright"
+    },
+    {
+      "name": "/actions/holdingGunRight",
       "usage": "single"
     }
   ],
@@ -173,7 +213,15 @@
       "/actions/default/out/Haptic": "Haptic",
       "/actions/platformer/in/Jump": "Jump",
       "/actions/default/in/SnapTurnLeft": "Snap Turn (Left)",
-      "/actions/default/in/SnapTurnRight": "Snap Turn (Right)"
+      "/actions/default/in/SnapTurnRight": "Snap Turn (Right)",
+      "/actions/holdingGunLeft/in/Swim": "Swim",
+      "/actions/holdingGunLeft/in/SpawnReload": "SpawnReload",
+      "/actions/holdingGunLeft/in/Fire": "Fire",
+      "/actions/holdingGunLeft/in/SwapWeapon": "SwapWeapon",
+      "/actions/holdingGunRight/in/Swim": "Swim",
+      "/actions/holdingGunRight/in/SpawnReloadProjectile": "SpawnReloadProjectile",
+      "/actions/holdingGunRight/in/Fire": "Fire",
+      "/actions/holdingGunRight/in/SwapWeapon": "SwapWeapon"
     }
   ]
 }
