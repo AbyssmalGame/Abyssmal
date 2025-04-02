@@ -18,7 +18,7 @@ public class SwimmingRangedAttacker : SwimmingEnemy
     {
         base.OnStart();
         rangedAttackParticles = GetComponentInChildren<ParticleSystem>();
-        rangedAttackParticles.Pause();
+        rangedAttackParticles.Stop();
     }
 
     protected override void LockOn()
@@ -69,6 +69,8 @@ public class SwimmingRangedAttacker : SwimmingEnemy
             yield return null;
         }
         yield return new WaitForSeconds(attackLagTime);
+
+        rangedAttackParticles.Stop();
 
         hostileEnemySwimmingMovement.isAttacking = false;
     }
