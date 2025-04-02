@@ -15,6 +15,7 @@ public abstract class Weapon : MonoBehaviour
      */
     public SteamVR_Action_Boolean fireAction;
     public GameObject projectile;
+    public GameObject barrelPivot;
     public float shootSpeed;
     
     public int damage;
@@ -22,13 +23,14 @@ public abstract class Weapon : MonoBehaviour
     public int magazine;
     public int level;
 
-
+    private int currentMagazine;
     private Interactable interactable;
     private bool onCooldown;
 
     public void Start()
     {
         interactable = GetComponent<Interactable>();
+        currentMagazine = magazine;
     }
 
     public void Update()
@@ -56,6 +58,7 @@ public abstract class Weapon : MonoBehaviour
     {
         if (magazine != 0)
         {
+            
             onCooldown = true;
             /*
              * 1. Generate projectile
@@ -66,8 +69,13 @@ public abstract class Weapon : MonoBehaviour
              * 
              */
             magazine -= 1;
+            Rigidbody projectileRB = Instantiate(projectile, barrelPivot.transform.position, barrelPivot.transform.rotation).GetComponent<Rigidbody>();
+            projectileRB.velocity = barrelPivot.transform.forward * shootSpeed;
             yield return new WaitForSeconds(fireCooldownSeconds);
             onCooldown = false;
+        } else
+        {
+            // Play gun click sound effect.
         }
         yield return null;
     }
