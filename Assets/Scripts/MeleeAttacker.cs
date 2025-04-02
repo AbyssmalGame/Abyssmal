@@ -6,16 +6,19 @@ public class MeleeAttacker : MonoBehaviour
 {
     [SerializeField] private int damageAmount = 10;
     [SerializeField] private float attackRange = 5.0f;
-    [SerializeField] private float decelerationSpeed = 0.1f;
-    [SerializeField] private float attackChargeTime = 1.0f;
-    [SerializeField] private float attackSpeed = 10.0f;
+    [SerializeField] private float decelerationSpeed = 1.0f;
+    [SerializeField] private float attackChargeTime = 2.0f;
+    [SerializeField] private float attackSpeed = 12.0f;
 
-    [SerializeField] private float attacklagTime = 1.0f;
+    [SerializeField] private float attackLagTime = 0.2f;
+    [SerializeField] private float attackCollisionDelay = 0.5f;
 
     private HostileEnemySwimmingMovement hostileEnemySwimmingMovement;
     private GameObject target;
 
     private Rigidbody rb;
+
+    private float attackCollisionDelayTimer = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -32,12 +35,18 @@ public class MeleeAttacker : MonoBehaviour
         {
             LockOn();
         }
+        if (attackCollisionDelayTimer <= attackCollisionDelay)
+        {
+            attackCollisionDelayTimer += Time.deltaTime;
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject == target)
+        if (collision.gameObject == target && attackCollisionDelayTimer >= attackCollisionDelay)
         {
+            rb.angularVelocity = Vector3.zero;
             Debug.Log("hit target!");
+            attackCollisionDelayTimer = 0f;
         }
     }
 
@@ -64,13 +73,6 @@ public class MeleeAttacker : MonoBehaviour
             rb.velocity = Vector3.zero;
         }
     }
-    private void Decelerate()
-    {
-        while (rb.velocity != Vector3.zero)
-        {
-            DecelerateByFrame();
-        }
-    }
 
     IEnumerator StraightAttack()
     {
@@ -91,11 +93,16 @@ public class MeleeAttacker : MonoBehaviour
         }
 
         rb.AddForce(transform.forward * attackSpeed, ForceMode.Impulse);
-        rb.angularVelocity = Vector3.zero;
+        rb.freezeRotation = true;
+        yield return new WaitForSeconds(attackLagTime);
 
-        Decelerate();
+        while (rb.velocity != Vector3.zero)
+        {
+            DecelerateByFrame();
+            yield return null;
+        }
 
-        // Causing issues, possibly multiple coroutines which is crashing Unity
-        //hostileEnemySwimmingMovement.isAttacking = false;
+        rb.freezeRotation = false;
+        hostileEnemySwimmingMovement.isAttacking = false;
     }
 }
