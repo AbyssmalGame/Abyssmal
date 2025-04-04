@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    public Collider body;
+    public int damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +16,15 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        GameObject other = collision.gameObject;
+        if (other.tag == "enemy")
+        {
+            other.GetComponent<HPManager>().ApplyDamage(damage);
+        }
     }
 
     void ApplyDamage ()
