@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Valve.VR;
 using Valve.VR.InteractionSystem;
 
-public abstract class Weapon : MonoBehaviour
+public class Weapon : MonoBehaviour
 {
     /*  Notes ---
      *      Need 
@@ -13,7 +14,8 @@ public abstract class Weapon : MonoBehaviour
      * 
      * 
      */
-    public SteamVR_Action_Boolean fireAction;
+    public string name; 
+    public SteamVR_Action_Single fireAction;
     public GameObject projectile;
     public GameObject barrelPivot;
     public float shootSpeed;
@@ -39,7 +41,7 @@ public abstract class Weapon : MonoBehaviour
         {
             SteamVR_Input_Sources source = interactable.attachedToHand.handType;
 
-            if (fireAction[source].stateDown)
+            if (fireAction[source].axis == 1)
             {
                 fire();
             }
@@ -72,7 +74,9 @@ public abstract class Weapon : MonoBehaviour
              * 
              */
             magazine -= 1;
-            Rigidbody projectileRB = Instantiate(projectile, barrelPivot.transform.position, barrelPivot.transform.localRotation).GetComponent<Rigidbody>();
+            GameObject newProjectileGO = Instantiate(projectile, barrelPivot.transform.position, projectile.transform.rotation).gameObject;
+            Rigidbody projectileRB = newProjectileGO.GetComponent<Rigidbody>();
+            projectileRB.constraints = RigidbodyConstraints.None; // By default projectiles are inside the weapons and disabled. The Swimming with an enabled projectile causes it to fly outside the weapon.
             projectileRB.velocity = barrelPivot.transform.right * shootSpeed;
             yield return new WaitForSeconds(fireCooldownSeconds);
             onCooldown = false;

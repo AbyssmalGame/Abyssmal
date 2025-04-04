@@ -54,6 +54,10 @@
       "type": "boolean"
     },
     {
+      "name": "/actions/default/in/Fire",
+      "type": "vector1"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },
@@ -221,7 +225,8 @@
       "/actions/holdingGunRight/in/Swim": "Swim",
       "/actions/holdingGunRight/in/SpawnReloadProjectile": "SpawnReloadProjectile",
       "/actions/holdingGunRight/in/Fire": "Fire",
-      "/actions/holdingGunRight/in/SwapWeapon": "SwapWeapon"
+      "/actions/holdingGunRight/in/SwapWeapon": "SwapWeapon",
+      "/actions/default/in/Fire": "Fire"
     }
   ]
 }
