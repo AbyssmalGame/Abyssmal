@@ -26,9 +26,4 @@ public class Projectile : MonoBehaviour
             other.GetComponent<HPManager>().ApplyDamage(damage);
         }
     }
-
-    void ApplyDamage ()
-    {
-
-    }
 }

@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class HPManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int maxHP;
+    public void ApplyDamage(int damage)
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Die()
     {
-        
+        Destroy(gameObject);
     }
 }
