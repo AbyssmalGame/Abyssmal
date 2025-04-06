@@ -58,6 +58,10 @@
       "type": "vector1"
     },
     {
+      "name": "/actions/default/in/SwitchWeapon",
+      "type": "boolean"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },
@@ -226,7 +230,8 @@
       "/actions/holdingGunRight/in/SpawnReloadProjectile": "SpawnReloadProjectile",
       "/actions/holdingGunRight/in/Fire": "Fire",
       "/actions/holdingGunRight/in/SwapWeapon": "SwapWeapon",
-      "/actions/default/in/Fire": "Fire"
+      "/actions/default/in/Fire": "Fire",
+      "/actions/default/in/SwitchWeapon": "Switch Weapon"
     }
   ]
 }

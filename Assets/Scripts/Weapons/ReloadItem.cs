@@ -17,7 +17,6 @@ public class ReloadItem : MonoBehaviour
         GrabTypes grabType = hand.GetGrabStarting();
         bool isGrabEnding = hand.IsGrabEnding(gameObject);
 
-        //Debug.Log("=== RELOAD ITEM CHECK IS HERE ===");
         if (isGrabEnding)
         {
             hand.DetachObject(gameObject);

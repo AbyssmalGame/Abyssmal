@@ -8,15 +8,18 @@ using Valve.VR.InteractionSystem;
 public class ReloadItemSpawner : MonoBehaviour
 {
     private Interactable interactable;
-    public GameObject reloadItem;
+    private GameObject reloadItem;
     private Player player;
     private void Start()
     {
         interactable = GetComponent<Interactable>();
         player = GetComponent<Player>();
-        //reloadItem = player.rightHand.currentAttachedObject.GetComponent<ReloadItem>();
     }
 
+    public void updateReloadItem()
+    {
+        reloadItem = GameObject.Find("GameManager").GetComponent<WeaponManager>().currentWeapon.GetComponent<Weapon>().reloadItem.gameObject;
+    }
     private void HandHoverUpdate(Hand hand)
     {
         GrabTypes grabType = hand.GetGrabStarting();
