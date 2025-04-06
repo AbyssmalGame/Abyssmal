@@ -9,13 +9,13 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -25,5 +25,11 @@ public class Projectile : MonoBehaviour
         {
             other.GetComponent<HPManager>().ApplyDamage(damage);
         }
+    }
+
+    public IEnumerator SelfDestruct()
+    {
+        yield return new WaitForSeconds(5f);
+        Destroy(gameObject);
     }
 }

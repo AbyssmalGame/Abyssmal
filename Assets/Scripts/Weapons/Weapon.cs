@@ -7,19 +7,13 @@ using Valve.VR.InteractionSystem;
 
 public class Weapon : MonoBehaviour
 {
-    /*  Notes ---
-     *      Need 
-     * 
-     * 
-     * 
-     * 
-     */
     public string name; 
     public SteamVR_Action_Single fireAction;
     public GameObject projectile;
     public GameObject barrelPivot;
+    public MagazineBehavior magazineObject;
     public float shootSpeed;
-    
+    public bool ejectsMagazine = false;
     public int damage;
     public float fireCooldownSeconds;
     public int magazine;
@@ -27,7 +21,8 @@ public class Weapon : MonoBehaviour
 
     private int currentMagazine;
     private Interactable interactable;
-    private bool onCooldown;
+    private bool onCooldown = false;
+    private bool reloading = false;
 
     public void Start()
     {
@@ -45,9 +40,6 @@ public class Weapon : MonoBehaviour
             {
                 fire();
             }
-        } else if (Input.GetKeyDown(KeyCode.Space))
-        {
-            fire();
         }
 
     }
@@ -61,30 +53,40 @@ public class Weapon : MonoBehaviour
 
     public IEnumerator startFire()
     {
-        if (magazine != 0)
+        if (currentMagazine != 0)
         {
-            
             onCooldown = true;
-            /*
-             * 1. Generate projectile
-             *  1a. Add force to projectile to shoot forward
-             * 2. Account for damage colliders on the projectile
-             * 3. Set magazine to x - 1;
-             * 
-             * 
-             */
-            magazine -= 1;
+            currentMagazine -= 1;
+
             GameObject newProjectileGO = Instantiate(projectile, barrelPivot.transform.position, projectile.transform.rotation).gameObject;
             Rigidbody projectileRB = newProjectileGO.GetComponent<Rigidbody>();
-            projectileRB.constraints = RigidbodyConstraints.None; // By default projectiles are inside the weapons and disabled. The Swimming with an enabled projectile causes it to fly outside the weapon.
+            projectileRB.constraints = RigidbodyConstraints.None; // Original projectiles are inside the weapons and locked in place. Swimming with an unlocked projectile causes it to fly outside the weapon.
             projectileRB.velocity = barrelPivot.transform.right * shootSpeed;
+            StartCoroutine(newProjectileGO.GetComponent<Projectile>().SelfDestruct()); 
+
+            if (magazineObject != null && ejectsMagazine && currentMagazine == 0)
+            {
+                magazineObject.Eject();
+            }
+
             yield return new WaitForSeconds(fireCooldownSeconds);
             onCooldown = false;
         } else
         {
-            // Play gun click sound effect.
+            /* Play gun click sound effect. */
         }
         yield return null;
+    }
+
+    public int getCurrentMagazine()
+    {
+        return currentMagazine;
+    }
+
+    public void reload()
+    {
+        magazineObject.Reload();
+        currentMagazine = magazine;
     }
 
     private void triggerMuzzleEffect()

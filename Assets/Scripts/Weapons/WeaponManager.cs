@@ -24,17 +24,30 @@ public class WeaponManager : MonoBehaviour
             w2 = fetchWeapon(gameManager.GetWeapon2());
         }
         Debug.Log("RIGHT HAND: " + player.rightHand);
-        if (player.rightHand != null) 
+        if (player.rightHand.isPoseValid) 
         {
-            StartCoroutine(lateAttach(player.rightHand, w1.gameObject));
+            attachWeapon(player.rightHand, w1.gameObject);
+        } else
+        {
+            StartCoroutine(waitForValidPose());       
         }
     }
 
-    private IEnumerator lateAttach(Hand hand, GameObject obj)
+    private IEnumerator waitForValidPose()
     {
-        yield return new WaitForSeconds(0.5f);
+        while (!player.rightHand.isPoseValid)
+        {
+            yield return new WaitForSeconds(1);
+        }
+        attachWeapon(player.rightHand, w1.gameObject);
+    }
+
+    private void attachWeapon(Hand hand, GameObject obj)
+    {
         hand.AttachObject(obj, GrabTypes.None);
     }
+
+
 
     void switchWeapon()
     {
