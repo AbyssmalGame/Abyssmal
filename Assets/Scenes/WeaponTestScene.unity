@@ -2319,6 +2319,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 698576472}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0b16c0337ea97c641a376027fee328ad,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2027553996}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0b16c0337ea97c641a376027fee328ad,
         type: 3}
@@ -2393,16 +2397,16 @@ MonoBehaviour:
   fireAction:
     actionPath: 
     needsReinit: 0
-  projectile: {fileID: 0}
+  projectile: {fileID: 1886293013}
   barrelPivot: {fileID: 0}
   magazineObject: {fileID: 0}
   reloadItem: {fileID: 1859096055}
-  shootSpeed: 0
+  shootSpeed: 10
   ejectsMagazine: 0
-  damage: 0
-  fireCooldownSeconds: 0
-  magazine: 0
-  level: 0
+  damage: 10
+  fireCooldownSeconds: 1
+  magazine: 1
+  level: 1
   currentMagazine: 0
   attachedToHand: 0
 --- !u!114 &861786556
@@ -2419,7 +2423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activateActionSetOnAttach:
     actionSetPath: 
-  hideHandOnAttach: 1
+  hideHandOnAttach: 0
   hideSkeletonOnAttach: 0
   hideControllerOnAttach: 0
   handAnimationOnPickup: 0
@@ -4782,7 +4786,7 @@ MonoBehaviour:
   gold: 100
   iron: 100
   debris: 100
-  weapon1: apsRifle
+  weapon1: harpoonGun
   weapon2: spearGun
 --- !u!4 &1779427756
 Transform:
@@ -6137,6 +6141,37 @@ Transform:
   m_Children:
   - {fileID: 785468435}
   m_Father: {fileID: 1230424851}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2027553995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2027553996}
+  m_Layer: 0
+  m_Name: BarrelPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2027553996
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027553995}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.12, y: 2.387, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 861786552}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2050013521
 GameObject:
