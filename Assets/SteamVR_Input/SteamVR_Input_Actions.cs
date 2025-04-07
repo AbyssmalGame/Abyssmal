@@ -41,6 +41,10 @@ namespace Valve.VR
         
         private static SteamVR_Action_Boolean p_default_Swim;
         
+        private static SteamVR_Action_Single p_default_Fire;
+        
+        private static SteamVR_Action_Boolean p_default_SwitchWeapon;
+        
         private static SteamVR_Action_Vibration p_default_Haptic;
         
         private static SteamVR_Action_Vector2 p_platformer_Move;
@@ -56,6 +60,22 @@ namespace Valve.VR
         private static SteamVR_Action_Boolean p_buggy_Reset;
         
         private static SteamVR_Action_Pose p_mixedreality_ExternalCamera;
+        
+        private static SteamVR_Action_Boolean p_holdingGunLeft_Swim;
+        
+        private static SteamVR_Action_Boolean p_holdingGunLeft_SpawnReload;
+        
+        private static SteamVR_Action_Boolean p_holdingGunLeft_Fire;
+        
+        private static SteamVR_Action_Boolean p_holdingGunLeft_SwapWeapon;
+        
+        private static SteamVR_Action_Boolean p_holdingGunRight_Swim;
+        
+        private static SteamVR_Action_Boolean p_holdingGunRight_SpawnReloadProjectile;
+        
+        private static SteamVR_Action_Boolean p_holdingGunRight_Fire;
+        
+        private static SteamVR_Action_Boolean p_holdingGunRight_SwapWeapon;
         
         public static SteamVR_Action_Boolean default_InteractUI
         {
@@ -153,6 +173,22 @@ namespace Valve.VR
             }
         }
         
+        public static SteamVR_Action_Single default_Fire
+        {
+            get
+            {
+                return SteamVR_Actions.p_default_Fire.GetCopy<SteamVR_Action_Single>();
+            }
+        }
+        
+        public static SteamVR_Action_Boolean default_SwitchWeapon
+        {
+            get
+            {
+                return SteamVR_Actions.p_default_SwitchWeapon.GetCopy<SteamVR_Action_Boolean>();
+            }
+        }
+        
         public static SteamVR_Action_Vibration default_Haptic
         {
             get
@@ -217,6 +253,70 @@ namespace Valve.VR
             }
         }
         
+        public static SteamVR_Action_Boolean holdingGunLeft_Swim
+        {
+            get
+            {
+                return SteamVR_Actions.p_holdingGunLeft_Swim.GetCopy<SteamVR_Action_Boolean>();
+            }
+        }
+        
+        public static SteamVR_Action_Boolean holdingGunLeft_SpawnReload
+        {
+            get
+            {
+                return SteamVR_Actions.p_holdingGunLeft_SpawnReload.GetCopy<SteamVR_Action_Boolean>();
+            }
+        }
+        
+        public static SteamVR_Action_Boolean holdingGunLeft_Fire
+        {
+            get
+            {
+                return SteamVR_Actions.p_holdingGunLeft_Fire.GetCopy<SteamVR_Action_Boolean>();
+            }
+        }
+        
+        public static SteamVR_Action_Boolean holdingGunLeft_SwapWeapon
+        {
+            get
+            {
+                return SteamVR_Actions.p_holdingGunLeft_SwapWeapon.GetCopy<SteamVR_Action_Boolean>();
+            }
+        }
+        
+        public static SteamVR_Action_Boolean holdingGunRight_Swim
+        {
+            get
+            {
+                return SteamVR_Actions.p_holdingGunRight_Swim.GetCopy<SteamVR_Action_Boolean>();
+            }
+        }
+        
+        public static SteamVR_Action_Boolean holdingGunRight_SpawnReloadProjectile
+        {
+            get
+            {
+                return SteamVR_Actions.p_holdingGunRight_SpawnReloadProjectile.GetCopy<SteamVR_Action_Boolean>();
+            }
+        }
+        
+        public static SteamVR_Action_Boolean holdingGunRight_Fire
+        {
+            get
+            {
+                return SteamVR_Actions.p_holdingGunRight_Fire.GetCopy<SteamVR_Action_Boolean>();
+            }
+        }
+        
+        public static SteamVR_Action_Boolean holdingGunRight_SwapWeapon
+        {
+            get
+            {
+                return SteamVR_Actions.p_holdingGunRight_SwapWeapon.GetCopy<SteamVR_Action_Boolean>();
+            }
+        }
+        
         private static void InitializeActionArrays()
         {
             Valve.VR.SteamVR_Input.actions = new Valve.VR.SteamVR_Action[] {
@@ -232,6 +332,8 @@ namespace Valve.VR
                     SteamVR_Actions.default_SnapTurnLeft,
                     SteamVR_Actions.default_SnapTurnRight,
                     SteamVR_Actions.default_Swim,
+                    SteamVR_Actions.default_Fire,
+                    SteamVR_Actions.default_SwitchWeapon,
                     SteamVR_Actions.default_Haptic,
                     SteamVR_Actions.platformer_Move,
                     SteamVR_Actions.platformer_Jump,
@@ -239,7 +341,15 @@ namespace Valve.VR
                     SteamVR_Actions.buggy_Throttle,
                     SteamVR_Actions.buggy_Brake,
                     SteamVR_Actions.buggy_Reset,
-                    SteamVR_Actions.mixedreality_ExternalCamera};
+                    SteamVR_Actions.mixedreality_ExternalCamera,
+                    SteamVR_Actions.holdingGunLeft_Swim,
+                    SteamVR_Actions.holdingGunLeft_SpawnReload,
+                    SteamVR_Actions.holdingGunLeft_Fire,
+                    SteamVR_Actions.holdingGunLeft_SwapWeapon,
+                    SteamVR_Actions.holdingGunRight_Swim,
+                    SteamVR_Actions.holdingGunRight_SpawnReloadProjectile,
+                    SteamVR_Actions.holdingGunRight_Fire,
+                    SteamVR_Actions.holdingGunRight_SwapWeapon};
             Valve.VR.SteamVR_Input.actionsIn = new Valve.VR.ISteamVR_Action_In[] {
                     SteamVR_Actions.default_InteractUI,
                     SteamVR_Actions.default_Teleport,
@@ -253,13 +363,23 @@ namespace Valve.VR
                     SteamVR_Actions.default_SnapTurnLeft,
                     SteamVR_Actions.default_SnapTurnRight,
                     SteamVR_Actions.default_Swim,
+                    SteamVR_Actions.default_Fire,
+                    SteamVR_Actions.default_SwitchWeapon,
                     SteamVR_Actions.platformer_Move,
                     SteamVR_Actions.platformer_Jump,
                     SteamVR_Actions.buggy_Steering,
                     SteamVR_Actions.buggy_Throttle,
                     SteamVR_Actions.buggy_Brake,
                     SteamVR_Actions.buggy_Reset,
-                    SteamVR_Actions.mixedreality_ExternalCamera};
+                    SteamVR_Actions.mixedreality_ExternalCamera,
+                    SteamVR_Actions.holdingGunLeft_Swim,
+                    SteamVR_Actions.holdingGunLeft_SpawnReload,
+                    SteamVR_Actions.holdingGunLeft_Fire,
+                    SteamVR_Actions.holdingGunLeft_SwapWeapon,
+                    SteamVR_Actions.holdingGunRight_Swim,
+                    SteamVR_Actions.holdingGunRight_SpawnReloadProjectile,
+                    SteamVR_Actions.holdingGunRight_Fire,
+                    SteamVR_Actions.holdingGunRight_SwapWeapon};
             Valve.VR.SteamVR_Input.actionsOut = new Valve.VR.ISteamVR_Action_Out[] {
                     SteamVR_Actions.default_Haptic};
             Valve.VR.SteamVR_Input.actionsVibration = new Valve.VR.SteamVR_Action_Vibration[] {
@@ -276,11 +396,21 @@ namespace Valve.VR
                     SteamVR_Actions.default_SnapTurnLeft,
                     SteamVR_Actions.default_SnapTurnRight,
                     SteamVR_Actions.default_Swim,
+                    SteamVR_Actions.default_SwitchWeapon,
                     SteamVR_Actions.platformer_Jump,
                     SteamVR_Actions.buggy_Brake,
-                    SteamVR_Actions.buggy_Reset};
+                    SteamVR_Actions.buggy_Reset,
+                    SteamVR_Actions.holdingGunLeft_Swim,
+                    SteamVR_Actions.holdingGunLeft_SpawnReload,
+                    SteamVR_Actions.holdingGunLeft_Fire,
+                    SteamVR_Actions.holdingGunLeft_SwapWeapon,
+                    SteamVR_Actions.holdingGunRight_Swim,
+                    SteamVR_Actions.holdingGunRight_SpawnReloadProjectile,
+                    SteamVR_Actions.holdingGunRight_Fire,
+                    SteamVR_Actions.holdingGunRight_SwapWeapon};
             Valve.VR.SteamVR_Input.actionsSingle = new Valve.VR.SteamVR_Action_Single[] {
                     SteamVR_Actions.default_Squeeze,
+                    SteamVR_Actions.default_Fire,
                     SteamVR_Actions.buggy_Throttle};
             Valve.VR.SteamVR_Input.actionsVector2 = new Valve.VR.SteamVR_Action_Vector2[] {
                     SteamVR_Actions.platformer_Move,
@@ -299,12 +429,22 @@ namespace Valve.VR
                     SteamVR_Actions.default_SnapTurnLeft,
                     SteamVR_Actions.default_SnapTurnRight,
                     SteamVR_Actions.default_Swim,
+                    SteamVR_Actions.default_Fire,
+                    SteamVR_Actions.default_SwitchWeapon,
                     SteamVR_Actions.platformer_Move,
                     SteamVR_Actions.platformer_Jump,
                     SteamVR_Actions.buggy_Steering,
                     SteamVR_Actions.buggy_Throttle,
                     SteamVR_Actions.buggy_Brake,
-                    SteamVR_Actions.buggy_Reset};
+                    SteamVR_Actions.buggy_Reset,
+                    SteamVR_Actions.holdingGunLeft_Swim,
+                    SteamVR_Actions.holdingGunLeft_SpawnReload,
+                    SteamVR_Actions.holdingGunLeft_Fire,
+                    SteamVR_Actions.holdingGunLeft_SwapWeapon,
+                    SteamVR_Actions.holdingGunRight_Swim,
+                    SteamVR_Actions.holdingGunRight_SpawnReloadProjectile,
+                    SteamVR_Actions.holdingGunRight_Fire,
+                    SteamVR_Actions.holdingGunRight_SwapWeapon};
         }
         
         private static void PreInitActions()
@@ -321,6 +461,8 @@ namespace Valve.VR
             SteamVR_Actions.p_default_SnapTurnLeft = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/SnapTurnLeft")));
             SteamVR_Actions.p_default_SnapTurnRight = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/SnapTurnRight")));
             SteamVR_Actions.p_default_Swim = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/Swim")));
+            SteamVR_Actions.p_default_Fire = ((SteamVR_Action_Single)(SteamVR_Action.Create<SteamVR_Action_Single>("/actions/default/in/Fire")));
+            SteamVR_Actions.p_default_SwitchWeapon = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/SwitchWeapon")));
             SteamVR_Actions.p_default_Haptic = ((SteamVR_Action_Vibration)(SteamVR_Action.Create<SteamVR_Action_Vibration>("/actions/default/out/Haptic")));
             SteamVR_Actions.p_platformer_Move = ((SteamVR_Action_Vector2)(SteamVR_Action.Create<SteamVR_Action_Vector2>("/actions/platformer/in/Move")));
             SteamVR_Actions.p_platformer_Jump = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/platformer/in/Jump")));
@@ -329,6 +471,14 @@ namespace Valve.VR
             SteamVR_Actions.p_buggy_Brake = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/buggy/in/Brake")));
             SteamVR_Actions.p_buggy_Reset = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/buggy/in/Reset")));
             SteamVR_Actions.p_mixedreality_ExternalCamera = ((SteamVR_Action_Pose)(SteamVR_Action.Create<SteamVR_Action_Pose>("/actions/mixedreality/in/ExternalCamera")));
+            SteamVR_Actions.p_holdingGunLeft_Swim = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/holdingGunLeft/in/Swim")));
+            SteamVR_Actions.p_holdingGunLeft_SpawnReload = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/holdingGunLeft/in/SpawnReload")));
+            SteamVR_Actions.p_holdingGunLeft_Fire = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/holdingGunLeft/in/Fire")));
+            SteamVR_Actions.p_holdingGunLeft_SwapWeapon = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/holdingGunLeft/in/SwapWeapon")));
+            SteamVR_Actions.p_holdingGunRight_Swim = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/holdingGunRight/in/Swim")));
+            SteamVR_Actions.p_holdingGunRight_SpawnReloadProjectile = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/holdingGunRight/in/SpawnReloadProjectile")));
+            SteamVR_Actions.p_holdingGunRight_Fire = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/holdingGunRight/in/Fire")));
+            SteamVR_Actions.p_holdingGunRight_SwapWeapon = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/holdingGunRight/in/SwapWeapon")));
         }
     }
 }

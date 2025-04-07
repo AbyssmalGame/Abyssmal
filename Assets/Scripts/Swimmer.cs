@@ -23,7 +23,7 @@ public class Swimmer : MonoBehaviour
 	float _cooldownTimer;
 	AudioSource _audioSource;
 
-	void Awake()
+	void Start()
 	{
 		_rigidbody = GetComponent<Rigidbody>();
 		_rigidbody.useGravity = false;
