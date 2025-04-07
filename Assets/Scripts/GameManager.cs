@@ -17,8 +17,10 @@ public class GameManager : MonoBehaviour
     public int gold = 0;
     public int iron = 0;
     public int debris = 0;
-    public string weapon1 = "harpoon";
-    public string weapon2 = "none";
+	
+
+    public string weapon1;
+    public string weapon2;
 
 	private void Awake()
 	{
@@ -51,6 +53,15 @@ public class GameManager : MonoBehaviour
 	public void SetWeapon2(string weapon)
 	{
 		weapon2 = weapon;
+	}
+
+	public string GetWeapon1()
+	{
+		return weapon1;
+	}
+	public string GetWeapon2()
+	{
+		return weapon2;
 	}
 
 	public static float GetSpeed()
