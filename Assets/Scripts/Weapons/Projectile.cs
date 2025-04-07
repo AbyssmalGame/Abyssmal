@@ -4,18 +4,15 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public Collider body;
-    public int damage;
-    // Start is called before the first frame update
-    void Start()
+    public GameObject src = null;
+    public int damage = 0;
+
+    void Awake()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        if (src == null)
+        {
+            StartCoroutine(TimedDestroy.DestroyAfterSeconds(2f, gameObject));
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -23,13 +20,10 @@ public class Projectile : MonoBehaviour
         GameObject other = collision.gameObject;
         if (other.tag == "enemy")
         {
-            other.GetComponent<HPManager>().ApplyDamage(damage);
+            other.GetComponent<HPManager>()?.ApplyDamage(damage);
         }
+
+
     }
 
-    public IEnumerator SelfDestruct()
-    {
-        yield return new WaitForSeconds(5f);
-        Destroy(gameObject);
-    }
 }

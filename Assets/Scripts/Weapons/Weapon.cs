@@ -14,13 +14,13 @@ public class Weapon : MonoBehaviour
     public ReloadItem reloadItem;
     public float shootSpeed;
     public bool ejectsMagazine = false;
-    public int damage;
+    public int damagePerShot;
     public float fireCooldownSeconds;
     public int magazine;
     public int level;
 
-    [SerializeField] private int currentMagazine;
-    [SerializeField] private bool attachedToHand;
+    private int currentMagazine;
+    private bool attachedToHand;
     private Interactable interactable;
     private bool onCooldown = false;
     private bool reloading = false;
@@ -57,16 +57,15 @@ public class Weapon : MonoBehaviour
     {
         if (currentMagazine != 0)
         {
-            Debug.Log("FIRING");
             onCooldown = true;
             currentMagazine -= 1;
 
             GameObject newProjectileGO = Instantiate(projectile, barrelPivot.transform.position, projectile.transform.rotation, gameObject.transform).gameObject;
+            newProjectileGO.GetComponent<Projectile>().damage = damagePerShot;
             newProjectileGO.transform.parent = null;
             Rigidbody projectileRB = newProjectileGO.GetComponent<Rigidbody>();
             projectileRB.constraints = RigidbodyConstraints.None; // Original projectiles are inside the weapons and locked in place. Swimming with an unlocked projectile causes it to fly outside the weapon.
             projectileRB.velocity = barrelPivot.transform.forward * shootSpeed;
-            StartCoroutine(newProjectileGO.GetComponent<Projectile>().SelfDestruct()); 
 
             if (magazineObject != null && ejectsMagazine && currentMagazine == 0)
             {
@@ -94,7 +93,6 @@ public class Weapon : MonoBehaviour
     {
         if (magazineObject != null)
         {
-
             magazineObject.Reload();
         } else
         {
