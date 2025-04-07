@@ -61,7 +61,8 @@ public class Weapon : MonoBehaviour
             onCooldown = true;
             currentMagazine -= 1;
 
-            GameObject newProjectileGO = Instantiate(projectile, barrelPivot.transform.position, projectile.transform.rotation).gameObject;
+            GameObject newProjectileGO = Instantiate(projectile, barrelPivot.transform.position, projectile.transform.rotation, gameObject.transform).gameObject;
+            newProjectileGO.transform.parent = null;
             Rigidbody projectileRB = newProjectileGO.GetComponent<Rigidbody>();
             projectileRB.constraints = RigidbodyConstraints.None; // Original projectiles are inside the weapons and locked in place. Swimming with an unlocked projectile causes it to fly outside the weapon.
             projectileRB.velocity = barrelPivot.transform.forward * shootSpeed;

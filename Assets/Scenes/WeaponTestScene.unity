@@ -911,7 +911,7 @@ Transform:
   m_GameObject: {fileID: 303260699}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.06, z: -0.961}
+  m_LocalPosition: {x: 0, y: 0.06, z: 0.913}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1990,6 +1990,100 @@ Transform:
   - {fileID: 700743517}
   m_Father: {fileID: 651202656}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &762078350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 762078351}
+  - component: {fileID: 762078354}
+  - component: {fileID: 762078353}
+  - component: {fileID: 762078352}
+  m_Layer: 7
+  m_Name: ReloadSocket
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &762078351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762078350}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.479, y: 2.475036, z: -0.03}
+  m_LocalScale: {x: 5.0102496, y: 5.0102496, z: 5.0102496}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 861786552}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &762078352
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762078350}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &762078353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762078350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c0c28620e78ed840a2664dfe70b345d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &762078354
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762078350}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.4069566, y: 0.165614, z: 0.10059674}
+  m_Center: {x: 0.4376673, y: 0.04992805, z: -0.008419438}
 --- !u!1 &772385717
 GameObject:
   m_ObjectHideFlags: 0
@@ -2309,6 +2403,10 @@ PrefabInstance:
       addedObject: {fileID: 1330271801}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0b16c0337ea97c641a376027fee328ad,
         type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 762078351}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0b16c0337ea97c641a376027fee328ad,
+        type: 3}
       insertIndex: -1
       addedObject: {fileID: 36499894}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0b16c0337ea97c641a376027fee328ad,
@@ -2422,7 +2520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateActionSetOnAttach:
-    actionSetPath: 
+    actionSetPath: /actions/default
   hideHandOnAttach: 0
   hideSkeletonOnAttach: 0
   hideControllerOnAttach: 0
@@ -4472,7 +4570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateActionSetOnAttach:
-    actionSetPath: 
+    actionSetPath: /actions/default
   hideHandOnAttach: 0
   hideSkeletonOnAttach: 0
   hideControllerOnAttach: 0
@@ -4786,7 +4884,7 @@ MonoBehaviour:
   gold: 100
   iron: 100
   debris: 100
-  weapon1: harpoonGun
+  weapon1: apsRifle
   weapon2: spearGun
 --- !u!4 &1779427756
 Transform:
@@ -6340,7 +6438,7 @@ PrefabInstance:
     - target: {fileID: 742688872485301534, guid: a7d52331651850b4e8a6fdfeddba4855,
         type: 3}
       propertyPath: activateActionSetOnAttach.actionSetPath
-      value: 
+      value: /actions/default
       objectReference: {fileID: 0}
     - target: {fileID: 1712715254333037726, guid: a7d52331651850b4e8a6fdfeddba4855,
         type: 3}
