@@ -5,25 +5,32 @@ using UnityEngine;
 public class EnemyParticleAttack : MonoBehaviour
 {
 
-    private ParticleSystem ps;
+    [SerializeField] private float attackCollisionDelay = 0.5f;
+
+    private float attackCollisionDelayTimer = 0.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        ps = GetComponent<ParticleSystem>();
+
     }
 
-    private void OnParticleCollision(GameObject other)
+    private void OnParticleCollision(GameObject other)    
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && attackCollisionDelayTimer >= attackCollisionDelay)
         {
-            Debug.Log("Project hit player!");
+            Debug.Log("Particle hit player!");
+            attackCollisionDelayTimer = 0f;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (attackCollisionDelayTimer <= attackCollisionDelay)
+        {
+            attackCollisionDelayTimer += Time.deltaTime;
+        }
     }
+
 }
