@@ -7,15 +7,25 @@ public class HPManager : MonoBehaviour
 {
     public Action OnDiecallback = null;
     public int maxHP;
+    private int currentHP;
+
+    private void Start()
+    {
+        currentHP = maxHP;
+    }
+
     public void ApplyDamage(int damage)
     {
-        maxHP -= damage;
-        
+        currentHP -= damage;
+        if (currentHP <= 0)
+        {
+            Die();
+        }
     }
 
     public void Die()
     {
-        OnDiecallback.Invoke();
-        Destroy(gameObject);
+        OnDiecallback?.Invoke();
+        if (gameObject.tag != "Player")   Destroy(gameObject);
     }
 }

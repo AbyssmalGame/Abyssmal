@@ -12,12 +12,12 @@ public class Weapon : MonoBehaviour
     public GameObject barrelPivot;
     public MagazineBehavior magazineObject;
     public ReloadItem reloadItem;
+    public ParticleSystem[] gunShotEffects;
     public float shootSpeed;
     public bool ejectsMagazine = false;
     public int damagePerShot;
     public float fireCooldownSeconds;
     public int magazine;
-    public int level;
 
     private int currentMagazine;
     private bool attachedToHand;
@@ -59,13 +59,23 @@ public class Weapon : MonoBehaviour
         {
             onCooldown = true;
             currentMagazine -= 1;
-
+            
+            //Instantiate new projectile in scene. Destruction coroutine is tied to the projectile itself
             GameObject newProjectileGO = Instantiate(projectile, barrelPivot.transform.position, projectile.transform.rotation, gameObject.transform).gameObject;
-            newProjectileGO.GetComponent<Projectile>().damage = damagePerShot;
+            if (newProjectileGO.TryGetComponent(out Projectile newProjectile)) {
+                newProjectile.damage = damagePerShot;
+                newProjectile.selfDestruct();
+            }
             newProjectileGO.transform.parent = null;
             Rigidbody projectileRB = newProjectileGO.GetComponent<Rigidbody>();
             projectileRB.constraints = RigidbodyConstraints.None; // Original projectiles are inside the weapons and locked in place. Swimming with an unlocked projectile causes it to fly outside the weapon.
-            projectileRB.velocity = barrelPivot.transform.forward * shootSpeed;
+            foreach (ParticleSystem effect in gunShotEffects)
+            {
+                effect.transform.parent = null;
+                effect.Play();
+                effect.transform.parent = transform;
+            }
+            projectileRB.velocity = barrelPivot.transform.forward * shootSpeed; 
 
             if (magazineObject != null && ejectsMagazine && currentMagazine == 0)
             {
