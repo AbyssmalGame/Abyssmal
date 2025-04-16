@@ -2,44 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeAttacker : MonoBehaviour
+public class SwimmingMeleeAttacker : SwimmingEnemy
 {
     [SerializeField] private int damageAmount = 10;
     [SerializeField] private float attackRange = 5.0f;
-    [SerializeField] private float decelerationSpeed = 1.0f;
     [SerializeField] private float attackChargeTime = 2.0f;
     [SerializeField] private float attackSpeed = 12.0f;
 
-    [SerializeField] private float attackLagTime = 0.2f;
     [SerializeField] private float attackCollisionDelay = 0.5f;
-
-    private HostileEnemySwimmingMovement hostileEnemySwimmingMovement;
-    private GameObject target;
-
-    private Rigidbody rb;
+    [SerializeField] private float attackLagTime = 0.2f;
 
     private float attackCollisionDelayTimer = 0.0f;
 
-    // Start is called before the first frame update
-    void Start()
+    protected override void OnUpdate()
     {
-        hostileEnemySwimmingMovement = GetComponent<HostileEnemySwimmingMovement>();
-        rb = GetComponent<Rigidbody>();
-        target = hostileEnemySwimmingMovement.target;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (!hostileEnemySwimmingMovement.isAttacking)
-        {
-            LockOn();
-        }
+        base.OnUpdate();
         if (attackCollisionDelayTimer <= attackCollisionDelay)
         {
             attackCollisionDelayTimer += Time.deltaTime;
         }
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject == target && attackCollisionDelayTimer >= attackCollisionDelay)
@@ -50,7 +33,7 @@ public class MeleeAttacker : MonoBehaviour
         }
     }
 
-    private void LockOn()
+    protected override void LockOn()
     {
         RaycastHit hit;
 
@@ -59,19 +42,13 @@ public class MeleeAttacker : MonoBehaviour
 
         if (Physics.Raycast(hitRay, transform.forward, out hit, attackRange) && hit.collider.gameObject == target)
         {
-            StartCoroutine("StraightAttack");
+            Attack();
         }
     }
 
-    private void DecelerateByFrame()
+    protected override void Attack()
     {
-        if (rb.velocity.magnitude > 0.1f)
-        {
-            rb.AddForce(-rb.velocity.normalized * decelerationSpeed, ForceMode.Force);
-        } else
-        {
-            rb.velocity = Vector3.zero;
-        }
+        StartCoroutine("StraightAttack");
     }
 
     IEnumerator StraightAttack()

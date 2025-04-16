@@ -230,10 +230,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9407dc98b8ed8f4493f43e14125b12a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  decelerationSpeed: 1
   damageAmount: 10
   attackRange: 5
-  decelerationSpeed: 1
   attackChargeTime: 2
   attackSpeed: 12
+  attackCollisionDelay: 0.5
   attackLagTime: 0.2
   attackCollisionDelay: 0.5
