@@ -6,22 +6,21 @@ using UnityEngine.AI;
 public class HostileGroundEnemyMovement : MonoBehaviour
 {
 
-    [SerializeField] private GameObject targetGameObject;
+    [SerializeField] public GameObject target;
 
     private NavMeshAgent navMeshAgent;
     private Vector3 currentTarget;
 
     private Animator animator;
 
-    [SerializeField] private float minimumIdleTime = 0f;
-    [SerializeField] private float maximumIdleTime = 10.0f;
-    [SerializeField] private float minimumNextDistance = 1.0f;
-    [SerializeField] private float maximumNextDistance = 3.0f;
+    [SerializeField] private float minimumIdleTime = 10.0f;
+    [SerializeField] private float maximumIdleTime = 20.0f;
+    [SerializeField] private float minimumNextDistance = 5.0f;
+    [SerializeField] private float maximumNextDistance = 15.0f;
 
     private FieldOfView fieldOfView;
     private bool isChasing = false;
     private bool isIdle = false;
-    private bool isMoving = false;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +28,7 @@ public class HostileGroundEnemyMovement : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         fieldOfView = GetComponent<FieldOfView>();
         animator = GetComponentInChildren<Animator>();
-        currentTarget = targetGameObject.transform.position;
+        currentTarget = target.transform.position;
     }
 
     // Update is called once per frame
@@ -37,10 +36,9 @@ public class HostileGroundEnemyMovement : MonoBehaviour
     {
         if (currentTarget != null && fieldOfView.canSeePlayer)
         {
-            currentTarget = targetGameObject.transform.position;
+            currentTarget = target.transform.position;
             navMeshAgent.SetDestination(currentTarget);
             isChasing = true;
-            isMoving = true;
             isIdle = false;
         }
         else if (!fieldOfView.canSeePlayer && !isIdle)
@@ -51,7 +49,6 @@ public class HostileGroundEnemyMovement : MonoBehaviour
         if (!isChasing && navMeshAgent.velocity.magnitude == 0)
         {
             animator.speed = 0;
-            isMoving = false;
         } else
         {
             animator.speed = 1;
@@ -66,7 +63,6 @@ public class HostileGroundEnemyMovement : MonoBehaviour
         Vector3 finalPosition = hit.position;
         currentTarget = finalPosition;
         navMeshAgent.SetDestination(currentTarget);
-        isMoving = true;
         isIdle = false;
     }
 

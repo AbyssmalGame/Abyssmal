@@ -2777,6 +2777,7 @@ GameObject:
   - component: {fileID: 2103346850}
   - component: {fileID: 2103346846}
   - component: {fileID: 2103346849}
+  - component: {fileID: 2103346851}
   m_Layer: 0
   m_Name: Crab
   m_TagString: Untagged
@@ -2810,7 +2811,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.39
-  m_Speed: 1
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 200
@@ -2882,11 +2883,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8451eeaf945fa40a438c4df5a7f977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetGameObject: {fileID: 851488958}
+  target: {fileID: 851488958}
   minimumIdleTime: 10
   maximumIdleTime: 20
-  minimumNextDistance: 1
-  maximumNextDistance: 10
+  minimumNextDistance: 5
+  maximumNextDistance: 15
 --- !u!114 &2103346850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2909,6 +2910,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   canSeePlayer: 0
+--- !u!114 &2103346851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103346844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2f6cf86eb7e96f4a84a6fe0cd5955ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 5
+  attackCollisionDelay: 0.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
