@@ -22,6 +22,8 @@ TagManager:
   - PlayerBody
   - CameraUI
   - Helmet
+  - VisionObstructor
+  - 
   - 
   - 
   - 

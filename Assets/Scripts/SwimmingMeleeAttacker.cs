@@ -23,6 +23,7 @@ public class SwimmingMeleeAttacker : SwimmingEnemy
         }
     }
 
+    //Attack Logic Here
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject == target && attackCollisionDelayTimer >= attackCollisionDelay)
