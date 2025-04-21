@@ -42,7 +42,7 @@ public class PlayerStatManager : MonoBehaviour
 				oxygenText.text = "" + oxygenInt;
 			}
 		}
-		else if (oxygenStat.currentValue == 0)
+		else if (oxygenStat.currentValue < 0)
 		{
 			sceneLoader.LoadScene(0);
 		}
