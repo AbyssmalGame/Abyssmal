@@ -29,6 +29,7 @@ public class Weapon : MonoBehaviour
     {
         interactable = GetComponent<Interactable>();
         currentMagazine = magazine;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void Update()

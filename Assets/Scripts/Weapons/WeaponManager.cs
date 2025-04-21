@@ -19,7 +19,7 @@ public class WeaponManager : MonoBehaviour
     private GameObject w2;
     private Player player;
     
-    void Start()
+    public void InitialIze()
     {
         player  = GameObject.Find("Player").GetComponent<Player>();
         w1 = fetchWeapon(gameManager.GetWeapon1());
@@ -33,7 +33,6 @@ public class WeaponManager : MonoBehaviour
         {
             attachWeapon(player.rightHand, w1);
             currentWeapon = w1;
-            //switchAction.AddOnChangeListener(onSwitchAction, w1.GetComponent<Interactable>().attachedToHand.handType);
         } else
         {
             StartCoroutine(waitForValidPose());       
@@ -63,14 +62,6 @@ public class WeaponManager : MonoBehaviour
     private void attachWeapon(Hand hand, GameObject obj)
     {
         hand.AttachObject(obj, GrabTypes.None);
-    }
-
-    private void onSwitchAction(SteamVR_Action_Boolean actionIn, SteamVR_Input_Sources inputSource, bool newValue)
-    {
-        if (newValue)
-        {
-            startSwitchWeapon();
-        }
     }
 
     public void switchWeapon()
@@ -112,5 +103,15 @@ public class WeaponManager : MonoBehaviour
     public GameObject fetchWeapon(string name)
     {
         return GameObject.Find(name);
+    }
+    
+    public GameObject getWeapon1()
+    {
+        return w1;
+    }
+
+    public GameObject getWeapon2()
+    {
+        return w2;
     }
 }
