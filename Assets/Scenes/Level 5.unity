@@ -277,6 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1769660116}
+  ResultsManager: {fileID: 11400000, guid: acbc88afbd1014c47bd0e84b58961995, type: 2}
 --- !u!4 &251187168
 Transform:
   m_ObjectHideFlags: 0
@@ -976,7 +977,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673881228}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
