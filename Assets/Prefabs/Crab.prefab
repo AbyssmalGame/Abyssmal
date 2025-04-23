@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d8a42c562d388c479da32fc563090a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 10
+  radius: 20
   angle: 360
   playerRef: {fileID: 0}
   targetMask:
@@ -119,7 +119,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 116533060202648491}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.39
+  m_Radius: 0.3
   m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
