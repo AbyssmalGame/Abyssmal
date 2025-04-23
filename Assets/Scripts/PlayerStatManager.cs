@@ -28,7 +28,7 @@ public class PlayerStatManager : MonoBehaviour
 
 	void Update()
 	{
-		if (SceneManager.GetActiveScene().name == "Menu") return;
+		if (SceneManager.GetActiveScene().name == "Menu" || SceneManager.GetActiveScene().name == "Results") return;
 
 		if (oxygenStat.currentValue > 0)
 		{
