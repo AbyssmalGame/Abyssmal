@@ -19,6 +19,7 @@ public class MainMenuHandler : MonoBehaviour
     public TMPro.TextMeshProUGUI debrisCostText;
     private CurrencyUIHandler currencyUIHandler;
 
+    public PlayerStatManager playerStatManager;
 
     private int currentUpgradeIndex = 0;
 
@@ -71,6 +72,8 @@ public class MainMenuHandler : MonoBehaviour
                 break;
         }
         currencyUIHandler.updateCurrencyUI();
+
+        playerStatManager.UpdateMenuStats();
     }
 
     private void UpdateButtonUI(Upgrade upgrade, float levelValComapre)
