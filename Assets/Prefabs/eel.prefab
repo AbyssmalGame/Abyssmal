@@ -235,6 +235,5 @@ MonoBehaviour:
   attackRange: 5
   attackChargeTime: 2
   attackSpeed: 12
-  attackCollisionDelay: 0.5
+  attackCollisionDelay: 1
   attackLagTime: 0.2
-  attackCollisionDelay: 0.5
