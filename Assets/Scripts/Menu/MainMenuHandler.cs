@@ -12,8 +12,8 @@ public class MainMenuHandler : MonoBehaviour
     public Image upgradeImageUI;
     public List<Sprite> upgradeSprites;
     public Button equipButton;
+    public Button equipButton2;
     public TMPro.TextMeshProUGUI equipText;
-    public GameObject costContainer;
     public TMPro.TextMeshProUGUI goldCostText;
     public TMPro.TextMeshProUGUI ironCostText;
     public TMPro.TextMeshProUGUI debrisCostText;
@@ -98,6 +98,96 @@ public class MainMenuHandler : MonoBehaviour
             {
                 equipButton.GetComponent<Image>().color = Color.red;
             }
+        }
+    }
+
+    private void UpdateButtonUI(Upgrade weapon, TMPro.TextMeshProUGUI text, Button button, string currentWeapon, string compareWeapon)
+    {
+        if (weapon.isOwned)
+        {
+            if (currentWeapon != compareWeapon)
+            {
+                text.SetText("Equip");
+                button.GetComponent<Image>().color = Color.white;
+            }
+            else
+            {
+                text.SetText("Equipped");
+                button.GetComponent<Image>().color = Color.gray;
+            }
+        } else
+        {
+            equipText.SetText("Purchase");
+            if (CheckUpgradeCost(weapon))
+            {
+                button.GetComponent<Image>().color = Color.green;
+            }
+            else
+            {
+                button.GetComponent<Image>().color = Color.red;
+            }
+        }
+    }
+
+    private void BuyWeapon(int slotIndex)
+    {
+
+        if (upgradeName == "Weapon")
+        {
+            switch (currentUpgradeIndex)
+            {
+                case 0: //Speargun
+
+                    break;
+
+                case 1: //HarpoonGun
+                    if (StatValues.HarpoonGun.isOwned || CheckUpgradeCost(StatValues.HarpoonGun))
+                    {
+
+                    }
+                    break;
+
+                case 2: //APS Rifle
+
+                    break;
+            }
+        }
+        switch (upgradeName)
+        {
+            case "Weapon":
+                if (StatValues.PlayerHPLevels[currentUpgradeIndex].isOwned || CheckUpgradeCost(StatValues.PlayerHPLevels[currentUpgradeIndex]))
+                {
+                    if (!StatValues.PlayerHPLevels[currentUpgradeIndex].isOwned)
+                    {
+                        UpdateGameManagerCosts(StatValues.PlayerHPLevels[currentUpgradeIndex]);
+                    }
+                    gameManager.SetHP((int)StatValues.PlayerHPLevels[currentUpgradeIndex].levelValue);
+                    UpdateUI();
+                }
+                break;
+            case "Oxygen":
+                if (StatValues.OxygenLevels[currentUpgradeIndex].isOwned || CheckUpgradeCost(StatValues.OxygenLevels[currentUpgradeIndex]))
+                {
+                    if (!StatValues.OxygenLevels[currentUpgradeIndex].isOwned)
+                    {
+                        UpdateGameManagerCosts(StatValues.OxygenLevels[currentUpgradeIndex]);
+                    }
+                    gameManager.SetOxygen(StatValues.OxygenLevels[currentUpgradeIndex].levelValue);
+                    UpdateUI();
+                }
+
+                break;
+            case "SwimSpeed":
+                if (StatValues.SwimSpeedLevels[currentUpgradeIndex].isOwned || CheckUpgradeCost(StatValues.SwimSpeedLevels[currentUpgradeIndex]))
+                {
+                    if (!StatValues.SwimSpeedLevels[currentUpgradeIndex].isOwned)
+                    {
+                        UpdateGameManagerCosts(StatValues.SwimSpeedLevels[currentUpgradeIndex]);
+                    }
+                    gameManager.SetSwimSpeed(StatValues.SwimSpeedLevels[currentUpgradeIndex].levelValue);
+                    UpdateUI();
+                }
+                break;
         }
     }
 
