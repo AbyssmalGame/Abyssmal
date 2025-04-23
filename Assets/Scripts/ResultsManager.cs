@@ -23,7 +23,7 @@ public class ResultsManager : ScriptableObject
         obtainedDebris += debris;
     }
 
-    public void addToGameManager()
+    public void AddToGameManager()
     {
         if (GameManager.Instance != null)
         {

@@ -51,6 +51,10 @@ public class SceneLoader : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
+        else if (lastScene == 6)
+        {
+            SceneManager.LoadScene(0);
+        }
         if (Player != null)
         {
             Destroy(Player);

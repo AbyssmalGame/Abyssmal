@@ -44,7 +44,7 @@ public class PlayerStatManager : MonoBehaviour
 		}
 		else if (oxygenStat.currentValue < 0)
 		{
-			sceneLoader.LoadScene(0);
+			sceneLoader.LoadScene(6);
 		}
 	}
 
@@ -67,7 +67,7 @@ public class PlayerStatManager : MonoBehaviour
 
 		if (hpStat.currentValue <= 0)
 		{
-			sceneLoader.LoadScene(0);
+			sceneLoader.LoadScene(6);
 		}
 	}
 
