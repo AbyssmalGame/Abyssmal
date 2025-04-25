@@ -926,6 +926,31 @@ PrefabInstance:
       propertyPath: m_fontSizeMax
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2009294395}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwitchUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenuHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8512090211270076353, guid: 65b8d79a561ac66408bd17c23a3c241c,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -2041,6 +2066,7 @@ MonoBehaviour:
   goldCostText: {fileID: 1713338350}
   ironCostText: {fileID: 1998956014}
   debrisCostText: {fileID: 1658078419}
+  weaponImageUI: []
 --- !u!1 &342285251
 GameObject:
   m_ObjectHideFlags: 0
@@ -2865,6 +2891,31 @@ PrefabInstance:
       propertyPath: m_fontSizeMax
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2009294395}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuyWeapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenuHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7074652078587697583, guid: 65b8d79a561ac66408bd17c23a3c241c,
         type: 3}
       propertyPath: m_IsActive
@@ -3190,7 +3241,7 @@ PrefabInstance:
     - target: {fileID: 6077722629515556578, guid: 65b8d79a561ac66408bd17c23a3c241c,
         type: 3}
       propertyPath: m_text
-      value: Equip 1
+      value: Equip 2
       objectReference: {fileID: 0}
     - target: {fileID: 6077722629515556578, guid: 65b8d79a561ac66408bd17c23a3c241c,
         type: 3}
@@ -3201,6 +3252,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontSizeMax
       value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2009294395}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuyWeapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenuHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7074652078587697583, guid: 65b8d79a561ac66408bd17c23a3c241c,
         type: 3}
@@ -11062,6 +11138,7 @@ MonoBehaviour:
   goldCostText: {fileID: 1649788955}
   ironCostText: {fileID: 1694505366}
   debrisCostText: {fileID: 2083403488}
+  weaponImageUI: []
 --- !u!1 &1585183702
 GameObject:
   m_ObjectHideFlags: 0
@@ -15501,6 +15578,7 @@ MonoBehaviour:
   goldCostText: {fileID: 1025246605}
   ironCostText: {fileID: 1242320965}
   debrisCostText: {fileID: 1639256366}
+  weaponImageUI: []
 --- !u!1001 &2004866643
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15799,11 +15877,12 @@ MonoBehaviour:
   upgradeImageUI: {fileID: 1525070651}
   upgradeSprites: []
   equipButton: {fileID: 403800668}
-  equipButton2: {fileID: 0}
+  equipButton2: {fileID: 2100861914}
   equipText: {fileID: 403800667}
   goldCostText: {fileID: 342285253}
   ironCostText: {fileID: 494725297}
   debrisCostText: {fileID: 173240085}
+  weaponImageUI: []
 --- !u!1 &2033529007
 GameObject:
   m_ObjectHideFlags: 0
@@ -16277,6 +16356,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontSizeMax
       value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2009294395}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwitchUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenuHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8512090211270076353, guid: 65b8d79a561ac66408bd17c23a3c241c,
         type: 3}
@@ -17190,6 +17294,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2083403486}
   m_CullTransparentMesh: 1
+--- !u!114 &2100861914 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3173286905208500243, guid: 65b8d79a561ac66408bd17c23a3c241c,
+    type: 3}
+  m_PrefabInstance: {fileID: 471433341}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2113744781
 GameObject:
   m_ObjectHideFlags: 0
