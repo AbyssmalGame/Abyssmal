@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
 
+	public HashSet<int> unlockedLevels = new HashSet<int>();
+
     public int playerHP = (int) StatValues.PlayerHPLevels[0].levelValue;
     public float oxygen = StatValues.OxygenLevels[0].levelValue; 
     public float swimSpeed = StatValues.SwimSpeedLevels[0].levelValue;
@@ -28,6 +30,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+			unlockedLevels.Add(0);
         }
         else
         {
@@ -75,4 +78,14 @@ public class GameManager : MonoBehaviour
 	public void SpendIron(int amount) { if (iron >= amount) iron -= amount; }
 	public void AddDebris(int amount) { debris += amount; }
 	public void SpendDebris(int amount) { if (debris >= amount) debris -= amount; }
+
+	public void UnlockLevel(int levelIndex)
+	{
+		unlockedLevels.Add(levelIndex);
+	}
+
+	public bool IsLevelUnlocked(int levelIndex)
+	{
+		return unlockedLevels.Contains(levelIndex);
+	}
 }

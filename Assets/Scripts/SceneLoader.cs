@@ -19,6 +19,30 @@ public class SceneLoader : MonoBehaviour
         
     }
 
+    public void LoadWin(int levelId)
+    {
+        resultsManager.lastSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if (!GameManager.Instance.IsLevelUnlocked(levelId))
+        {
+            GameManager.Instance.UnlockLevel(levelId);
+        }
+        SceneManager.LoadScene(6);
+        if (Player != null)
+        {
+            Destroy(Player);
+        }
+    }
+
+    public void LoadLose()
+    {
+        resultsManager.lastSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(6);
+        if (Player != null)
+        {
+            Destroy(Player);
+        }
+    }
+
     public void RetryLevel()
     {
         SceneManager.LoadScene(resultsManager.lastSceneIndex);
