@@ -17,6 +17,7 @@ public class MainMenuHandler : MonoBehaviour
     public TMPro.TextMeshProUGUI goldCostText;
     public TMPro.TextMeshProUGUI ironCostText;
     public TMPro.TextMeshProUGUI debrisCostText;
+    public List<Image> weaponImageUI;
     private CurrencyUIHandler currencyUIHandler;
 
 
@@ -41,8 +42,6 @@ public class MainMenuHandler : MonoBehaviour
             currentUpgradeIndex += direction;
             UpdateUI();
         }
-
-
     }
 
     private void UpdateUI()
@@ -71,6 +70,30 @@ public class MainMenuHandler : MonoBehaviour
                 break;
         }
         currencyUIHandler.updateCurrencyUI();
+    }
+
+    private void UpdateWeaponUI(int uiIndex = 0)
+    {
+        weaponImageUI[uiIndex].sprite = upgradeSprites[currentUpgradeIndex];
+        switch (currentUpgradeIndex)
+        {
+            
+                
+        }
+        if (uiIndex == 0)
+        {
+            
+        } else if (uiIndex == 1)
+        {
+            
+        }
+        upgradeImageUI.sprite = upgradeSprites[currentUpgradeIndex];
+        upgradeValueText.text = "Single shot speargun";
+        if (uiIndex== 0)
+        {
+
+        }
+        //UpdateButtonUI(StatValues.SpearGun, equipButton);
     }
 
     private void UpdateButtonUI(Upgrade upgrade, float levelValComapre)
@@ -129,65 +152,49 @@ public class MainMenuHandler : MonoBehaviour
         }
     }
 
-    private void BuyWeapon(int slotIndex)
+    public void BuyWeapon(int slotIndex)
     {
-
+        string weaponToBuy = "";
         if (upgradeName == "Weapon")
         {
             switch (currentUpgradeIndex)
             {
                 case 0: //Speargun
-
+                    if (StatValues.SpearGun.isOwned || CheckUpgradeCost(StatValues.SpearGun))
+                    {
+                        UpdateGameManagerCosts(StatValues.SpearGun);
+                        weaponToBuy = "spearGun";
+                    }
                     break;
 
                 case 1: //HarpoonGun
                     if (StatValues.HarpoonGun.isOwned || CheckUpgradeCost(StatValues.HarpoonGun))
                     {
-
+                        UpdateGameManagerCosts(StatValues.HarpoonGun);
+                        weaponToBuy = "harpoonGun";
                     }
                     break;
 
                 case 2: //APS Rifle
-
+                    if (StatValues.APSRifle.isOwned || CheckUpgradeCost(StatValues.APSRifle))
+                    {
+                        UpdateGameManagerCosts(StatValues.APSRifle);
+                        weaponToBuy = "apsRifle";
+                    }
                     break;
             }
-        }
-        switch (upgradeName)
-        {
-            case "Weapon":
-                if (StatValues.PlayerHPLevels[currentUpgradeIndex].isOwned || CheckUpgradeCost(StatValues.PlayerHPLevels[currentUpgradeIndex]))
+            if (weaponToBuy != "")
+            {
+                if (slotIndex == 1)
                 {
-                    if (!StatValues.PlayerHPLevels[currentUpgradeIndex].isOwned)
-                    {
-                        UpdateGameManagerCosts(StatValues.PlayerHPLevels[currentUpgradeIndex]);
-                    }
-                    gameManager.SetHP((int)StatValues.PlayerHPLevels[currentUpgradeIndex].levelValue);
-                    UpdateUI();
+                    gameManager.SetWeapon1(weaponToBuy);
+                    
                 }
-                break;
-            case "Oxygen":
-                if (StatValues.OxygenLevels[currentUpgradeIndex].isOwned || CheckUpgradeCost(StatValues.OxygenLevels[currentUpgradeIndex]))
+                else if (slotIndex == 2)
                 {
-                    if (!StatValues.OxygenLevels[currentUpgradeIndex].isOwned)
-                    {
-                        UpdateGameManagerCosts(StatValues.OxygenLevels[currentUpgradeIndex]);
-                    }
-                    gameManager.SetOxygen(StatValues.OxygenLevels[currentUpgradeIndex].levelValue);
-                    UpdateUI();
+                    gameManager.SetWeapon2(weaponToBuy);
                 }
-
-                break;
-            case "SwimSpeed":
-                if (StatValues.SwimSpeedLevels[currentUpgradeIndex].isOwned || CheckUpgradeCost(StatValues.SwimSpeedLevels[currentUpgradeIndex]))
-                {
-                    if (!StatValues.SwimSpeedLevels[currentUpgradeIndex].isOwned)
-                    {
-                        UpdateGameManagerCosts(StatValues.SwimSpeedLevels[currentUpgradeIndex]);
-                    }
-                    gameManager.SetSwimSpeed(StatValues.SwimSpeedLevels[currentUpgradeIndex].levelValue);
-                    UpdateUI();
-                }
-                break;
+            }
         }
     }
 
