@@ -8,6 +8,7 @@ TagManager:
   - FxTemporaire
   - Enemy
   - ReloadItem
+  - Objective
   layers:
   - Default
   - TransparentFX
@@ -23,8 +24,6 @@ TagManager:
   - CameraUI
   - Helmet
   - VisionObstructor
-  - 
-  - 
   - 
   - 
   - 

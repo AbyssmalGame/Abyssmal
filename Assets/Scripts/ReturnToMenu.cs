@@ -10,7 +10,7 @@ public class ReturnToMenu : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player")) 
         {
-            sceneLoader.LoadScene(0);
+            sceneLoader.LoadLose();
         }
     }
 }

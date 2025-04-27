@@ -28,7 +28,7 @@ public class PlayerStatManager : MonoBehaviour
 
 	void Update()
 	{
-		if (SceneManager.GetActiveScene().name == "Menu") return;
+		if (SceneManager.GetActiveScene().name == "Menu" || SceneManager.GetActiveScene().name == "Results") return;
 
 		if (oxygenStat.currentValue > 0)
 		{
@@ -44,7 +44,7 @@ public class PlayerStatManager : MonoBehaviour
 		}
 		else if (oxygenStat.currentValue < 0)
 		{
-			sceneLoader.LoadScene(0);
+			sceneLoader.LoadLose();
 		}
 	}
 
@@ -67,7 +67,7 @@ public class PlayerStatManager : MonoBehaviour
 
 		if (hpStat.currentValue <= 0)
 		{
-			sceneLoader.LoadScene(0);
+			sceneLoader.LoadLose();
 		}
 	}
 

@@ -75,4 +75,8 @@ public class Swimmer : MonoBehaviour
 		swimForce = GameManager.GetSpeed();
 
 	}
+	public void ApplyExternalForce(Vector3 force)
+	{
+		_rigidbody.AddForce(force, ForceMode.Impulse);
+	}
 }
