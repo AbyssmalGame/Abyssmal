@@ -11,13 +11,13 @@ public class Objective : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             int sceneId = SceneManager.GetActiveScene().buildIndex;
-            if (sceneId != 5)
+            if (sceneId == 5)
             {
                 sceneLoader.LoadScene(6);
             }
             else
             {
-                sceneLoader.LoadWin(sceneId + 1);
+                sceneLoader.LoadWin(sceneId);
             }
         }   
     }

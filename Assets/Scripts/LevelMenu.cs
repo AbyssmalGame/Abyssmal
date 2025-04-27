@@ -7,19 +7,22 @@ public class LevelMenu : MonoBehaviour
 {
     public Button[] buttons;
 
-    private void Start()
+	private void OnEnable()
+	{
+        RefreshButtons();
+	}
+
+    private void RefreshButtons()
     {
-        // Loop through buttons and set interactable based on unlocked levels
+        if (GameManager.Instance == null) return;
+
         for (int i = 0; i < buttons.Length; i++)
         {
-            if (GameManager.Instance.IsLevelUnlocked(i))
-            {
-                buttons[i].interactable = true;
-            }
-            else
-            {
-                buttons[i].interactable = false;
-            }
+            bool unlocked = GameManager.Instance.IsLevelUnlocked(i);
+
+			//remove comments later when done testing
+            //buttons[i].gameObject.SetActive(unlocked);
         }
     }
+
 }
