@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2521505643669393349}
-  - component: {fileID: 1112536089673688419}
+  - component: {fileID: 680878126701532900}
   - component: {fileID: 855710759879630457}
   - component: {fileID: 778117894542845021}
   - component: {fileID: 3616918444148984064}
@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5123467021488517366}
   m_Layer: 0
   m_Name: Crab
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,14 +32,14 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -379.60464, y: 179.68, z: -12.37}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5933164693056646191}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1112536089673688419
-BoxCollider:
+--- !u!136 &680878126701532900
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -56,9 +56,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.7732544, y: 0.34707642, z: 0.5526247}
-  m_Center: {x: 0, y: -0.13999999, z: 0.05705118}
+  serializedVersion: 2
+  m_Radius: 0.24
+  m_Height: 0.9
+  m_Direction: 0
+  m_Center: {x: 0, y: -0.1, z: 0}
 --- !u!54 &855710759879630457
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -67,7 +69,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 116533060202648491}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 15
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -82,7 +84,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -98,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d8a42c562d388c479da32fc563090a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 10
+  radius: 20
   angle: 360
   playerRef: {fileID: 0}
   targetMask:
@@ -106,7 +108,7 @@ MonoBehaviour:
     m_Bits: 512
   obstructionMask:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 8192
   canSeePlayer: 0
 --- !u!195 &3616918444148984064
 NavMeshAgent:
@@ -117,7 +119,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 116533060202648491}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.39
+  m_Radius: 0.3
   m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
