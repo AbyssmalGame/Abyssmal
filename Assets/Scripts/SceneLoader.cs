@@ -8,15 +8,11 @@ public class SceneLoader : MonoBehaviour
 {
     public GameObject Player;
     public ResultsManager resultsManager;
+    public FadeScreen fadeScreen;
     public void LoadScene(int sceneIndex) 
     {
         resultsManager.lastSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(sceneIndex);
-        if (Player != null) 
-        {
-            Destroy(Player);
-        }
-        
+        StartCoroutine(FadeAndLoadScene(sceneIndex));
     }
 
     public void LoadWin(int levelId)
@@ -26,62 +22,43 @@ public class SceneLoader : MonoBehaviour
         {
             GameManager.Instance.UnlockLevel(levelId);
         }
-        SceneManager.LoadScene(6);
-        if (Player != null)
-        {
-            Destroy(Player);
-        }
+		StartCoroutine(FadeAndLoadScene(6));
     }
 
     public void LoadLose()
     {
         resultsManager.lastSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(6);
-        if (Player != null)
-        {
-            Destroy(Player);
-        }
+        StartCoroutine(FadeAndLoadScene(6));
     }
 
     public void RetryLevel()
     {
-        SceneManager.LoadScene(resultsManager.lastSceneIndex);
-        if (Player != null)
-        {
-            Destroy(Player);
-        }
+        StartCoroutine(FadeAndLoadScene(resultsManager.lastSceneIndex));
     }
 
     public void NextLevel()
     {
         int lastScene = resultsManager.lastSceneIndex;
-        if (lastScene == 1)
+        int nextScene = lastScene + 1;
+        if (nextScene >= 5)
         {
-            SceneManager.LoadScene(2);
-        }
-        else if (lastScene == 2)
+			StartCoroutine(FadeAndLoadScene(0));
+		}
+        else
         {
-            SceneManager.LoadScene(3);
+            StartCoroutine(FadeAndLoadScene(nextScene));
         }
-        else if (lastScene == 3)
-        {
-            SceneManager.LoadScene(4);
-        }
-        else if (lastScene == 4)
-        {
-            SceneManager.LoadScene(5);
-        }
-        else if (lastScene == 5)
-        {
-            SceneManager.LoadScene(0);
-        }
-        else if (lastScene == 6)
-        {
-            SceneManager.LoadScene(0);
-        }
-        if (Player != null)
-        {
-            Destroy(Player);
-        }
+    }
+
+    private IEnumerator FadeAndLoadScene(int sceneIndex)
+    {
+        fadeScreen.FadeOut();
+        yield return new WaitForSeconds(fadeScreen.fadeDuration);
+        SceneManager.LoadScene(sceneIndex);
+		if (Player != null)
+		{
+			Destroy(Player);
+		}
+		yield return new WaitForSeconds(0.1f);
     }
 }
