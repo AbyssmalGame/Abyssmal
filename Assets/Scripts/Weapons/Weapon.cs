@@ -12,15 +12,17 @@ public class Weapon : MonoBehaviour
     public GameObject barrelPivot;
     public MagazineBehavior magazineObject;
     public ReloadItem reloadItem;
+    public ParticleSystem[] gunShotEffects;
     public float shootSpeed;
     public bool ejectsMagazine = false;
-    public int damage;
+    public int damagePerShot;
     public float fireCooldownSeconds;
     public int magazine;
-    public int level;
+    public AudioSource fireSound;
+    public AudioSource reloadSound;
 
-    [SerializeField] private int currentMagazine;
-    [SerializeField] private bool attachedToHand;
+    private int currentMagazine;
+    private bool attachedToHand;
     private Interactable interactable;
     private bool onCooldown = false;
     private bool reloading = false;
@@ -29,6 +31,7 @@ public class Weapon : MonoBehaviour
     {
         interactable = GetComponent<Interactable>();
         currentMagazine = magazine;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void Update()
@@ -57,16 +60,26 @@ public class Weapon : MonoBehaviour
     {
         if (currentMagazine != 0)
         {
-            Debug.Log("FIRING");
             onCooldown = true;
             currentMagazine -= 1;
-
+            
+            //Instantiate new projectile in scene. Destruction coroutine is tied to the projectile itself
             GameObject newProjectileGO = Instantiate(projectile, barrelPivot.transform.position, projectile.transform.rotation, gameObject.transform).gameObject;
+            if (newProjectileGO.TryGetComponent(out Projectile newProjectile)) {
+                newProjectile.damage = damagePerShot;
+                newProjectile.selfDestruct();
+            }
             newProjectileGO.transform.parent = null;
             Rigidbody projectileRB = newProjectileGO.GetComponent<Rigidbody>();
             projectileRB.constraints = RigidbodyConstraints.None; // Original projectiles are inside the weapons and locked in place. Swimming with an unlocked projectile causes it to fly outside the weapon.
-            projectileRB.velocity = barrelPivot.transform.forward * shootSpeed;
-            StartCoroutine(newProjectileGO.GetComponent<Projectile>().SelfDestruct()); 
+            fireSound.PlayOneShot(fireSound.clip);
+            foreach (ParticleSystem effect in gunShotEffects)
+            {
+                effect.transform.parent = null;
+                effect.Play();
+                effect.transform.parent = transform;
+            }
+            projectileRB.velocity = barrelPivot.transform.forward * shootSpeed; 
 
             if (magazineObject != null && ejectsMagazine && currentMagazine == 0)
             {
@@ -94,13 +107,14 @@ public class Weapon : MonoBehaviour
     {
         if (magazineObject != null)
         {
-
             magazineObject.Reload();
         } else
         {
             projectile.GetComponent<MeshRenderer>().enabled = true;
         }
         currentMagazine = magazine;
+        reloadSound.PlayOneShot(reloadSound.clip);
+
     }
 
     private void triggerMuzzleEffect()

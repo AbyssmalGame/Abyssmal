@@ -5,7 +5,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class KrakenHitbox : MonoBehaviour
 {
-
+    public int damageAmount = 80;
     [SerializeField] private CapsuleCollider colliderComponent;
 
     public bool isHitboxActive = false;
@@ -15,6 +15,8 @@ public class KrakenHitbox : MonoBehaviour
         if (other.CompareTag("Player") && isHitboxActive)
         {
             Debug.Log("Attack1AllTentacleStab hits!");
+            Physics.IgnoreCollision(GetComponent<Collider>(), other);
+            other.GetComponent<PlayerStatManager>()?.TakeDamage(damageAmount);
         }
     }
 }

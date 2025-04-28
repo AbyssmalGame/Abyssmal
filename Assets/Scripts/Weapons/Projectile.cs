@@ -4,32 +4,34 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public Collider body;
-    public int damage;
-    // Start is called before the first frame update
-    void Start()
-    {
+    public int damage = 0;
+    private bool isInstantiated;
 
+
+    void Awake()
+    {
+        if (Application.isPlaying && gameObject.scene.isLoaded)
+        {
+            isInstantiated = true;
+        }
+    }
+    public void selfDestruct()
+    {
+        StartCoroutine(TimedDestroy.DestroyAfterSeconds(2f, gameObject));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     private void OnCollisionEnter(Collision collision)
     {
+        
         GameObject other = collision.gameObject;
-        if (other.tag == "enemy")
+        Debug.Log("Collided with " + other.tag + "dealing " + damage + " damage.");
+        if (other.tag == "Enemy" && other.TryGetComponent(out HPManager HP))
         {
-            other.GetComponent<HPManager>().ApplyDamage(damage);
+            HP.ApplyDamage(damage);
         }
+        
+        if (isInstantiated) { Destroy(gameObject); }
     }
 
-    public IEnumerator SelfDestruct()
-    {
-        yield return new WaitForSeconds(5f);
-        Destroy(gameObject);
-    }
 }

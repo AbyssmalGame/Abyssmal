@@ -1834,7 +1834,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a77d94a6b1030d742a4f213b39f710ef, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2252,7 +2252,7 @@ MonoBehaviour:
   pose: {fileID: 3933490541553781131}
   interactWithUI:
     actionPath: /actions/default/in/InteractUI
-    needsReinit: 0
+    needsReinit: 1
   active: 1
   color: {r: 0, g: 0, b: 0, a: 0}
   thickness: 0.002
