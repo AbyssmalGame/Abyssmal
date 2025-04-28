@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using static StatValues;
+using TMPro;
 
 
 public class MainMenuHandler : MonoBehaviour
@@ -18,6 +19,7 @@ public class MainMenuHandler : MonoBehaviour
     public TMPro.TextMeshProUGUI ironCostText;
     public TMPro.TextMeshProUGUI debrisCostText;
     public List<Image> weaponImageUI;
+    public TMPro.TextMeshProUGUI weaponTextUI;
     private CurrencyUIHandler currencyUIHandler;
 
     public PlayerStatManager playerStatManager;

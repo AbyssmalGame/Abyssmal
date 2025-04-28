@@ -21,7 +21,7 @@ public class WeaponManager : MonoBehaviour
     
     public void InitialIze()
     {
-        player  = GameObject.Find("Player").GetComponent<Player>();
+        player  = GameObject.Find("GamePlayer").GetComponent<Player>();
         w1 = fetchWeapon(gameManager.GetWeapon1());
         if (gameManager.GetWeapon2() != "" )
         {

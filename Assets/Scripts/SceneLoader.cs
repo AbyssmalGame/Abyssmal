@@ -8,12 +8,15 @@ public class SceneLoader : MonoBehaviour
 {
     public GameObject PlayerGO;
     private Player Player;
-    public GameObject gameManager;
+    public ResultsManager resultsManager;
+    public FadeScreen fadeScreen;
+    private GameObject gameManager;
     private WeaponManager weaponManager;
 
     private void Start()
     {
         Player = PlayerGO.GetComponent<Player>();
+        gameManager = GameObject.Find("GameManager");
         weaponManager = gameManager.GetComponent<WeaponManager>();
     }
 
@@ -21,21 +24,6 @@ public class SceneLoader : MonoBehaviour
     {
         resultsManager.lastSceneIndex = SceneManager.GetActiveScene().buildIndex;
         StartCoroutine(FadeAndLoadScene(sceneIndex));
-
-        if (weaponManager != null)
-        {
-            if (sceneIndex != 0)
-            {
-                weaponManager.enabled = true;
-                weaponManager.InitialIze();
-            }
-            else
-            {
-                weaponManager.enabled = false;
-                Player.rightHand.DetachObject(weaponManager.getWeapon1());
-                Player.rightHand.DetachObject(weaponManager.getWeapon2());
-            }
-        }
     }
     public void LoadWin(int levelId)
     {
@@ -80,6 +68,21 @@ public class SceneLoader : MonoBehaviour
         if (Player != null)
         {
             Destroy(Player);
+        }
+        yield return new WaitForSeconds(0.3f);
+        if (weaponManager != null)
+        {
+            if (sceneIndex != 0)
+            {
+                weaponManager.enabled = true;
+                weaponManager.InitialIze();
+            }
+            else
+            {
+                weaponManager.enabled = false;
+                Player.rightHand.DetachObject(weaponManager.getWeapon1());
+                Player.rightHand.DetachObject(weaponManager.getWeapon2());
+            }
         }
         yield return new WaitForSeconds(0.1f);
     }
