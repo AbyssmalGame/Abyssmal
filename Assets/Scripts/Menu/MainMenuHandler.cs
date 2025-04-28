@@ -20,6 +20,7 @@ public class MainMenuHandler : MonoBehaviour
     public List<Image> weaponImageUI;
     private CurrencyUIHandler currencyUIHandler;
 
+    public PlayerStatManager playerStatManager;
 
     private int currentUpgradeIndex = 0;
 
@@ -70,6 +71,8 @@ public class MainMenuHandler : MonoBehaviour
                 break;
         }
         currencyUIHandler.updateCurrencyUI();
+
+        playerStatManager.UpdateMenuStats();
     }
 
     private void UpdateWeaponUI(int uiIndex = 0)
