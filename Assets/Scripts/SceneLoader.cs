@@ -114,14 +114,12 @@ public class SceneLoader : MonoBehaviour
         fadeScreen.FadeOut();
         yield return new WaitForSeconds(fadeScreen.fadeDuration);
         SceneManager.sceneLoaded += OnSceneLoaded;
-        SceneManager.LoadScene(sceneIndex);
         if (Player != null)
         {
             DetachAllObjectsFromPlayer();
             Destroy(PlayerGO);
         }
-
-        
-        yield return new WaitForSeconds(0.1f);
+        yield return null;
+        SceneManager.LoadScene(sceneIndex);
     }
 }
