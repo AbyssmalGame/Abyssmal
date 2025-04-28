@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using static StatValues;
+using TMPro;
 
 
 public class MainMenuHandler : MonoBehaviour
@@ -12,11 +13,13 @@ public class MainMenuHandler : MonoBehaviour
     public Image upgradeImageUI;
     public List<Sprite> upgradeSprites;
     public Button equipButton;
+    public Button equipButton2;
     public TMPro.TextMeshProUGUI equipText;
-    public GameObject costContainer;
     public TMPro.TextMeshProUGUI goldCostText;
     public TMPro.TextMeshProUGUI ironCostText;
     public TMPro.TextMeshProUGUI debrisCostText;
+    public List<Image> weaponImageUI;
+    public TMPro.TextMeshProUGUI weaponTextUI;
     private CurrencyUIHandler currencyUIHandler;
 
     public PlayerStatManager playerStatManager;
@@ -42,8 +45,6 @@ public class MainMenuHandler : MonoBehaviour
             currentUpgradeIndex += direction;
             UpdateUI();
         }
-
-
     }
 
     private void UpdateUI()
@@ -76,6 +77,30 @@ public class MainMenuHandler : MonoBehaviour
         playerStatManager.UpdateMenuStats();
     }
 
+    private void UpdateWeaponUI(int uiIndex = 0)
+    {
+        weaponImageUI[uiIndex].sprite = upgradeSprites[currentUpgradeIndex];
+        switch (currentUpgradeIndex)
+        {
+            
+                
+        }
+        if (uiIndex == 0)
+        {
+            
+        } else if (uiIndex == 1)
+        {
+            
+        }
+        upgradeImageUI.sprite = upgradeSprites[currentUpgradeIndex];
+        upgradeValueText.text = "Single shot speargun";
+        if (uiIndex== 0)
+        {
+
+        }
+        //UpdateButtonUI(StatValues.SpearGun, equipButton);
+    }
+
     private void UpdateButtonUI(Upgrade upgrade, float levelValComapre)
     {
         if (upgrade.isOwned)
@@ -100,6 +125,80 @@ public class MainMenuHandler : MonoBehaviour
             } else
             {
                 equipButton.GetComponent<Image>().color = Color.red;
+            }
+        }
+    }
+
+    private void UpdateButtonUI(Upgrade weapon, TMPro.TextMeshProUGUI text, Button button, string currentWeapon, string compareWeapon)
+    {
+        if (weapon.isOwned)
+        {
+            if (currentWeapon != compareWeapon)
+            {
+                text.SetText("Equip");
+                button.GetComponent<Image>().color = Color.white;
+            }
+            else
+            {
+                text.SetText("Equipped");
+                button.GetComponent<Image>().color = Color.gray;
+            }
+        } else
+        {
+            equipText.SetText("Purchase");
+            if (CheckUpgradeCost(weapon))
+            {
+                button.GetComponent<Image>().color = Color.green;
+            }
+            else
+            {
+                button.GetComponent<Image>().color = Color.red;
+            }
+        }
+    }
+
+    public void BuyWeapon(int slotIndex)
+    {
+        string weaponToBuy = "";
+        if (upgradeName == "Weapon")
+        {
+            switch (currentUpgradeIndex)
+            {
+                case 0: //Speargun
+                    if (StatValues.SpearGun.isOwned || CheckUpgradeCost(StatValues.SpearGun))
+                    {
+                        UpdateGameManagerCosts(StatValues.SpearGun);
+                        weaponToBuy = "spearGun";
+                    }
+                    break;
+
+                case 1: //HarpoonGun
+                    if (StatValues.HarpoonGun.isOwned || CheckUpgradeCost(StatValues.HarpoonGun))
+                    {
+                        UpdateGameManagerCosts(StatValues.HarpoonGun);
+                        weaponToBuy = "harpoonGun";
+                    }
+                    break;
+
+                case 2: //APS Rifle
+                    if (StatValues.APSRifle.isOwned || CheckUpgradeCost(StatValues.APSRifle))
+                    {
+                        UpdateGameManagerCosts(StatValues.APSRifle);
+                        weaponToBuy = "apsRifle";
+                    }
+                    break;
+            }
+            if (weaponToBuy != "")
+            {
+                if (slotIndex == 1)
+                {
+                    gameManager.SetWeapon1(weaponToBuy);
+                    
+                }
+                else if (slotIndex == 2)
+                {
+                    gameManager.SetWeapon2(weaponToBuy);
+                }
             }
         }
     }

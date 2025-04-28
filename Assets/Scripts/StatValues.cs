@@ -8,6 +8,11 @@ public class StatValues
     public static List<Upgrade> OxygenLevels = new List<Upgrade> { new Upgrade(600f, 0, 0, 0, true), new Upgrade(660f, 1, 1, 1), new Upgrade(720f, 7, 5, 20), new Upgrade(840f, 10, 10, 10) };
     public static List<Upgrade> SwimSpeedLevels = new List<Upgrade> { new Upgrade(1f, 0, 0, 0, true), new Upgrade(1.35f, 1, 1, 1), new Upgrade(1.75f, 12, 42, 8), new Upgrade(2.35f, 10, 10, 10) };
 
+    public static Upgrade SpearGun = new Upgrade(1f, 0, 0, 0, true);
+    public static Upgrade HarpoonGun = new Upgrade(1f, 15, 15, 15);
+    public static Upgrade APSRifle = new Upgrade(1f, 35, 35, 35);
+    
+
     public static string[] WeaponList = { "spearGun", "harpoonGun", "apsRifle" };
 }
 

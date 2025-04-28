@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Valve.VR;
 using Valve.VR.InteractionSystem;
 using static Unity.VisualScripting.Member;
+
+using UnityEngine.SceneManagement;
 
 public class WeaponManager : MonoBehaviour
 {
@@ -17,11 +20,14 @@ public class WeaponManager : MonoBehaviour
     public GameObject currentWeapon;
     private GameObject w1;
     private GameObject w2;
+    private GameObject playerGO;
     private Player player;
     
-    void Start()
+    public void InitialIze()
     {
-        player  = GameObject.Find("Player").GetComponent<Player>();
+        Debug.Log("Starting initialize weapons... SCENE: " + SceneManager.GetActiveScene().buildIndex);
+        playerGO  = GameObject.Find("GamePlayer");
+        player = playerGO.GetComponent<Player>();
         w1 = fetchWeapon(gameManager.GetWeapon1());
         if (gameManager.GetWeapon2() != "" )
         {
@@ -33,7 +39,8 @@ public class WeaponManager : MonoBehaviour
         {
             attachWeapon(player.rightHand, w1);
             currentWeapon = w1;
-            //switchAction.AddOnChangeListener(onSwitchAction, w1.GetComponent<Interactable>().attachedToHand.handType);
+            GameObject.Find("Reloadspawner").GetComponent<ReloadItemSpawner>().updateReloadItem();
+            Debug.Log("Attached w1 to hand");
         } else
         {
             StartCoroutine(waitForValidPose());       
@@ -42,7 +49,7 @@ public class WeaponManager : MonoBehaviour
 
     private void Update()
     {
-        if (switchAction[SteamVR_Input_Sources.RightHand].stateDown) //fully pulled trigger
+        if (switchAction[SteamVR_Input_Sources.RightHand].stateDown) 
         {
             switchWeapon();
         }
@@ -56,21 +63,13 @@ public class WeaponManager : MonoBehaviour
         }
         attachWeapon(player.rightHand, w1);
         currentWeapon = w1;
-        GameObject.Find("ReloadItemSpawner").GetComponent<ReloadItemSpawner>().updateReloadItem();
+        GameObject.Find("Reloadspawner").GetComponent<ReloadItemSpawner>().updateReloadItem();
         //switchAction.AddOnChangeListener(onSwitchAction, w1.GetComponent<Interactable>().attachedToHand.handType);
     }
 
     private void attachWeapon(Hand hand, GameObject obj)
     {
         hand.AttachObject(obj, GrabTypes.None);
-    }
-
-    private void onSwitchAction(SteamVR_Action_Boolean actionIn, SteamVR_Input_Sources inputSource, bool newValue)
-    {
-        if (newValue)
-        {
-            startSwitchWeapon();
-        }
     }
 
     public void switchWeapon()
@@ -80,7 +79,7 @@ public class WeaponManager : MonoBehaviour
 
     public IEnumerator startSwitchWeapon()
     {
-        if (!switching)
+        if (!switching && w2 != null)
         {
             switching = true;
             if (w1.activeSelf)
@@ -112,5 +111,15 @@ public class WeaponManager : MonoBehaviour
     public GameObject fetchWeapon(string name)
     {
         return GameObject.Find(name);
+    }
+    
+    public GameObject getWeapon1()
+    {
+        return w1;
+    }
+
+    public GameObject getWeapon2()
+    {
+        return w2;
     }
 }
