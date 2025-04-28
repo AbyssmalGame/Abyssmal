@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Valve.VR;
 using Valve.VR.InteractionSystem;
 using static Unity.VisualScripting.Member;
+
+using UnityEngine.SceneManagement;
 
 public class WeaponManager : MonoBehaviour
 {
@@ -17,11 +20,14 @@ public class WeaponManager : MonoBehaviour
     public GameObject currentWeapon;
     private GameObject w1;
     private GameObject w2;
+    private GameObject playerGO;
     private Player player;
     
     public void InitialIze()
     {
-        player  = GameObject.Find("GamePlayer").GetComponent<Player>();
+        Debug.Log("Starting initialize weapons... SCENE: " + SceneManager.GetActiveScene().buildIndex);
+        playerGO  = GameObject.Find("GamePlayer");
+        player = playerGO.GetComponent<Player>();
         w1 = fetchWeapon(gameManager.GetWeapon1());
         if (gameManager.GetWeapon2() != "" )
         {
@@ -33,6 +39,7 @@ public class WeaponManager : MonoBehaviour
         {
             attachWeapon(player.rightHand, w1);
             currentWeapon = w1;
+            Debug.Log("Attached w1 to hand");
         } else
         {
             StartCoroutine(waitForValidPose());       
@@ -41,7 +48,7 @@ public class WeaponManager : MonoBehaviour
 
     private void Update()
     {
-        if (switchAction[SteamVR_Input_Sources.RightHand].stateDown) //fully pulled trigger
+        if (switchAction[SteamVR_Input_Sources.RightHand].stateDown) 
         {
             switchWeapon();
         }

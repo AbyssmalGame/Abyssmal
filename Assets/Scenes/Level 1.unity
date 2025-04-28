@@ -780,17 +780,17 @@ PrefabInstance:
     - target: {fileID: 8868624443696866459, guid: 16be8188487a4cd459069741d60fe17c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.457
       objectReference: {fileID: 0}
     - target: {fileID: 8868624443696866459, guid: 16be8188487a4cd459069741d60fe17c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.08
+      value: 13.612
       objectReference: {fileID: 0}
     - target: {fileID: 8868624443696866459, guid: 16be8188487a4cd459069741d60fe17c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.9
+      value: 1.59
       objectReference: {fileID: 0}
     - target: {fileID: 8868624443696866459, guid: 16be8188487a4cd459069741d60fe17c,
         type: 3}
@@ -1792,7 +1792,7 @@ PrefabInstance:
     - target: {fileID: 8282923931083714117, guid: d6e46e26640c4ab4dbdf6b3478a582fd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20
+      value: 16.559
       objectReference: {fileID: 0}
     - target: {fileID: 8282923931083714117, guid: d6e46e26640c4ab4dbdf6b3478a582fd,
         type: 3}
@@ -2089,7 +2089,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1222398953
 Transform:
   m_ObjectHideFlags: 0
@@ -2128,17 +2128,17 @@ PrefabInstance:
     - target: {fileID: 8868624443696866459, guid: 16be8188487a4cd459069741d60fe17c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -91.11
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8868624443696866459, guid: 16be8188487a4cd459069741d60fe17c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.16
+      value: 16.89
       objectReference: {fileID: 0}
     - target: {fileID: 8868624443696866459, guid: 16be8188487a4cd459069741d60fe17c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 152.49
+      value: 2.91
       objectReference: {fileID: 0}
     - target: {fileID: 8868624443696866459, guid: 16be8188487a4cd459069741d60fe17c,
         type: 3}
@@ -2636,7 +2636,6 @@ MonoBehaviour:
   PlayerGO: {fileID: 1171767543}
   resultsManager: {fileID: 11400000, guid: acbc88afbd1014c47bd0e84b58961995, type: 2}
   fadeScreen: {fileID: 1171767544}
-  gameManager: {fileID: 0}
 --- !u!4 &1563153030
 Transform:
   m_ObjectHideFlags: 0

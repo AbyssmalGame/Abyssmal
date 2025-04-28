@@ -13,7 +13,7 @@ public class SceneLoader : MonoBehaviour
     private GameObject gameManager;
     private WeaponManager weaponManager;
 
-    private void Start()
+    private void Awake()
     {
         Player = PlayerGO.GetComponent<Player>();
         gameManager = GameObject.Find("GameManager");
@@ -61,20 +61,12 @@ public class SceneLoader : MonoBehaviour
         }
     }
 
-    private IEnumerator FadeAndLoadScene(int sceneIndex)
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        fadeScreen.FadeOut();
-        yield return new WaitForSeconds(fadeScreen.fadeDuration);
-        SceneManager.LoadScene(sceneIndex);
-        if (Player != null)
-        {
-            Destroy(PlayerGO);
-            Debug.Log("DESTROYED PLAYER!!!!");
-        }
-        yield return new WaitForSeconds(0.3f);
         if (weaponManager != null)
         {
-            if (sceneIndex != 0)
+            Debug.Log("Weapon Manager not null");
+            if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 6)
             {
                 weaponManager.enabled = true;
                 weaponManager.InitialIze();
@@ -82,10 +74,54 @@ public class SceneLoader : MonoBehaviour
             else
             {
                 weaponManager.enabled = false;
-                Player.rightHand.DetachObject(weaponManager.getWeapon1());
-                Player.rightHand.DetachObject(weaponManager.getWeapon2());
+
             }
         }
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void DetachAllObjectsFromPlayer()
+    {
+        if (Player == null) return;
+
+        if (Player.leftHand != null)
+        {
+            DetachAllFromHand(Player.leftHand);
+        }
+
+        if (Player.rightHand != null)
+        {
+            DetachAllFromHand(Player.rightHand);
+        }
+    }
+
+    private void DetachAllFromHand(Hand hand)
+    {
+        // Make a copy of the attached objects list first
+        var attachedObjectsCopy = new List<Hand.AttachedObject>(hand.AttachedObjects);
+
+        foreach (var attached in attachedObjectsCopy)
+        {
+            if (attached.attachedObject != null)
+            {
+                hand.DetachObject(attached.attachedObject);
+            }
+        }
+    }
+
+    private IEnumerator FadeAndLoadScene(int sceneIndex)
+    {
+        fadeScreen.FadeOut();
+        yield return new WaitForSeconds(fadeScreen.fadeDuration);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.LoadScene(sceneIndex);
+        if (Player != null)
+        {
+            DetachAllObjectsFromPlayer();
+            Destroy(PlayerGO);
+        }
+
+        
         yield return new WaitForSeconds(0.1f);
     }
 }
