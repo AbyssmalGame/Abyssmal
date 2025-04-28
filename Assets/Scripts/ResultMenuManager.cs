@@ -9,11 +9,24 @@ public class ResultMenuManager : MonoBehaviour
 	public TextMeshProUGUI goldText;
 	public TextMeshProUGUI ironText;
 	public TextMeshProUGUI debrisText;
+
+	public GameObject[] loreMenu;
+	public GameObject loseMenu;
+
 	void Start()
     {
         goldText.text = "" + resultsManager.obtainedGold;
 		ironText.text = "" + resultsManager.obtainedIron;
 		debrisText.text = "" + resultsManager.obtainedDebris;
+
+		if (resultsManager.loseLevel == true)
+		{
+			loseMenu.SetActive(true);
+		}
+		else
+		{
+			loreMenu[resultsManager.lastSceneIndex-1].SetActive(true);
+		}
 	}
 
 }
