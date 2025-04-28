@@ -8,12 +8,13 @@ public class KrakenHitbox : MonoBehaviour
 
     [SerializeField] private CapsuleCollider colliderComponent;
 
+    public bool isHitboxActive = false;
+
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && isHitboxActive)
         {
             Debug.Log("Attack1AllTentacleStab hits!");
         }
-        colliderComponent.enabled = false;
     }
 }

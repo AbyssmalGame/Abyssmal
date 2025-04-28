@@ -11,6 +11,7 @@ public class KrakenAttacker : SwimmingEnemy
     [SerializeField] private float attack1RangeAllTentacleStab = 5f;
     
     [SerializeField] private CapsuleCollider attack1AllTentacleStabHitbox;
+    [SerializeField] private KrakenHitbox attack1AllTentacleStabHitboxComponent;
 
     private Animator animator;
 
@@ -19,7 +20,6 @@ public class KrakenAttacker : SwimmingEnemy
     {
         base.OnStart();
         animator = GetComponent<Animator>();
-        attack1AllTentacleStabHitbox.enabled = false;
     }
 
     protected override void OnUpdate()
@@ -77,7 +77,9 @@ public class KrakenAttacker : SwimmingEnemy
         yield return new WaitForSeconds(animationTime - attackTimePassed);
         Debug.Log("Attack1AllTentacleStab Hitbox");
 
-        attack1AllTentacleStabHitbox.enabled = true;
+        attack1AllTentacleStabHitboxComponent.isHitboxActive = true;
+        yield return new WaitForSeconds(1);
+        attack1AllTentacleStabHitboxComponent.isHitboxActive = false;
 
         hostileEnemySwimmingMovement.isAttacking = false;
     }
