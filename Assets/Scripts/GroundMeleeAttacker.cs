@@ -25,6 +25,7 @@ public class GroundMeleeAttacker : GroundEnemy
         if (collision.gameObject == target && attackCollisionDelayTimer >= attackCollisionDelay)
         {
             attackCollisionDelayTimer = 0f;
+            target.GetComponent<PlayerStatManager>().TakeDamage(damageAmount);
         }
     }
 }

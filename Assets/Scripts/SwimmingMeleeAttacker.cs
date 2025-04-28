@@ -30,6 +30,7 @@ public class SwimmingMeleeAttacker : SwimmingEnemy
         {
             rb.angularVelocity = Vector3.zero;
             Debug.Log("hit target!");
+            target.GetComponent<PlayerStatManager>()?.TakeDamage(damageAmount);
             attackCollisionDelayTimer = 0f;
         }
     }
