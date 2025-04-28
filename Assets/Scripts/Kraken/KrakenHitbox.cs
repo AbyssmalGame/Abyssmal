@@ -13,7 +13,7 @@ public class KrakenHitbox : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Attack1AllTentacleStab hits!");
-            Physics.IgnoreCollision(GetComponent<Collider>(), other);
+            //Physics.IgnoreCollision(GetComponent<Collider>(), other);
             other.GetComponent<PlayerStatManager>()?.TakeDamage(damageAmount);
         }
         colliderComponent.enabled = false;

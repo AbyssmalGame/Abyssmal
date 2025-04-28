@@ -2526,7 +2526,7 @@ MonoBehaviour:
   iron: 100
   debris: 100
   weapon1: apsRifle
-  weapon2: 
+  weapon2: spearGun
 --- !u!4 &386345836
 Transform:
   m_ObjectHideFlags: 0
