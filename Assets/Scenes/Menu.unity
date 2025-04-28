@@ -1462,7 +1462,7 @@ MonoBehaviour:
           m_MethodName: set_sprite
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 21300000, guid: 2625e238c53e361409652c85e26e2dc9,
+            m_ObjectArgument: {fileID: 21300000, guid: 6b26852db570ab34480c87c077d740c4,
               type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
             m_IntArgument: 0
@@ -4427,7 +4427,7 @@ MonoBehaviour:
           m_MethodName: set_sprite
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 21300000, guid: b0bf618bea208d349a063b57d146fca9,
+            m_ObjectArgument: {fileID: 21300000, guid: 6eecffbf5b21bb441b6a5da76bc009e9,
               type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
             m_IntArgument: 0
@@ -8629,7 +8629,7 @@ MonoBehaviour:
           m_MethodName: set_sprite
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 21300000, guid: 6fe1ff339c3c8e44e835753cabf0fd9d,
+            m_ObjectArgument: {fileID: 21300000, guid: 5542b7dd297ee84449338d33cd367955,
               type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
             m_IntArgument: 0
@@ -10083,7 +10083,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6fe1ff339c3c8e44e835753cabf0fd9d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5542b7dd297ee84449338d33cd367955, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14160,7 +14160,7 @@ MonoBehaviour:
           m_MethodName: set_sprite
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 21300000, guid: e4dc008b299091a49b6c94a961aa378b,
+            m_ObjectArgument: {fileID: 21300000, guid: a234a7f7282f8a548895d04300ba5c0a,
               type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
             m_IntArgument: 0
@@ -16164,7 +16164,7 @@ MonoBehaviour:
           m_MethodName: set_sprite
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 21300000, guid: 74cf21b38b152d44c9eff238573df90b,
+            m_ObjectArgument: {fileID: 21300000, guid: 560ad27434462254d9b984b0002872b1,
               type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
             m_IntArgument: 0
