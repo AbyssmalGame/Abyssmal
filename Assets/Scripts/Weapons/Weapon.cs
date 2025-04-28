@@ -18,6 +18,8 @@ public class Weapon : MonoBehaviour
     public int damagePerShot;
     public float fireCooldownSeconds;
     public int magazine;
+    public AudioSource fireSound;
+    public AudioSource reloadSound;
 
     private int currentMagazine;
     private bool attachedToHand;
@@ -70,6 +72,7 @@ public class Weapon : MonoBehaviour
             newProjectileGO.transform.parent = null;
             Rigidbody projectileRB = newProjectileGO.GetComponent<Rigidbody>();
             projectileRB.constraints = RigidbodyConstraints.None; // Original projectiles are inside the weapons and locked in place. Swimming with an unlocked projectile causes it to fly outside the weapon.
+            fireSound.PlayOneShot(fireSound.clip);
             foreach (ParticleSystem effect in gunShotEffects)
             {
                 effect.transform.parent = null;
@@ -110,6 +113,8 @@ public class Weapon : MonoBehaviour
             projectile.GetComponent<MeshRenderer>().enabled = true;
         }
         currentMagazine = magazine;
+        reloadSound.PlayOneShot(reloadSound.clip);
+
     }
 
     private void triggerMuzzleEffect()
