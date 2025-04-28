@@ -777,6 +777,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Testing Objective
       objectReference: {fileID: 0}
+    - target: {fileID: 3640425113411624759, guid: 16be8188487a4cd459069741d60fe17c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8868624443696866459, guid: 16be8188487a4cd459069741d60fe17c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1774,6 +1779,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2520841180232740910, guid: d6e46e26640c4ab4dbdf6b3478a582fd,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520841180232740910, guid: d6e46e26640c4ab4dbdf6b3478a582fd,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520841180232740910, guid: d6e46e26640c4ab4dbdf6b3478a582fd,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2586849492358228836, guid: d6e46e26640c4ab4dbdf6b3478a582fd,
         type: 3}
       propertyPath: sceneLoader
