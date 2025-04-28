@@ -10,6 +10,8 @@ public class ResultsManager : ScriptableObject
     public int obtainedIron = 0;
     public int obtainedDebris = 0;
 
+    public bool loseLevel = false;
+
     public void ObtainGold(int gold)
     {
         obtainedGold += gold;
@@ -34,6 +36,8 @@ public class ResultsManager : ScriptableObject
             obtainedGold = 0;
             obtainedIron = 0;
             obtainedDebris = 0;
+
+            loseLevel = false;
         }
     }
 }

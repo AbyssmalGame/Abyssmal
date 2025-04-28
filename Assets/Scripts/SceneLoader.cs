@@ -38,6 +38,7 @@ public class SceneLoader : MonoBehaviour
     public void LoadLose()
     {
         resultsManager.lastSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        resultsManager.loseLevel = true;
         StartCoroutine(FadeAndLoadScene(6));
     }
 
