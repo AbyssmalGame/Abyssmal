@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3313f30ca1ced41be071eaa2d4ff76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 4
+  movementSpeed: 3
   rotationalDamp: 10
   obstacleAvoidanceRotation: 25
   target: {fileID: 0}
@@ -232,8 +232,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   decelerationSpeed: 1
   damageAmount: 10
-  attackRange: 5
+  attackRange: 2.5
   attackChargeTime: 2
   attackSpeed: 12
   attackCollisionDelay: 1
-  attackLagTime: 0.2
+  attackLagTime: 1.5

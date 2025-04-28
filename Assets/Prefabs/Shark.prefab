@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 4
-  rotationalDamp: 2
-  obstacleAvoidanceRotation: 5
+  rotationalDamp: 8
+  obstacleAvoidanceRotation: 15
   target: {fileID: 0}
   detectionDistance: 6
   raycastForwardOffset: -2
@@ -126,13 +126,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9407dc98b8ed8f4493f43e14125b12a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decelerationSpeed: 2.5
+  decelerationSpeed: 8
   damageAmount: 20
-  attackRange: 10
-  attackChargeTime: 0.5
-  attackSpeed: 15
+  attackRange: 5
+  attackChargeTime: 1
+  attackSpeed: 10
   attackCollisionDelay: 1
-  attackLagTime: 0
+  attackLagTime: 1
 --- !u!1001 &3802487784007779956
 PrefabInstance:
   m_ObjectHideFlags: 0
