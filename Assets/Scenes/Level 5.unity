@@ -1017,7 +1017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   decelerationSpeed: 0.25
   attackRotationSpeed: 1
-  attack1RangeAllTentacleStab: 5
+  attack1RangeAllTentacleStab: 8
   attack1AllTentacleStabHitbox: {fileID: 1283495658}
   attack1AllTentacleStabHitboxComponent: {fileID: 1283495659}
 --- !u!4 &33214176 stripped
@@ -1762,7 +1762,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageAmount: 80
   colliderComponent: {fileID: 1283495658}
-  attackDuration: 1
   isHitboxActive: 0
 --- !u!1 &1539734037
 GameObject:

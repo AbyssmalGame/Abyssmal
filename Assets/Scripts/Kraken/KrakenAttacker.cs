@@ -80,6 +80,7 @@ public class KrakenAttacker : SwimmingEnemy
         attack1AllTentacleStabHitboxComponent.isHitboxActive = true;
         yield return new WaitForSeconds(1);
         attack1AllTentacleStabHitboxComponent.isHitboxActive = false;
+        attack1AllTentacleStabHitboxComponent.isHitOnce = false;
 
         hostileEnemySwimmingMovement.isAttacking = false;
     }
