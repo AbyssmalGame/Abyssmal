@@ -8,8 +8,6 @@ public class KrakenHitbox : MonoBehaviour
 
     [SerializeField] private CapsuleCollider colliderComponent;
 
-    private float attackCollisionDelayTimer = 0.0f;
-
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
