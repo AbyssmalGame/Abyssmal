@@ -7,8 +7,10 @@ using static UnityEngine.GraphicsBuffer;
 public class KrakenAttacker : SwimmingEnemy
 {
 
-    [SerializeField] private float attackRotationSpeed = 2f;
+    [SerializeField] private float attackRotationSpeed = 0.75f;
     [SerializeField] private float attack1RangeAllTentacleStab = 5f;
+    
+    [SerializeField] private CapsuleCollider attack1AllTentacleStabHitbox;
 
     private Animator animator;
 
@@ -17,6 +19,7 @@ public class KrakenAttacker : SwimmingEnemy
     {
         base.OnStart();
         animator = GetComponent<Animator>();
+        attack1AllTentacleStabHitbox.enabled = false;
     }
 
     protected override void OnUpdate()
@@ -53,22 +56,28 @@ public class KrakenAttacker : SwimmingEnemy
 
     private IEnumerator attack1AllTentacleStab()
     {
-        float animationTime = animator.GetCurrentAnimatorStateInfo(0).length;
 
         animator.SetTrigger("Attack1AllTentacleStab");
 
-        float attackTimePassed = 0;
-        Quaternion targetRotation = Quaternion.Euler(0, 180, 0);
+        float animationTime = 4.2f;
 
-        while (attackTimePassed <= animationTime / 2)
+        float attackTimePassed = 0;
+
+        Quaternion startRotation = transform.rotation;
+        Quaternion targetRotation = transform.rotation * Quaternion.Euler(0, 180, 0);
+
+        while (attackTimePassed <= attackRotationSpeed)
         {
             DecelerateByFrame();
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, attackRotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(startRotation, targetRotation, attackTimePassed / attackRotationSpeed);
             attackTimePassed += Time.deltaTime;
             yield return null;
         }
 
-        yield return new WaitForSeconds(animationTime);
+        yield return new WaitForSeconds(animationTime - attackTimePassed);
+        Debug.Log("Attack1AllTentacleStab Hitbox");
+
+        attack1AllTentacleStabHitbox.enabled = true;
 
         hostileEnemySwimmingMovement.isAttacking = false;
     }

@@ -143,12 +143,12 @@ public class HostileEnemySwimmingMovement : MonoBehaviour
     IEnumerator IdleMove()
     {
         isIdle = true;
-        int idleTimePassed = 0;
+        float idleTimePassed = 0;
         float idleTime = Random.Range(minimumIdleTime, maximumIdleTime);
         while (!playerDetected && idleTimePassed <= idleTime)
         {
-            yield return new WaitForSeconds(1);
-            idleTimePassed++;
+            idleTimePassed += Time.deltaTime;
+            yield return null;
         }
         if (playerDetected)
         {

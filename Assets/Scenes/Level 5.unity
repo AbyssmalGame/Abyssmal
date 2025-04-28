@@ -867,7 +867,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8508cc5de8dafa8479289e43d34c544c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1283495657}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8508cc5de8dafa8479289e43d34c544c,
         type: 3}
@@ -913,13 +917,13 @@ MonoBehaviour:
   obstacleAvoidanceRotation: 2
   target: {fileID: 1769660118}
   detectionDistance: 20
-  raycastForwardOffset: -9.5
+  raycastForwardOffset: -8
   leftRaycastOffset: 1
   rightRaycastOffset: 1
   upRaycastOffset: 1
   downRaycastOffset: 1
   idleMovementSpeed: 1
-  hostileDetectionDistance: 20
+  hostileDetectionDistance: 50
   minimumIdleTime: 0
   maximumIdleTime: 0
   minimumNextDistance: 10
@@ -992,9 +996,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1.29
-  m_Height: 11.94
+  m_Height: 9.26
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 2.29}
+  m_Center: {x: 0, y: 0, z: 3.6}
 --- !u!114 &33214175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1007,9 +1011,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1393cd425f00e324394f309299e4d981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decelerationSpeed: 1
-  attackRotationSpeed: 2
+  decelerationSpeed: 0.25
+  attackRotationSpeed: 1
   attack1RangeAllTentacleStab: 5
+  attack1AllTentacleStabHitbox: {fileID: 1283495658}
+--- !u!4 &33214176 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8508cc5de8dafa8479289e43d34c544c,
+    type: 3}
+  m_PrefabInstance: {fileID: 33214167}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &189912723
 GameObject:
   m_ObjectHideFlags: 0
@@ -1663,6 +1674,75 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16be8188487a4cd459069741d60fe17c, type: 3}
+--- !u!1 &1283495656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1283495657}
+  - component: {fileID: 1283495658}
+  - component: {fileID: 1283495659}
+  m_Layer: 0
+  m_Name: Attack1AllTentacleStabHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1283495657
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283495656}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -6.73}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 33214176}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1283495658
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283495656}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.36
+  m_Height: 10.99
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1283495659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283495656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7c4d1067e0329240a490955da53292c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colliderComponent: {fileID: 1283495658}
 --- !u!1 &1539734037
 GameObject:
   m_ObjectHideFlags: 0
@@ -1951,6 +2031,11 @@ PrefabInstance:
       propertyPath: sceneLoader
       value: 
       objectReference: {fileID: 251187167}
+    - target: {fileID: 3098947597319168324, guid: d6e46e26640c4ab4dbdf6b3478a582fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 7406823890072165530, guid: d6e46e26640c4ab4dbdf6b3478a582fd,
         type: 3}
       propertyPath: m_Name
