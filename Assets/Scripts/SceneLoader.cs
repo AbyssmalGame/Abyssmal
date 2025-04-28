@@ -67,7 +67,8 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(sceneIndex);
         if (Player != null)
         {
-            Destroy(Player);
+            Destroy(PlayerGO);
+            Debug.Log("DESTROYED PLAYER!!!!");
         }
         yield return new WaitForSeconds(0.3f);
         if (weaponManager != null)
