@@ -68,9 +68,8 @@ public class SwimmingRangedAttacker : SwimmingEnemy
             attackDurationTimePassed += Time.deltaTime;
             yield return null;
         }
-        yield return new WaitForSeconds(attackLagTime);
-
         rangedAttackParticles.Stop();
+        yield return new WaitForSeconds(attackLagTime);
 
         hostileEnemySwimmingMovement.isAttacking = false;
     }
