@@ -12,6 +12,7 @@ public class HPManager : MonoBehaviour
     private void Start()
     {
         currentHP = maxHP;
+        OnDiecallback = gameObject.GetComponent<DropMaterials>().doDrops;
     }
 
     public void ApplyDamage(int damage)

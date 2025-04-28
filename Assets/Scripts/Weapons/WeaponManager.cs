@@ -39,6 +39,7 @@ public class WeaponManager : MonoBehaviour
         {
             attachWeapon(player.rightHand, w1);
             currentWeapon = w1;
+            GameObject.Find("Reloadspawner").GetComponent<ReloadItemSpawner>().updateReloadItem();
             Debug.Log("Attached w1 to hand");
         } else
         {
@@ -62,7 +63,7 @@ public class WeaponManager : MonoBehaviour
         }
         attachWeapon(player.rightHand, w1);
         currentWeapon = w1;
-        GameObject.Find("ReloadItemSpawner").GetComponent<ReloadItemSpawner>().updateReloadItem();
+        GameObject.Find("Reloadspawner").GetComponent<ReloadItemSpawner>().updateReloadItem();
         //switchAction.AddOnChangeListener(onSwitchAction, w1.GetComponent<Interactable>().attachedToHand.handType);
     }
 
@@ -78,7 +79,7 @@ public class WeaponManager : MonoBehaviour
 
     public IEnumerator startSwitchWeapon()
     {
-        if (!switching)
+        if (!switching && w2 != null)
         {
             switching = true;
             if (w1.activeSelf)
