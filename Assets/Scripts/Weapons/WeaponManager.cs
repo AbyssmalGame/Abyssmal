@@ -107,6 +107,7 @@ public class WeaponManager : MonoBehaviour
             switching = true;
             if (w1.activeSelf)
             {
+                w1.GetComponent<Weapon>().forceCooldownUpdate(false);
                 w1.SetActive(false);
                 player.rightHand.DetachObject(w1);
                 player.rightHand.AttachObject(w2, GrabTypes.None);
@@ -116,6 +117,7 @@ public class WeaponManager : MonoBehaviour
                 
             } else
             {
+                w2.GetComponent<Weapon>().forceCooldownUpdate(false);
                 w2.SetActive(false);
                 player.rightHand.DetachObject(w2);
                 player.rightHand.AttachObject(w1, GrabTypes.None);
@@ -124,7 +126,7 @@ public class WeaponManager : MonoBehaviour
                 w1.SetActive(true);
             }
             yield return new WaitForSeconds(switchWeaponCooldownSeconds);
-            GameObject.Find("ReloadItemSpawner").GetComponent<ReloadItemSpawner>().updateReloadItem();
+            GameObject.Find("Reloadspawner").GetComponent<ReloadItemSpawner>().updateReloadItem();
             switching = false;
         }
     }
