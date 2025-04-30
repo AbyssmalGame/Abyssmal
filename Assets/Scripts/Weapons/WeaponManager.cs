@@ -23,15 +23,15 @@ public class WeaponManager : MonoBehaviour
     private GameObject playerGO;
     private Player player;
     
-    public void InitialIze()
+    public IEnumerator InitialIze()
     {
+        Debug.Log("Waiting for weaponManager requirements...");
+        yield return StartCoroutine(waitForAllObjects());
         Debug.Log("Starting initialize weapons... SCENE: " + SceneManager.GetActiveScene().buildIndex);
-        playerGO  = GameObject.Find("GamePlayer");
         player = playerGO.GetComponent<Player>();
-        w1 = fetchWeapon(gameManager.GetWeapon1());
+        
         if (gameManager.GetWeapon2() != "" )
-        {
-            w2 = fetchWeapon(gameManager.GetWeapon2());
+        { 
             w2.gameObject.SetActive(false);
         }
 
@@ -43,8 +43,31 @@ public class WeaponManager : MonoBehaviour
             Debug.Log("Attached w1 to hand");
         } else
         {
-            StartCoroutine(waitForValidPose());       
+            yield return StartCoroutine(waitForValidPose());       
         }
+    }
+    private IEnumerator waitForAllObjects()
+    {
+        Debug.Log("Waiting for player");
+        while ((playerGO = GameObject.Find("GamePlayer")) == null)
+            yield return null;
+        Debug.Log("Found player");
+        if (w1 == null)
+        {
+            Debug.Log("Waiting for Weapon1: " + gameManager.GetWeapon1());
+            while ((w1 = fetchWeapon(gameManager.GetWeapon1())) == null)
+                yield return null;
+            Debug.Log("Found Weapon1");
+        }
+
+        if (gameManager.GetWeapon2() != "" && w2 == null)
+        {
+            Debug.Log("Waiting for Weapon2: " + gameManager.GetWeapon2());
+            while ((w2 = fetchWeapon(gameManager.GetWeapon2())) == null)
+                yield return null;
+            Debug.Log("Found Weapon2");
+        }
+        Debug.Log("Found all requirements");
     }
 
     private void Update()
