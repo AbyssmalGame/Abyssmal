@@ -61,25 +61,6 @@ public class SceneLoader : MonoBehaviour
         }
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (weaponManager != null)
-        {
-            Debug.Log("Weapon Manager not null");
-            if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 6)
-            {
-                weaponManager.enabled = true;
-                weaponManager.InitialIze();
-            }
-            else
-            {
-                weaponManager.enabled = false;
-
-            }
-        }
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
     private void DetachAllObjectsFromPlayer()
     {
         if (Player == null) return;
@@ -109,17 +90,62 @@ public class SceneLoader : MonoBehaviour
         }
     }
 
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        StartCoroutine(waitForWeaponManagerLoad(SceneManager.GetActiveScene().buildIndex));
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private IEnumerator waitForWeaponManagerLoad(int sceneIndex)
+    {
+        Debug.Log("Waiting for weapon manager on scene: " + sceneIndex);
+        GameObject gameManager = null;
+        WeaponManager weaponManager = null;
+
+        while ((gameManager = GameObject.Find("GameManager")) == null)
+            yield return null;
+        Debug.Log("Found GameManager...");
+        while ((weaponManager = gameManager.GetComponent<WeaponManager>()) == null)
+            yield return null;
+        Debug.Log("Found WeaponManager...");
+        if (sceneIndex != 0 && sceneIndex != 6)
+        {
+            weaponManager.enabled = true;
+            Debug.Log("Initializing");
+            yield return weaponManager.InitialIze();
+        }
+        else
+        {
+            weaponManager.enabled = false;
+            Debug.Log("Didn't Initialize...");
+        }
+
+        yield return new WaitForSeconds(0.1f);
+        Debug.Log("Destroying SceneLoader");
+        Destroy(gameObject);
+    }
+
     private IEnumerator FadeAndLoadScene(int sceneIndex)
     {
         fadeScreen.FadeOut();
-        yield return new WaitForSeconds(fadeScreen.fadeDuration);
-        SceneManager.sceneLoaded += OnSceneLoaded;
+
+        // Launch the new scene
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+        operation.allowSceneActivation = false;
+        float timer = 0;
+        while (timer <= fadeScreen.fadeDuration && !operation.isDone)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
         if (Player != null)
         {
             DetachAllObjectsFromPlayer();
             Destroy(PlayerGO);
         }
-        yield return null;
-        SceneManager.LoadScene(sceneIndex);
+        DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        operation.allowSceneActivation = true;
     }
 }
