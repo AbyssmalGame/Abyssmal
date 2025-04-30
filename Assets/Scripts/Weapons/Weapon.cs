@@ -100,6 +100,10 @@ public class Weapon : MonoBehaviour
         yield return null;
     }
 
+    public void forceCooldownUpdate(bool onCooldownState)
+    {
+        onCooldown = onCooldownState;
+    }
     public int getCurrentMagazine()
     {
         return currentMagazine;

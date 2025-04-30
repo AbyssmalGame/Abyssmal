@@ -12,6 +12,7 @@ public class SceneLoader : MonoBehaviour
     public FadeScreen fadeScreen;
     private GameObject gameManager;
     private WeaponManager weaponManager;
+    private bool fading = false;
 
     private void Awake()
     {
@@ -127,25 +128,30 @@ public class SceneLoader : MonoBehaviour
 
     private IEnumerator FadeAndLoadScene(int sceneIndex)
     {
-        fadeScreen.FadeOut();
-
-        // Launch the new scene
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
-        operation.allowSceneActivation = false;
-        float timer = 0;
-        while (timer <= fadeScreen.fadeDuration && !operation.isDone)
+        if (!fading)
         {
-            timer += Time.deltaTime;
-            yield return null;
-        }
+            fading = true;
+            fadeScreen.FadeOut();
 
-        if (Player != null)
-        {
-            DetachAllObjectsFromPlayer();
-            Destroy(PlayerGO);
+            // Launch the new scene
+            AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+            operation.allowSceneActivation = false;
+            float timer = 0;
+            while (timer <= fadeScreen.fadeDuration && !operation.isDone)
+            {
+                timer += Time.deltaTime;
+                yield return null;
+            }
+
+            if (Player != null)
+            {
+                DetachAllObjectsFromPlayer();
+                Destroy(PlayerGO);
+            }
+            DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded;
+            operation.allowSceneActivation = true;
+            fading = false;
         }
-        DontDestroyOnLoad(gameObject);
-        SceneManager.sceneLoaded += OnSceneLoaded;
-        operation.allowSceneActivation = true;
     }
 }
