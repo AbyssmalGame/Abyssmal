@@ -76,9 +76,16 @@ public class SwimmingMeleeAttacker : SwimmingEnemy
         rb.freezeRotation = true;
         yield return new WaitForSeconds(attackLagTime);
 
+        float timer = 0;
+
         while (rb.velocity != Vector3.zero)
         {
             DecelerateByFrame();
+            timer += Time.deltaTime;
+            if (timer >= attackLagTime)
+            {
+                rb.velocity = Vector3.zero;
+            }
             yield return null;
         }
 

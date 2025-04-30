@@ -301,7 +301,7 @@ MonoBehaviour:
   upRaycastOffset: 0.5
   downRaycastOffset: 0.5
   idleMovementSpeed: 1
-  hostileDetectionDistance: 20
+  hostileDetectionDistance: 35
   minimumIdleTime: 0
   maximumIdleTime: 10
   minimumNextDistance: 1
@@ -320,11 +320,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   decelerationSpeed: 3
   damageAmount: 10
-  attackRange: 5
+  attackRange: 12
   attackChargeTime: 2
   attackSpeed: 12
   attackCollisionDelay: 1
-  attackLagTime: 1.5
+  attackLagTime: 1
 --- !u!114 &6894690641430135568
 MonoBehaviour:
   m_ObjectHideFlags: 0
