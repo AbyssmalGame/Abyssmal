@@ -921,9 +921,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 2
-  rotationalDamp: 1
-  obstacleAvoidanceRotation: 2
-  target: {fileID: 1769660116}
+  rotationalDamp: 3
+  obstacleAvoidanceRotation: 20
+  target: {fileID: 1769660118}
   detectionDistance: 20
   raycastForwardOffset: -8
   leftRaycastOffset: 1
@@ -991,7 +991,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 33214168}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 68eeea75af56a5f4ea3d213702d8524b, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1784,8 +1784,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 80
-  colliderComponent: {fileID: 1283495658}
   isHitboxActive: 0
+  isHitOnce: 0
 --- !u!1 &1539734037
 GameObject:
   m_ObjectHideFlags: 0
