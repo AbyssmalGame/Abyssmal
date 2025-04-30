@@ -62,9 +62,11 @@ public class Weapon : MonoBehaviour
         {
             onCooldown = true;
             currentMagazine -= 1;
-            
+
             //Instantiate new projectile in scene. Destruction coroutine is tied to the projectile itself
+            projectile.SetActive(true);
             GameObject newProjectileGO = Instantiate(projectile, barrelPivot.transform.position, projectile.transform.rotation, gameObject.transform).gameObject;
+            projectile.SetActive(false);
             if (newProjectileGO.TryGetComponent(out Projectile newProjectile)) {
                 newProjectile.damage = damagePerShot;
                 newProjectile.selfDestruct();

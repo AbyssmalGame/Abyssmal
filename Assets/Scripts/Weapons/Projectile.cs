@@ -25,7 +25,7 @@ public class Projectile : MonoBehaviour
     {
         
         GameObject other = collision.gameObject;
-        Debug.Log("Collided with " + other.tag + "dealing " + damage + " damage.");
+        //Debug.Log("Collided with " + other.tag + "dealing " + damage + " damage.");
         if (other.tag == "Enemy" && other.TryGetComponent(out HPManager HP))
         {
             HP.ApplyDamage(damage);
