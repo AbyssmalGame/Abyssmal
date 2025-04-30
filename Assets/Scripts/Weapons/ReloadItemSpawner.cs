@@ -25,9 +25,9 @@ public class ReloadItemSpawner : MonoBehaviour
         GrabTypes grabType = hand.GetGrabStarting();
         bool isGrabEnding = hand.IsGrabEnding(gameObject);
 
-        //Debug.Log("DOING SHIT LETS GO");
         if (interactable.attachedToHand == null && grabType != GrabTypes.None)
         {
+            Debug.Log("Creating new reload item... " + reloadItem);
             GameObject newItem = Instantiate(reloadItem, reloadItem.transform.position, reloadItem.transform.rotation, reloadItem.transform);
             newItem.transform.localScale = Vector3.one;
             newItem.transform.parent = null;

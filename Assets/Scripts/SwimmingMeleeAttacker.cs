@@ -30,6 +30,8 @@ public class SwimmingMeleeAttacker : SwimmingEnemy
         {
             rb.angularVelocity = Vector3.zero;
             Debug.Log("hit target!");
+            Physics.IgnoreCollision(GetComponent<Collider>(), collision.collider);
+            target.GetComponent<PlayerStatManager>()?.TakeDamage(damageAmount);
             attackCollisionDelayTimer = 0f;
         }
     }
@@ -74,9 +76,16 @@ public class SwimmingMeleeAttacker : SwimmingEnemy
         rb.freezeRotation = true;
         yield return new WaitForSeconds(attackLagTime);
 
+        float timer = 0;
+
         while (rb.velocity != Vector3.zero)
         {
             DecelerateByFrame();
+            timer += Time.deltaTime;
+            if (timer >= attackLagTime)
+            {
+                rb.velocity = Vector3.zero;
+            }
             yield return null;
         }
 

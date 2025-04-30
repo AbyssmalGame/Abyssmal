@@ -2,13 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Valve.VR.InteractionSystem;
 
 public class Objective : MonoBehaviour
 {
     public SceneLoader sceneLoader;
-    void OnTriggerEnter(Collider other)
+    private Interactable interactable;
+    private void Start()
     {
-        if (other.CompareTag("Player"))
+        interactable = GetComponent<Interactable>();
+    }
+
+    private void HandHoverUpdate(Hand hand)
+    {
+        GrabTypes grabType = hand.GetGrabStarting();
+        bool isGrabEnding = hand.IsGrabEnding(gameObject);
+
+        if (interactable.attachedToHand == null && grabType != GrabTypes.None)
         {
             int sceneId = SceneManager.GetActiveScene().buildIndex;
             if (sceneId == 5)
@@ -19,6 +29,6 @@ public class Objective : MonoBehaviour
             {
                 sceneLoader.LoadWin(sceneId);
             }
-        }   
+        }
     }
 }

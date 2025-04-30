@@ -799,7 +799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b159391706d6c9443aababecfdca53cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1814070299}
+  PlayerGO: {fileID: 1814070299}
   resultsManager: {fileID: 11400000, guid: acbc88afbd1014c47bd0e84b58961995, type: 2}
   fadeScreen: {fileID: 1814070300}
 --- !u!4 &1235083622
