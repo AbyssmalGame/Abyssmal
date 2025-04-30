@@ -921,9 +921,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 2
-  rotationalDamp: 3
+  rotationalDamp: 8
   obstacleAvoidanceRotation: 20
-  target: {fileID: 1769660118}
+  target: {fileID: 1769660116}
   detectionDistance: 20
   raycastForwardOffset: -8
   leftRaycastOffset: 1
