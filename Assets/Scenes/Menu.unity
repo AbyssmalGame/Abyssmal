@@ -11125,7 +11125,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f46b635e63b80d949b4cf7b3565c5722, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 36c618131b3e4bf42aa03052cd7e454e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11570,10 +11570,10 @@ MonoBehaviour:
   upgradeName: Suit
   upgradeImageUI: {fileID: 1506363209}
   upgradeSprites:
-  - {fileID: 21300000, guid: f46b635e63b80d949b4cf7b3565c5722, type: 3}
-  - {fileID: 21300000, guid: 631b24f258bd7d240851ab6f7194d0ef, type: 3}
-  - {fileID: 21300000, guid: d168cecbe8a469e4a93b744150011949, type: 3}
-  - {fileID: 21300000, guid: d0e22efd3e45a574290c8231337174ff, type: 3}
+  - {fileID: 21300000, guid: 36c618131b3e4bf42aa03052cd7e454e, type: 3}
+  - {fileID: 21300000, guid: aafea17af82c4674fba66ca4a5ec38c4, type: 3}
+  - {fileID: 21300000, guid: d7f667576524a514cb20eb14ede13ac4, type: 3}
+  - {fileID: 21300000, guid: 8cb1b847094dfdb4680e92dd98a2c0dd, type: 3}
   equipButton: {fileID: 1740796007}
   equipButton2: {fileID: 0}
   equipText: {fileID: 1740796006}
