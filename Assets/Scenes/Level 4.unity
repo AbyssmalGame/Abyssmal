@@ -1181,18 +1181,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 735329336}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &735329338 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6151159353156328600, guid: d6e46e26640c4ab4dbdf6b3478a582fd,
-    type: 3}
-  m_PrefabInstance: {fileID: 735329336}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 877c43c46e9606341ab65bd31e34096e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &805152564
 GameObject:
   m_ObjectHideFlags: 0
@@ -2404,9 +2392,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b159391706d6c9443aababecfdca53cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerGO: {fileID: 735329337}
-  resultsManager: {fileID: 11400000, guid: acbc88afbd1014c47bd0e84b58961995, type: 2}
-  fadeScreen: {fileID: 735329338}
+  PlayerGO: {fileID: 0}
+  resultsManager: {fileID: 0}
+  fadeScreen: {fileID: 0}
 --- !u!4 &1684168801
 Transform:
   m_ObjectHideFlags: 0
@@ -2714,7 +2702,7 @@ TerrainCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_TerrainData: {fileID: 15600000, guid: 6d338e1bf6b87214a9650d2f131f0c82, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: becee6ee4d003aa4ab8c3ace6cfa50d4, type: 2}
   m_EnableTreeColliders: 1
 --- !u!218 &1935089564
 Terrain:
@@ -2725,7 +2713,7 @@ Terrain:
   m_GameObject: {fileID: 1935089561}
   m_Enabled: 1
   serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: 6d338e1bf6b87214a9650d2f131f0c82, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: becee6ee4d003aa4ab8c3ace6cfa50d4, type: 2}
   m_TreeDistance: 5000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
