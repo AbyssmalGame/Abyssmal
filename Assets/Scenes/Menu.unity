@@ -17953,10 +17953,20 @@ PrefabInstance:
       propertyPath: sceneLoader
       value: 
       objectReference: {fileID: 1836267123}
+    - target: {fileID: 3322289752599851304, guid: 28387a47e556ae746be772e556522410,
+        type: 3}
+      propertyPath: m_RenderShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7406823890072165530, guid: 28387a47e556ae746be772e556522410,
         type: 3}
       propertyPath: m_Name
       value: MenuPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042148462531014257, guid: 28387a47e556ae746be772e556522410,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8282923931083714117, guid: 28387a47e556ae746be772e556522410,
         type: 3}
