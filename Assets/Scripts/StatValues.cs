@@ -14,6 +14,7 @@ public class StatValues
     
 
     public static string[] WeaponList = { "spearGun", "harpoonGun", "apsRifle" };
+
 }
 
 public class Upgrade

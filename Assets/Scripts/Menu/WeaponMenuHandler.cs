@@ -8,27 +8,29 @@ using TMPro;
 public class WeaponMenuHandler: MonoBehaviour
 {
     private GameManager gameManager;
-    public TMPro.TextMeshProUGUI upgradeValueText;
+    public TextMeshProUGUI upgradeValueText;
     public string upgradeName;
     public Image upgradeImageUI;
     public List<Sprite> upgradeSprites;
     public Button equipButton;
     public Button equipButton2;
-    public TMPro.TextMeshProUGUI equipText;
-    public TMPro.TextMeshProUGUI goldCostText;
-    public TMPro.TextMeshProUGUI ironCostText;
-    public TMPro.TextMeshProUGUI debrisCostText;
+    public List<TextMeshProUGUI> equipTexts;
+    public TextMeshProUGUI goldCostText;
+    public TextMeshProUGUI ironCostText;
+    public TextMeshProUGUI debrisCostText;
     public List<Image> weaponImageUI;
-    public TMPro.TextMeshProUGUI weaponTextUI;
+    public TextMeshProUGUI weaponDescriptionText;
+    public List<TextMeshProUGUI> weaponNameTexts;
     private CurrencyUIHandler currencyUIHandler;
 
     public PlayerStatManager playerStatManager;
 
     private int currentUpgradeIndex = 0;
+    private string[] weaponDescriptions = { "A single shot speargun.", "A single shot harpoon gun", "A rapid fire APS rifle." };
 
     void Start()
     {
-        UpdateUI();
+        UpdateWeaponUI(0);
     }
         
     private void Awake()
@@ -43,62 +45,23 @@ public class WeaponMenuHandler: MonoBehaviour
         if ((currentUpgradeIndex < upgradeSprites.Count - 1 && direction == 1) || (direction == -1 && currentUpgradeIndex > 0)) 
         {
             currentUpgradeIndex += direction;
-            UpdateUI();
+            UpdateWeaponUI(0);
         }
     }
 
-    private void UpdateUI()
-    {
-        switch (upgradeName)
-        {
-            case "Suit":
-                upgradeImageUI.sprite = upgradeSprites[currentUpgradeIndex];
-                upgradeValueText.text = "Suit upgrade granting " + StatValues.PlayerHPLevels[currentUpgradeIndex].levelValue + " HP";
-                UpdateButtonUI(StatValues.PlayerHPLevels[currentUpgradeIndex], gameManager.playerHP);
-                UpdateCostUI(StatValues.PlayerHPLevels[currentUpgradeIndex]);
-                break;
-
-            case "Oxygen":
-                upgradeImageUI.sprite = upgradeSprites[currentUpgradeIndex];
-                upgradeValueText.text = "Oxygen upgrade granting " + StatValues.OxygenLevels[currentUpgradeIndex].levelValue + " O2";
-                UpdateButtonUI(StatValues.OxygenLevels[currentUpgradeIndex], gameManager.oxygen);
-                UpdateCostUI(StatValues.OxygenLevels[currentUpgradeIndex]);
-                break;
-
-            case "SwimSpeed":
-                upgradeImageUI.sprite = upgradeSprites[currentUpgradeIndex];
-                upgradeValueText.text = "Flipper upgrade granting " + StatValues.SwimSpeedLevels[currentUpgradeIndex].levelValue + "x speed";
-                UpdateButtonUI(StatValues.SwimSpeedLevels[currentUpgradeIndex], gameManager.swimSpeed);
-                UpdateCostUI(StatValues.SwimSpeedLevels[currentUpgradeIndex]);
-                break;
-        }
-        currencyUIHandler.updateCurrencyUI();
-
-        playerStatManager.UpdateMenuStats();
-    }
-
+    // uiIndex represents weapon1 or weapon2 on the menu
     private void UpdateWeaponUI(int uiIndex = 0)
     {
-        weaponImageUI[uiIndex].sprite = upgradeSprites[currentUpgradeIndex];
-        switch (currentUpgradeIndex)
-        {
-            
-                
-        }
-        if (uiIndex == 0)
-        {
-            
-        } else if (uiIndex == 1)
-        {
-            
-        }
-        upgradeImageUI.sprite = upgradeSprites[currentUpgradeIndex];
-        upgradeValueText.text = "Single shot speargun";
-        if (uiIndex== 0)
-        {
-
-        }
+        weaponNameTexts[currentUpgradeIndex].text = StatValues.WeaponList[currentUpgradeIndex];
+        upgradeValueText.text = weaponDescriptions[currentUpgradeIndex];
+        UpdateButtonUI()
+        UpdateCostUI(StatValues.)
         //UpdateButtonUI(StatValues.SpearGun, equipButton);
+    }
+
+    private void UpdateWeaponImage(int uiIndex = 0)
+    {
+        weaponImageUI[uiIndex].sprite = upgradeSprites[currentUpgradeIndex];
     }
 
     private void UpdateButtonUI(Upgrade upgrade, float levelValComapre)
