@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 6768466811499706126}
   - component: {fileID: 478809574873385731}
   - component: {fileID: 3442751601308091174}
-  - component: {fileID: 2097487507638396252}
+  - component: {fileID: 8909849536241863121}
   m_Layer: 8
   m_Name: FireBullet
   m_TagString: Untagged
@@ -336,8 +336,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
---- !u!64 &2097487507638396252
-MeshCollider:
+--- !u!65 &8909849536241863121
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -349,15 +349,14 @@ MeshCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 1975
+    m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6239881831769578202, guid: 9512cc95550768443aaf5bdfbbff62f0, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.12387804, y: 0.120186016, z: 0.39439878}
+  m_Center: {x: -0.0009967706, y: 0.00082082395, z: 0.16943441}
 --- !u!1 &1077179154429571501
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,6 +743,8 @@ MonoBehaviour:
   damagePerShot: 2
   fireCooldownSeconds: 0.2
   magazine: 26
+  fireSound: {fileID: 0}
+  reloadSound: {fileID: 0}
 --- !u!1 &1928867959730621955
 GameObject:
   m_ObjectHideFlags: 0
