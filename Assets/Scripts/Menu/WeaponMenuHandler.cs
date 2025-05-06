@@ -3,25 +3,24 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using static StatValues;
 using TMPro;
+using UnityEngine.AI;
 
 
 public class WeaponMenuHandler: MonoBehaviour
 {
     private GameManager gameManager;
     public TextMeshProUGUI upgradeValueText;
-    public string upgradeName;
     public Image upgradeImageUI;
     public List<Sprite> upgradeSprites;
-    public Button equipButton;
-    public Button equipButton2;
+    public List<Button> equipButtons;
     public List<TextMeshProUGUI> equipTexts;
     public TextMeshProUGUI goldCostText;
     public TextMeshProUGUI ironCostText;
     public TextMeshProUGUI debrisCostText;
-    public List<Image> weaponImageUI;
+    public List<Image> weaponImageUIs;
     public TextMeshProUGUI weaponDescriptionText;
     public List<TextMeshProUGUI> weaponNameTexts;
-    private CurrencyUIHandler currencyUIHandler;
+    public CurrencyUIHandler currencyUIHandler;
 
     public PlayerStatManager playerStatManager;
 
@@ -36,12 +35,10 @@ public class WeaponMenuHandler: MonoBehaviour
     private void Awake()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        currencyUIHandler = GameObject.Find("Currency").GetComponent<CurrencyUIHandler>();
     }
 
     public void SwitchUpgrade(int direction)
     {
-        
         if ((currentUpgradeIndex < upgradeSprites.Count - 1 && direction == 1) || (direction == -1 && currentUpgradeIndex > 0)) 
         {
             currentUpgradeIndex += direction;
@@ -52,118 +49,115 @@ public class WeaponMenuHandler: MonoBehaviour
     // uiIndex represents weapon1 or weapon2 on the menu
     private void UpdateWeaponUI(int uiIndex = 0)
     {
-        weaponNameTexts[currentUpgradeIndex].text = StatValues.WeaponList[currentUpgradeIndex];
+        weaponNameTexts[currentUpgradeIndex].text = WeaponNames[currentUpgradeIndex];
         upgradeValueText.text = weaponDescriptions[currentUpgradeIndex];
-        UpdateButtonUI()
-        UpdateCostUI(StatValues.)
-        //UpdateButtonUI(StatValues.SpearGun, equipButton);
+        UpdateButtonUI(Weapons[currentUpgradeIndex]);
+        UpdateCostUI(Weapons[currentUpgradeIndex]);
+        UpdateButtonUI(Weapons[currentUpgradeIndex]);
+    }
+
+    private void UpdateEquippedWeaponUI(string weaponName, int uiIndex)
+    {
+        int weaponIndex = -1;
+        if (weaponName == WeaponNames[0]) //speargun
+        {
+            weaponIndex = 0;
+        } 
+        else if (weaponName == WeaponNames[1]) //harpoonGun
+        {
+            weaponIndex = 1;
+        } 
+        else if (weaponName != WeaponNames[2]) //APSrifle
+        {
+            weaponIndex = 2;
+        }
+
+        
+    }
+    /// <summary>
+    /// This versions hould only be used in an active environment. Use the string parameter on start.
+    /// </summary>
+    private void UpdateEquippedWeaponUI()
+    {
+
     }
 
     private void UpdateWeaponImage(int uiIndex = 0)
     {
-        weaponImageUI[uiIndex].sprite = upgradeSprites[currentUpgradeIndex];
+        weaponImageUIs[uiIndex].sprite = upgradeSprites[currentUpgradeIndex];
     }
 
-    private void UpdateButtonUI(Upgrade upgrade, float levelValComapre)
+    private void UpdateButtonUI(Upgrade upgrade)
     {
-        if (upgrade.isOwned)
+        for (int i = 0; i < equipButtons.Count; i++)
         {
-            if (upgrade.levelValue != levelValComapre)
+            if (upgrade.isOwned)
             {
-                equipText.SetText("Equip");
-                equipButton.GetComponent<Image>().color = Color.white;
+                if (weaponImageUIs[i] != upgradeImageUI)
+                {
+                    equipTexts[i].SetText("Equip");
+                    equipButtons[i].GetComponent<Image>().color = Color.white;
+                }
+                else
+                {
+                    equipTexts[i].SetText("Equipped");
+                    equipButtons[i].GetComponent<Image>().color = Color.gray;
+                }
             }
             else
             {
-                equipText.SetText("Equipped");
-                equipButton.GetComponent<Image>().color = Color.gray;
+                equipTexts[i].SetText("Purchase");
+                if (CheckUpgradeCost(upgrade))
+                {
+                    equipButtons[i].GetComponent<Image>().color = Color.green;
+                }
+                else
+                {
+                    equipButtons[i].GetComponent<Image>().color = Color.red;
+                }
             }
         }
-        else
-        {
-            equipText.SetText("Purchase");
-            if (CheckUpgradeCost(upgrade)) 
-            {
-                equipButton.GetComponent<Image>().color = Color.green;
-            } else
-            {
-                equipButton.GetComponent<Image>().color = Color.red;
-            }
-        }
-    }
-
-    private void UpdateButtonUI(Upgrade weapon, TMPro.TextMeshProUGUI text, Button button, string currentWeapon, string compareWeapon)
-    {
-        if (weapon.isOwned)
-        {
-            if (currentWeapon != compareWeapon)
-            {
-                text.SetText("Equip");
-                button.GetComponent<Image>().color = Color.white;
-            }
-            else
-            {
-                text.SetText("Equipped");
-                button.GetComponent<Image>().color = Color.gray;
-            }
-        } else
-        {
-            equipText.SetText("Purchase");
-            if (CheckUpgradeCost(weapon))
-            {
-                button.GetComponent<Image>().color = Color.green;
-            }
-            else
-            {
-                button.GetComponent<Image>().color = Color.red;
-            }
-        }
+        
     }
 
     public void BuyWeapon(int slotIndex)
     {
+        Upgrade current = Weapons[currentUpgradeIndex];
         string weaponToBuy = "";
-        if (upgradeName == "Weapon")
+        if (current.isOwned || CheckUpgradeCost(current))
         {
+            UpdateGameManagerCosts(current);
             switch (currentUpgradeIndex)
             {
-                case 0: //Speargun
-                    if (StatValues.SpearGun.isOwned || CheckUpgradeCost(StatValues.SpearGun))
-                    {
-                        UpdateGameManagerCosts(StatValues.SpearGun);
-                        weaponToBuy = "spearGun";
-                    }
+                case 0:
+                    weaponToBuy = "spearGun";
                     break;
 
-                case 1: //HarpoonGun
-                    if (StatValues.HarpoonGun.isOwned || CheckUpgradeCost(StatValues.HarpoonGun))
-                    {
-                        UpdateGameManagerCosts(StatValues.HarpoonGun);
-                        weaponToBuy = "harpoonGun";
-                    }
+                case 1:
+                    weaponToBuy = "harpoonGun";
                     break;
 
-                case 2: //APS Rifle
-                    if (StatValues.APSRifle.isOwned || CheckUpgradeCost(StatValues.APSRifle))
-                    {
-                        UpdateGameManagerCosts(StatValues.APSRifle);
-                        weaponToBuy = "apsRifle";
-                    }
+                case 2:
+                    weaponToBuy = "apsRifle";
                     break;
-            }
-            if (weaponToBuy != "")
-            {
-                if (slotIndex == 1)
-                {
-                    gameManager.SetWeapon1(weaponToBuy);
-                    
-                }
-                else if (slotIndex == 2)
-                {
-                    gameManager.SetWeapon2(weaponToBuy);
-                }
             }
         }
+        
+        
+        if (weaponToBuy != "")
+        {
+            if (slotIndex == 1)
+            {
+                gameManager.SetWeapon1(weaponToBuy);
+                    
+            }
+            else if (slotIndex == 2)
+            {
+                gameManager.SetWeapon2(weaponToBuy);
+            }
+            UpdateWeaponUI(slotIndex);
+        }
+        
     }
 
     public void BuyUpgrade()
