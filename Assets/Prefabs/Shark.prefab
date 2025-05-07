@@ -148,6 +148,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 10
+  damageColor:
+    serializedVersion: 2
+    rgba: 1677721855
 --- !u!114 &7005099322986125215
 MonoBehaviour:
   m_ObjectHideFlags: 0
