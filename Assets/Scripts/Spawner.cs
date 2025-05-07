@@ -7,15 +7,16 @@ public class Spawner : MonoBehaviour
     public GameObject enemyPrefab;
     public GameObject player;
     public float spawnInterval = 10f;
-    // Start is called before the first frame update
+    private int limitCounter = 0;
+    private int spawnLimit = 6;
     void Start()
     {
         InvokeRepeating(nameof(SpawnPrefab), 0f, spawnInterval);
     }
 
-    // Update is called once per frame
     void SpawnPrefab()
     {
+        if (limitCounter >= spawnLimit) return;
 		GameObject instance = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
 
 		// Assign the player reference if the prefab has a script that needs it
@@ -24,5 +25,6 @@ public class Spawner : MonoBehaviour
 		{
 			enemyScript.target = player;
 		}
+        limitCounter++;
 	}
 }
