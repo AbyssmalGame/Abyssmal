@@ -10,16 +10,20 @@ public class HPManager : MonoBehaviour
     private int currentHP;
 
     [SerializeField] private Color32 damageColor = new Color(255, 0, 0, 150);
+    [SerializeField] private AudioClip bulletHitSound;
+    private AudioSource audioSource;
 
     private void Start()
     {
         currentHP = maxHP;
         OnDiecallback = gameObject.GetComponent<DropMaterials>().doDrops;
+        audioSource = GameObject.Find("GamePlayer").GetComponent<AudioSource>();
     }
 
     public void ApplyDamage(int damage)
     {
         currentHP -= damage;
+        audioSource.PlayOneShot(bulletHitSound);
         DamageFlash();
         if (currentHP <= 0)
         {

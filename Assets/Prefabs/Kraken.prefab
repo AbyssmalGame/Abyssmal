@@ -869,6 +869,7 @@ MonoBehaviour:
   damageColor:
     serializedVersion: 2
     rgba: 4278190335
+  bulletHitSound: {fileID: 8300000, guid: 149eea87aff150f428439230fab31d4b, type: 3}
 --- !u!114 &2277990405991706574
 MonoBehaviour:
   m_ObjectHideFlags: 0
