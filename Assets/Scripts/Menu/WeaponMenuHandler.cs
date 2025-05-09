@@ -179,7 +179,7 @@ public class WeaponMenuHandler: MonoBehaviour
         equipTexts[equippedIndex].SetText("Equip");
         equipButtons[equippedIndex].GetComponent<Image>().color = Color.white;
         equipButtons[equippedIndex].interactable = true;
-        tempWeapon = GetFormattedWeaponName(gameManager.GetWeaponAtIndex(equippedIndex);
+        tempWeapon = GetFormattedWeaponName(gameManager.GetWeaponAtIndex(equippedIndex));
         tempSprite = weaponImageUIs[equippedIndex].sprite;
         weaponNameTexts[equippedIndex].text = weaponNameTexts[equippedIndex & 1].text;
         weaponImageUIs[equippedIndex].sprite = weaponImageUIs[equippedIndex & 1].sprite;
