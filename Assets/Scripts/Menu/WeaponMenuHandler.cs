@@ -45,13 +45,12 @@ public class WeaponMenuHandler: MonoBehaviour
     }
 
     // uiIndex represents weapon1 or weapon2 on the menu
-    private void UpdateWeaponUI(int uiIndex = -1)
+    private void UpdateWeaponUI(int uiIndex = -1, bool doButtons = true)
     {
         upgradeImageUI.sprite = upgradeSprites[currentUpgradeIndex];
         weaponDescriptionText.text = weaponDescriptions[currentUpgradeIndex];
-        UpdateButtonUI(Weapons[currentUpgradeIndex]);
+        if (doButtons) UpdateButtonUI(Weapons[currentUpgradeIndex]);
         UpdateCostUI(Weapons[currentUpgradeIndex]);
-        UpdateButtonUI(Weapons[currentUpgradeIndex]);
         if (uiIndex > -1)
         {
             UpdateEquippedWeaponUI();
@@ -124,11 +123,13 @@ public class WeaponMenuHandler: MonoBehaviour
                 {
                     equipTexts[i].SetText("Equip");
                     equipButtons[i].GetComponent<Image>().color = Color.white;
+                    equipButtons[i].interactable = true;
                 }
                 else
                 {
                     equipTexts[i].SetText("Equipped");
                     equipButtons[i].GetComponent<Image>().color = Color.gray;
+                    equipButtons[i].interactable = false;
                 }
             }
             else
@@ -137,14 +138,60 @@ public class WeaponMenuHandler: MonoBehaviour
                 if (CheckUpgradeCost(upgrade))
                 {
                     equipButtons[i].GetComponent<Image>().color = Color.green;
+                    equipButtons[i].interactable = true;
                 }
                 else
                 {
                     equipButtons[i].GetComponent<Image>().color = Color.red;
+                    equipButtons[i].interactable = false;
                 }
             }
         }
+
+        if (WeaponNames[currentUpgradeIndex] == gameManager.GetWeapon1() && gameManager.GetWeapon2() == "")
+        {
+            equipTexts[1].SetText("Can't Equip");
+            equipButtons[1].GetComponent<Image>().color = Color.gray;
+            equipButtons[1].interactable = false;
+        }
         
+    }
+
+    private void switchEquippedWeapons()
+    {
+        int equippedIndex = -1;
+        int equipIndex = -1;
+        string tempWeapon = "";
+        Sprite tempSprite = null;
+
+        if (equipTexts[0].text == "Equip")
+        {
+            equipIndex = 1;
+            equippedIndex = 0;
+        } else
+        {
+            equipIndex = 0;
+            equippedIndex = 1;
+        }
+
+
+
+        equipTexts[equippedIndex].SetText("Equip");
+        equipButtons[equippedIndex].GetComponent<Image>().color = Color.white;
+        equipButtons[equippedIndex].interactable = true;
+        tempWeapon = gameManager.GetWeaponAtIndex(equippedIndex);
+        tempSprite = weaponImageUIs[equippedIndex].sprite;
+        weaponNameTexts[equippedIndex].text = weaponNameTexts[equippedIndex & 1].text;
+        weaponImageUIs[equippedIndex].sprite = weaponImageUIs[equippedIndex & 1].sprite;
+        gameManager.setWeapon(equippedIndex, gameManager.GetWeaponAtIndex(equippedIndex & 1));
+
+
+        equipTexts[equipIndex].SetText("Equip");
+        equipButtons[equipIndex].GetComponent<Image>().color = Color.white;
+        equipButtons[equipIndex].interactable = true;
+        gameManager.setWeapon(equipIndex, tempWeapon);
+        weaponNameTexts[equippedIndex].text = tempWeapon;
+        weaponImageUIs[equippedIndex].sprite = tempSprite;
     }
 
     /*
@@ -159,6 +206,7 @@ public class WeaponMenuHandler: MonoBehaviour
     {
         Upgrade current = Weapons[currentUpgradeIndex];
         string weaponToBuy = "";
+        bool updateOtherUI = true;
         // Get weapon name by index
         if (current.isOwned || CheckUpgradeCost(current))
         {
@@ -171,15 +219,33 @@ public class WeaponMenuHandler: MonoBehaviour
         {
             if (uiIndex == 0)
             {
-                gameManager.SetWeapon1(weaponToBuy);
-                    
+                if(weaponToBuy == gameManager.GetWeapon2())
+                {
+                    switchEquippedWeapons();
+                    updateOtherUI = false;
+                } else
+                {
+                    gameManager.SetWeapon1(weaponToBuy);
+                }                    
             }
             else if (uiIndex == 1)
             {
-                gameManager.SetWeapon2(weaponToBuy);
+                if (weaponToBuy == gameManager.GetWeapon1() && gameManager.GetWeapon2() != "")
+                {
+                    switchEquippedWeapons();
+                    updateOtherUI = false;
+                }
+                else
+                {
+                    gameManager.SetWeapon2(weaponToBuy);
+                }
             }
-            UpdateWeaponUI(uiIndex);
-            UpdateEquippedWeaponUI();
+
+            if (updateOtherUI)
+            {
+                UpdateWeaponUI(uiIndex);
+                UpdateEquippedWeaponUI();
+            }
         }
         
     }

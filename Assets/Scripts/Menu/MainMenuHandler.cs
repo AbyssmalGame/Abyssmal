@@ -109,11 +109,13 @@ public class MainMenuHandler : MonoBehaviour
             {
                 equipText.SetText("Equip");
                 equipButton.GetComponent<Image>().color = Color.white;
+                equipButton.interactable = true;
             }
             else
             {
                 equipText.SetText("Equipped");
                 equipButton.GetComponent<Image>().color = Color.gray;
+                equipButton.interactable = false;
             }
         }
         else
@@ -122,9 +124,11 @@ public class MainMenuHandler : MonoBehaviour
             if (CheckUpgradeCost(upgrade)) 
             {
                 equipButton.GetComponent<Image>().color = Color.green;
+                equipButton.interactable = true;
             } else
             {
                 equipButton.GetComponent<Image>().color = Color.red;
+                equipButton.interactable = false;
             }
         }
     }
