@@ -21,6 +21,10 @@ public class PlayerStatManager : MonoBehaviour
 
 	public SceneLoader sceneLoader;
 
+	[SerializeField] private AudioClip[] playerDamageSounds;
+	[SerializeField] private AudioClip playerLowHPSound;
+	private AudioSource audioSource;
+
 	void Start()
 	{
 		UpdateMenuStats();
@@ -61,9 +65,14 @@ public class PlayerStatManager : MonoBehaviour
 	public void TakeDamage(float amount)
 	{
 		hpStat.currentValue -= amount;
+		hpStat.currentValue = hpStat.currentValue >= 0 ? hpStat.currentValue : 0;
+
 		hpText.text = "" + Mathf.FloorToInt(hpStat.currentValue);
 
+		audioSource = GetComponent<AudioSource>();
+
 		UpdateHPIcon();
+		audioSource.PlayOneShot(playerDamageSounds[Random.Range(0, playerDamageSounds.Length)]);
 
 		if (hpStat.currentValue <= 0)
 		{
@@ -75,6 +84,12 @@ public class PlayerStatManager : MonoBehaviour
 	{
 		float hpPercent = hpStat.currentValue / hpStat.maxValue;
 
+		if (hpPercent > 0.2f)
+        {
+			audioSource.loop = false;
+			audioSource.Stop();
+		}
+
 		if (hpPercent > 0.5f)
 		{
 			hpIcon.sprite = greenSprite;
@@ -85,6 +100,10 @@ public class PlayerStatManager : MonoBehaviour
 		}
 		else
 		{
+			audioSource.clip = playerLowHPSound;
+			audioSource.loop = true;
+			audioSource.Play();
+
 			hpIcon.sprite = redSprite;
 		}
 	}

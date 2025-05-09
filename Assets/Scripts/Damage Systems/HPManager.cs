@@ -48,7 +48,7 @@ public class HPManager : MonoBehaviour
 
     IEnumerator RedFlash(Renderer r)
     {
-        Color originalColor = r.material.color;
+        Color originalColor = Color.white;
         foreach (Material material in r.materials)
         {
             material.color = damageColor;
