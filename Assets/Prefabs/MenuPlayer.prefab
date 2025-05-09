@@ -3207,6 +3207,11 @@ MonoBehaviour:
   yellowSprite: {fileID: 21300000, guid: 907186e4fbbbb9c439aa257a0402404d, type: 3}
   redSprite: {fileID: 21300000, guid: 3e1cb5b0f1f694342a29f256b4bfe2c9, type: 3}
   sceneLoader: {fileID: 0}
+  playerDamageSounds:
+  - {fileID: 8300000, guid: ef5183d9cee99284ea94d4b1ca90d6ad, type: 3}
+  - {fileID: 8300000, guid: 844bc0dac8f2dac4e964bf06c9246301, type: 3}
+  - {fileID: 8300000, guid: 20807a8ff3de42544b13ad93d9fc9161, type: 3}
+  playerLowHPSound: {fileID: 8300000, guid: baf31a0e5a33a3f4e888f7c5646b1c55, type: 3}
 --- !u!114 &3166950248222139048
 MonoBehaviour:
   m_ObjectHideFlags: 0
