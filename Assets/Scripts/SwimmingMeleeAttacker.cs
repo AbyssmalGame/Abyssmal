@@ -14,6 +14,8 @@ public class SwimmingMeleeAttacker : SwimmingEnemy
 
     private float attackCollisionDelayTimer = 0.0f;
 
+    [SerializeField] private AudioClip straightAttackSound;
+
     protected override void OnUpdate()
     {
         base.OnUpdate();
@@ -46,6 +48,7 @@ public class SwimmingMeleeAttacker : SwimmingEnemy
         if (Physics.Raycast(hitRay, transform.forward, out hit, attackRange) && hit.collider.gameObject == target)
         {
             Attack();
+            audioSource.PlayOneShot(lockOnSound);
         }
     }
 
@@ -73,6 +76,7 @@ public class SwimmingMeleeAttacker : SwimmingEnemy
         }
 
         rb.AddForce(transform.forward * attackSpeed, ForceMode.Impulse);
+        audioSource.PlayOneShot(straightAttackSound);
         rb.freezeRotation = true;
         yield return new WaitForSeconds(attackLagTime);
 

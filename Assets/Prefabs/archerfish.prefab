@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   decelerationSpeed: 5
+  lockOnSound: {fileID: 8300000, guid: e8b90ddc44742024fa7f6428423115ae, type: 3}
   damageAmount: 10
   attackRange: 14
   attackChargeTime: 2

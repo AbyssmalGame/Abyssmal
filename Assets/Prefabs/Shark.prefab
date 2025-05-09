@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3853023622788092226}
   - component: {fileID: 8761349156665135489}
   - component: {fileID: 7005099322986125215}
+  - component: {fileID: 8518469950328784829}
   m_Layer: 6
   m_Name: Shark
   m_TagString: Enemy
@@ -60,7 +61,7 @@ CapsuleCollider:
   m_Radius: 0.46
   m_Height: 3.87
   m_Direction: 2
-  m_Center: {x: 0, y: -0.08, z: 0}
+  m_Center: {x: 0, y: -0.08, z: 0.44}
 --- !u!54 &8263095927769149687
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -129,12 +130,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   decelerationSpeed: 8
+  lockOnSound: {fileID: 8300000, guid: e8b90ddc44742024fa7f6428423115ae, type: 3}
   damageAmount: 20
   attackRange: 5
   attackChargeTime: 1
   attackSpeed: 10
   attackCollisionDelay: 1
   attackLagTime: 1
+  straightAttackSound: {fileID: 8300000, guid: aafaaa9351d13c242b875700c84ecb20, type: 3}
 --- !u!114 &8761349156665135489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,6 +174,102 @@ MonoBehaviour:
   maxIron: 3
   minDebris: 0
   maxDebris: 3
+--- !u!82 &8518469950328784829
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376586302968482605}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &3802487784007779956
 PrefabInstance:
   m_ObjectHideFlags: 0
