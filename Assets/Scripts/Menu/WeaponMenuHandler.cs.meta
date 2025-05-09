@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/Menu/WeaponMenuHandler.cs.meta
 guid: 779f6d53ed4548d40ae4dfb4825f1109
+========
+guid: 0073431fea76f2043bb072253eed2b96
+>>>>>>>> main:Assets/Scripts/ChainAudio.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
