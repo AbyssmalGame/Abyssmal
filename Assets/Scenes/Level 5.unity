@@ -1043,6 +1043,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 80
+  damageColor:
+    serializedVersion: 2
+    rgba: 4278190335
+  bulletHitSound: {fileID: 8300000, guid: 149eea87aff150f428439230fab31d4b, type: 3}
 --- !u!114 &33214178
 MonoBehaviour:
   m_ObjectHideFlags: 0
