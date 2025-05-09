@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Projectile : MonoBehaviour
 {
@@ -18,7 +19,12 @@ public class Projectile : MonoBehaviour
             isInstantiated = true;
         }
 
-        audioSource = GameObject.Find("GamePlayer").GetComponent<AudioSource>();
+
+        if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 6)
+        {
+            audioSource = GameObject.Find("GamePlayer").GetComponent<AudioSource>();
+        }
+        
     }
     public void selfDestruct()
     {

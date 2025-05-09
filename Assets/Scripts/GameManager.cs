@@ -67,6 +67,21 @@ public class GameManager : MonoBehaviour
 		return weapon2;
 	}
 
+	/// <summary>
+	/// index should only be 0 or 1. Returns weapon1 or weapon2
+	/// </summary>
+	/// <param name="index"></param>
+	/// <returns></returns>
+	public string GetWeaponAtIndex(int index)
+	{
+		if (index == 0)
+		{
+			return weapon1;
+		} else if (index == 1){
+			return weapon2;
+		}
+		return null;
+	}
 	public static float GetSpeed()
     {
 		return  Instance.swimSpeed;

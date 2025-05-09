@@ -6,14 +6,16 @@ public class StatValues
 {
     public static List<Upgrade> PlayerHPLevels = new List<Upgrade> { new Upgrade(100f, 0, 0, 0, true), new Upgrade(120f, 1, 1, 1), new Upgrade(150f, 6, 2, 14), new Upgrade(200f, 10, 10, 10) };
     public static List<Upgrade> OxygenLevels = new List<Upgrade> { new Upgrade(600f, 0, 0, 0, true), new Upgrade(660f, 1, 1, 1), new Upgrade(720f, 7, 5, 20), new Upgrade(840f, 10, 10, 10) };
-    public static List<Upgrade> SwimSpeedLevels = new List<Upgrade> { new Upgrade(1f, 0, 0, 0, true), new Upgrade(1.35f, 1, 1, 1), new Upgrade(1.75f, 12, 42, 8), new Upgrade(3.35f, 10, 10, 10) };
+    public static List<Upgrade> SwimSpeedLevels = new List<Upgrade> { new Upgrade(2.5f, 0, 0, 0, true), new Upgrade(3.2f, 1, 1, 1), new Upgrade(4.0f, 12, 42, 8), new Upgrade(5.0f, 10, 10, 10) };
 
-    public static Upgrade SpearGun = new Upgrade(1f, 0, 0, 0, true);
+    public static Upgrade SpearGun = new Upgrade(0f, 0, 0, 0, true);
     public static Upgrade HarpoonGun = new Upgrade(1f, 15, 15, 15);
-    public static Upgrade APSRifle = new Upgrade(1f, 35, 35, 35);
-    
+    public static Upgrade APSRifle = new Upgrade(2f, 35, 35, 35);
 
-    public static string[] WeaponList = { "spearGun", "harpoonGun", "apsRifle" };
+    public static List<Upgrade> Weapons = new List<Upgrade> { SpearGun, HarpoonGun, APSRifle };
+
+    public static List<string> WeaponNames = new List<string>{ "spearGun", "harpoonGun", "apsRifle" };
+
 }
 
 public class Upgrade
