@@ -154,7 +154,7 @@ public class WeaponMenuHandler: MonoBehaviour
             equipButtons[1].GetComponent<Image>().color = Color.gray;
             equipButtons[1].interactable = false;
         }
-        
+
     }
 
     private void switchEquippedWeapons()
@@ -179,19 +179,34 @@ public class WeaponMenuHandler: MonoBehaviour
         equipTexts[equippedIndex].SetText("Equip");
         equipButtons[equippedIndex].GetComponent<Image>().color = Color.white;
         equipButtons[equippedIndex].interactable = true;
-        tempWeapon = gameManager.GetWeaponAtIndex(equippedIndex);
+        tempWeapon = GetFormattedWeaponName(gameManager.GetWeaponAtIndex(equippedIndex);
         tempSprite = weaponImageUIs[equippedIndex].sprite;
         weaponNameTexts[equippedIndex].text = weaponNameTexts[equippedIndex & 1].text;
         weaponImageUIs[equippedIndex].sprite = weaponImageUIs[equippedIndex & 1].sprite;
         gameManager.setWeapon(equippedIndex, gameManager.GetWeaponAtIndex(equippedIndex & 1));
 
 
-        equipTexts[equipIndex].SetText("Equip");
-        equipButtons[equipIndex].GetComponent<Image>().color = Color.white;
-        equipButtons[equipIndex].interactable = true;
-        gameManager.setWeapon(equipIndex, tempWeapon);
+        equipTexts[equipIndex].SetText("Equipped");
+        equipButtons[equipIndex].GetComponent<Image>().color = Color.gray;
+        equipButtons[equipIndex].interactable = false;
+        gameManager.setWeapon(equipIndex, getGameManagerFormatWeapon(tempWeapon));
         weaponNameTexts[equippedIndex].text = tempWeapon;
         weaponImageUIs[equippedIndex].sprite = tempSprite;
+    }
+
+    private string getGameManagerFormatWeapon(string input)
+    {
+        switch (input)
+        {
+            case "Spear Gun":
+                return "speargun";
+            case "Harpoon Gun":
+                return "harpoonGun";
+            case "APS Rifle":
+                return "apsRifle";
+        }
+        return null;
+            
     }
 
     /*
