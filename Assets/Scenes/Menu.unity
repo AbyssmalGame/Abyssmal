@@ -792,6 +792,31 @@ PrefabInstance:
       propertyPath: m_fontSizeMax
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 650776437}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwitchUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WeaponMenuHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8512090211270076353, guid: 65b8d79a561ac66408bd17c23a3c241c,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1063,6 +1088,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150929492}
   m_CullTransparentMesh: 1
+--- !u!114 &164188587 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6077722629515556578, guid: 65b8d79a561ac66408bd17c23a3c241c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1718965494}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &173240083
 GameObject:
   m_ObjectHideFlags: 0
@@ -2593,8 +2630,8 @@ MonoBehaviour:
   gold: 100
   iron: 100
   debris: 100
-  weapon1: apsRifle
-  weapon2: spearGun
+  weapon1: spearGun
+  weapon2: 
 --- !u!4 &386345836
 Transform:
   m_ObjectHideFlags: 0
@@ -2861,6 +2898,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontSizeMax
       value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 650776437}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuyWeapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WeaponMenuHandler, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7074652078587697583, guid: 65b8d79a561ac66408bd17c23a3c241c,
         type: 3}
@@ -4194,27 +4251,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 650776435}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b994effd994850449ae30d0b983877a, type: 3}
+  m_Script: {fileID: 11500000, guid: 779f6d53ed4548d40ae4dfb4825f1109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeValueText: {fileID: 1219540854}
-  upgradeName: Weapon
   upgradeImageUI: {fileID: 1525070651}
   upgradeSprites:
-  - {fileID: 21300000, guid: b26464ba7080c9749a7611ed0391a6c6, type: 3}
-  - {fileID: 21300000, guid: 79c6f3650d708ad4b96b570612cf49c2, type: 3}
   - {fileID: 21300000, guid: c8b2d75744a21154da5a8263766cb37c, type: 3}
-  equipButton: {fileID: 403800668}
-  equipButton2: {fileID: 1718965495}
-  equipText: {fileID: 403800667}
+  - {fileID: 21300000, guid: 79c6f3650d708ad4b96b570612cf49c2, type: 3}
+  - {fileID: 21300000, guid: b26464ba7080c9749a7611ed0391a6c6, type: 3}
+  equipButtons:
+  - {fileID: 403800668}
+  - {fileID: 1718965495}
+  equipTexts:
+  - {fileID: 403800667}
+  - {fileID: 164188587}
   goldCostText: {fileID: 342285253}
   ironCostText: {fileID: 494725297}
   debrisCostText: {fileID: 173240085}
-  weaponImageUI:
+  weaponImageUIs:
   - {fileID: 1549569481}
   - {fileID: 2113744783}
-  weaponTextUI: {fileID: 0}
-  playerStatManager: {fileID: 1663111111476071936}
+  weaponDescriptionText: {fileID: 1219540854}
+  weaponNameTexts:
+  - {fileID: 1304949285}
+  - {fileID: 1852832930}
+  currencyUIHandler: {fileID: 2046457672}
 --- !u!1 &651434536
 GameObject:
   m_ObjectHideFlags: 0
@@ -6366,6 +6427,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Options
       objectReference: {fileID: 0}
+    - target: {fileID: 4894877851061996825, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6077722629515556578, guid: 65b8d79a561ac66408bd17c23a3c241c,
         type: 3}
       propertyPath: m_text
@@ -7017,12 +7083,12 @@ PrefabInstance:
     - target: {fileID: 3901025309852199056, guid: 65b8d79a561ac66408bd17c23a3c241c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 24.8
+      value: 0.19
       objectReference: {fileID: 0}
     - target: {fileID: 3901025309852199056, guid: 65b8d79a561ac66408bd17c23a3c241c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -35
+      value: -36.7
       objectReference: {fileID: 0}
     - target: {fileID: 3901025309852199056, guid: 65b8d79a561ac66408bd17c23a3c241c,
         type: 3}
@@ -13276,6 +13342,31 @@ PrefabInstance:
       propertyPath: m_fontSizeMax
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 650776437}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuyWeapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WeaponMenuHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7074652078587697583, guid: 65b8d79a561ac66408bd17c23a3c241c,
         type: 3}
       propertyPath: m_IsActive
@@ -16916,6 +17007,31 @@ PrefabInstance:
       propertyPath: m_fontSizeMax
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 650776437}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwitchUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WeaponMenuHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 8512090211270076353, guid: 65b8d79a561ac66408bd17c23a3c241c,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -18207,12 +18323,12 @@ PrefabInstance:
     - target: {fileID: 3901025309852199056, guid: 65b8d79a561ac66408bd17c23a3c241c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -24.8
+      value: 24.9
       objectReference: {fileID: 0}
     - target: {fileID: 3901025309852199056, guid: 65b8d79a561ac66408bd17c23a3c241c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -35
+      value: -12.9
       objectReference: {fileID: 0}
     - target: {fileID: 3901025309852199056, guid: 65b8d79a561ac66408bd17c23a3c241c,
         type: 3}

@@ -47,7 +47,7 @@ public class WeaponMenuHandler: MonoBehaviour
     // uiIndex represents weapon1 or weapon2 on the menu
     private void UpdateWeaponUI(int uiIndex = -1)
     {
-        weaponNameTexts[currentUpgradeIndex].text = WeaponNames[currentUpgradeIndex];
+        upgradeImageUI.sprite = upgradeSprites[currentUpgradeIndex];
         weaponDescriptionText.text = weaponDescriptions[currentUpgradeIndex];
         UpdateButtonUI(Weapons[currentUpgradeIndex]);
         UpdateCostUI(Weapons[currentUpgradeIndex]);
@@ -120,7 +120,7 @@ public class WeaponMenuHandler: MonoBehaviour
         {
             if (upgrade.isOwned)
             {
-                if (weaponImageUIs[i] != upgradeImageUI)
+                if (gameManager.GetWeaponAtIndex(i) != WeaponNames[currentUpgradeIndex])
                 {
                     equipTexts[i].SetText("Equip");
                     equipButtons[i].GetComponent<Image>().color = Color.white;
@@ -169,12 +169,12 @@ public class WeaponMenuHandler: MonoBehaviour
         //Set gamemanager
         if (weaponToBuy != "")
         {
-            if (uiIndex == 1)
+            if (uiIndex == 0)
             {
                 gameManager.SetWeapon1(weaponToBuy);
                     
             }
-            else if (uiIndex == 2)
+            else if (uiIndex == 1)
             {
                 gameManager.SetWeapon2(weaponToBuy);
             }
