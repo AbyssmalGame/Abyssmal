@@ -70,9 +70,9 @@ public class PlayerStatManager : MonoBehaviour
 		hpText.text = "" + Mathf.FloorToInt(hpStat.currentValue);
 
 		audioSource = GetComponent<AudioSource>();
-		audioSource.PlayOneShot(playerDamageSounds[Random.Range(0, playerDamageSounds.Length)]);
 
 		UpdateHPIcon();
+		audioSource.PlayOneShot(playerDamageSounds[Random.Range(0, playerDamageSounds.Length)]);
 
 		if (hpStat.currentValue <= 0)
 		{
