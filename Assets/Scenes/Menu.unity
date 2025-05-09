@@ -8528,6 +8528,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2373006069413174368, guid: 93644ffabc2b3154d85921d33614b092,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2439105471704470742, guid: 93644ffabc2b3154d85921d33614b092,
         type: 3}
       propertyPath: m_Layer
@@ -10453,6 +10458,11 @@ PrefabInstance:
       propertyPath: reloadSound
       value: 
       objectReference: {fileID: 186277870}
+    - target: {fileID: 3232107003223868855, guid: d471d96262459bb46ab407446eee26bb,
+        type: 3}
+      propertyPath: damagePerShot
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6316261071853635972, guid: d471d96262459bb46ab407446eee26bb,
         type: 3}
       propertyPath: m_Name
