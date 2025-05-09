@@ -12,15 +12,22 @@ public class HostileGroundEnemyMovement : MonoBehaviour
     private Vector3 currentTarget;
 
     private Animator animator;
+    private AudioSource audioSource;
+
+    [SerializeField] private AudioClip lockOnSound;
 
     [SerializeField] private float minimumIdleTime = 10.0f;
     [SerializeField] private float maximumIdleTime = 20.0f;
     [SerializeField] private float minimumNextDistance = 5.0f;
     [SerializeField] private float maximumNextDistance = 15.0f;
 
+
     private FieldOfView fieldOfView;
     private bool isChasing = false;
     private bool isIdle = false;
+
+    private bool playedChasingSound = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +36,7 @@ public class HostileGroundEnemyMovement : MonoBehaviour
         fieldOfView = GetComponent<FieldOfView>();
         animator = GetComponentInChildren<Animator>();
         currentTarget = target.transform.position;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -39,12 +47,18 @@ public class HostileGroundEnemyMovement : MonoBehaviour
             currentTarget = target.transform.position;
             navMeshAgent.SetDestination(currentTarget);
             isChasing = true;
+            if (!playedChasingSound)
+            {
+                audioSource.PlayOneShot(lockOnSound);
+                playedChasingSound = true;
+            }
             isIdle = false;
         }
         else if (!fieldOfView.canSeePlayer && !isIdle)
         {
             StartCoroutine("IdleMove");
-        } 
+            playedChasingSound = false;
+        }
 
         if (!isChasing && navMeshAgent.velocity.magnitude == 0)
         {

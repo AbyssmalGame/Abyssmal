@@ -12,6 +12,9 @@ public abstract class SwimmingEnemy : MonoBehaviour
 
     protected Rigidbody rb;
 
+    protected AudioSource audioSource;
+    [SerializeField] protected AudioClip lockOnSound;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -29,6 +32,7 @@ public abstract class SwimmingEnemy : MonoBehaviour
         hostileEnemySwimmingMovement = GetComponent<HostileEnemySwimmingMovement>();
         rb = GetComponent<Rigidbody>();
         target = hostileEnemySwimmingMovement.target;
+        audioSource = GetComponent<AudioSource>();
     }
 
     protected virtual void OnUpdate()

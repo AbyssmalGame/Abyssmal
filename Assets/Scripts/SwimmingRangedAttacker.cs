@@ -31,6 +31,7 @@ public class SwimmingRangedAttacker : SwimmingEnemy
         if (Physics.Raycast(hitRay, transform.forward, out hit, attackRange) && hit.collider.gameObject == target)
         {
             Attack();
+            audioSource.PlayOneShot(lockOnSound);
         }
     }
 
