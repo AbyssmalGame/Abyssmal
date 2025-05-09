@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Projectile : MonoBehaviour
 {
+    public AudioClip audioClip;
+
     public int damage = 0;
     private bool isInstantiated;
 
+    private AudioSource audioSource;
 
     void Awake()
     {
@@ -14,6 +18,13 @@ public class Projectile : MonoBehaviour
         {
             isInstantiated = true;
         }
+
+
+        if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 6)
+        {
+            audioSource = GameObject.Find("GamePlayer").GetComponent<AudioSource>();
+        }
+        
     }
     public void selfDestruct()
     {
@@ -23,7 +34,8 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        
+        audioSource.PlayOneShot(audioClip);
+
         GameObject other = collision.gameObject;
         //Debug.Log("Collided with " + other.tag + "dealing " + damage + " damage.");
         if (other.tag == "Enemy" && other.TryGetComponent(out HPManager HP))

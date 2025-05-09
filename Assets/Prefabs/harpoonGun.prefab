@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4293959562150636067}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_middle_1_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 7305053542709854747}
   - component: {fileID: 3108302335114761743}
   - component: {fileID: 4075780905234900720}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GunBubbles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4929,7 +4929,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4658526162894435744}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_thumb_2_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4961,7 +4961,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3852295447454473907}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_middle_2_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4993,7 +4993,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1779228642903357843}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_pinky_meta_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5069,8 +5069,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.4069566, y: 0.165614, z: 0.10059674}
-  m_Center: {x: 0.4376673, y: 0.04992805, z: -0.008419438}
+  m_Size: {x: 1.4069566, y: 0.2402639, z: 0.25623357}
+  m_Center: {x: 0.4376673, y: 0.057183184, z: 0.007452942}
 --- !u!114 &943293915606360778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5121,7 +5121,7 @@ GameObject:
   - component: {fileID: 8526437752633779133}
   - component: {fileID: 5236339876507521335}
   - component: {fileID: 4585924744476413056}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: harpoongunCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5202,7 +5202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4153922828463232156}
   - component: {fileID: 1142662395664598282}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: fallback
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5310,7 +5310,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6948652422919629506}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BarrelPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5341,7 +5341,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8282869016284912500}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_thumb_r_aux
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5373,7 +5373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 670373099198765942}
   - component: {fileID: 1725704928145956046}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: slim_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5427,7 +5427,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8275875745255239704}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_thumb_1_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5459,7 +5459,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 993119334987796248}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_ring_r_aux
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5490,7 +5490,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1958814062127811201}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_ring_r_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5521,7 +5521,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6500843970859618325}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_ring_1_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5555,7 +5555,7 @@ GameObject:
   - component: {fileID: 1378823254567177155}
   - component: {fileID: 8875814181374391759}
   - component: {fileID: 5338829344446207954}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GunDustBubbles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10441,7 +10441,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8900585172664108273}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_index_r_aux
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10472,7 +10472,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5588692078545970953}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_ring_2_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10504,7 +10504,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7248485974233378833}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_thumb_r_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10535,7 +10535,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8331228863468262378}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wrist_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10571,7 +10571,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3299359840546009171}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_middle_meta_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10603,7 +10603,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 444219239806760636}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_pinky_0_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10635,7 +10635,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7911783934209351988}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_ring_0_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10667,7 +10667,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2831723463717049591}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10705,7 +10705,7 @@ GameObject:
   m_Component:
   - component: {fileID: 715748098939950347}
   - component: {fileID: 5500112003370372257}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: vr_glove_right_slim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10853,7 +10853,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1555428623365692559}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_pinky_1_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10885,7 +10885,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3422307344686649505}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_pinky_2_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10917,7 +10917,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3394856613119774044}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_index_2_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10949,7 +10949,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2423927934694933084}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_middle_r_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10981,7 +10981,7 @@ GameObject:
   m_Component:
   - component: {fileID: 455384115987974241}
   - component: {fileID: 6905612892853368361}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: vr_glove_right_model_slim(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11056,7 +11056,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 60338656724901889}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_index_0_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11088,7 +11088,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3468104499799217351}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_index_meta_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11120,7 +11120,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8683445506271444739}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_middle_r_aux
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11151,7 +11151,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1448741819496387056}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_index_r_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11182,7 +11182,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3212907794925179062}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_pinky_r_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11213,7 +11213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8864005905522121462}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_ring_meta_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11245,7 +11245,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6119003996419209725}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_pinky_r_aux
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11276,7 +11276,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2480006903469398023}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_thumb_0_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11308,7 +11308,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2707824228717870225}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_index_1_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11340,7 +11340,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4550291617396826113}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: finger_middle_0_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11431,6 +11431,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: harpoon
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 85707773f4c2a3749833c88b54ebfb14,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11446,7 +11451,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 85707773f4c2a3749833c88b54ebfb14,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3775011867940915067}
+      addedObject: {fileID: 4578081497954757816}
   m_SourcePrefab: {fileID: 100100000, guid: 85707773f4c2a3749833c88b54ebfb14, type: 3}
 --- !u!4 &562265949561918445 stripped
 Transform:
@@ -11499,9 +11504,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a854789469de2e5408f7575c60ff91d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: e1d3d4baf75045d40a005c50dfb02085, type: 3}
   damage: 0
---- !u!64 &3775011867940915067
-MeshCollider:
+--- !u!65 &4578081497954757816
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -11513,15 +11519,14 @@ MeshCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 1975
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4493585093827132993, guid: 85707773f4c2a3749833c88b54ebfb14, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.30242324, y: 0.118679106, z: 0.30461234}
+  m_Center: {x: -0.062887, y: -0.0073613203, z: 0.062066954}
 --- !u!1001 &1323379321146297947
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11593,7 +11598,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 85707773f4c2a3749833c88b54ebfb14,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 85707773f4c2a3749833c88b54ebfb14,
         type: 3}
@@ -11829,10 +11834,85 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: 0b16c0337ea97c641a376027fee328ad,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -7640558969779515294, guid: 0b16c0337ea97c641a376027fee328ad,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -7146521406498821007, guid: 0b16c0337ea97c641a376027fee328ad,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: 0b16c0337ea97c641a376027fee328ad,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -5546747315237514756, guid: 0b16c0337ea97c641a376027fee328ad,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -5063223942988036812, guid: 0b16c0337ea97c641a376027fee328ad,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -1599826595754709761, guid: 0b16c0337ea97c641a376027fee328ad,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -466329591000292508, guid: 0b16c0337ea97c641a376027fee328ad,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 359312179909449575, guid: 0b16c0337ea97c641a376027fee328ad,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0b16c0337ea97c641a376027fee328ad,
         type: 3}
       propertyPath: m_Name
       value: harpoonGun
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0b16c0337ea97c641a376027fee328ad,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6512510688612296998, guid: 0b16c0337ea97c641a376027fee328ad,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919683763462532184, guid: 0b16c0337ea97c641a376027fee328ad,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416272007918961125, guid: 0b16c0337ea97c641a376027fee328ad,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513859187771203891, guid: 0b16c0337ea97c641a376027fee328ad,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8700725330082129686, guid: 0b16c0337ea97c641a376027fee328ad,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12025,8 +12105,10 @@ MonoBehaviour:
   gunShotEffects:
   - {fileID: 3108302335114761743}
   - {fileID: 8875814181374391759}
-  shootSpeed: 10
+  shootSpeed: 20
   ejectsMagazine: 0
   damagePerShot: 1
   fireCooldownSeconds: 1
   magazine: 1
+  fireSound: {fileID: 0}
+  reloadSound: {fileID: 0}

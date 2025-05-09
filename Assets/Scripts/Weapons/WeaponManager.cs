@@ -4,9 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Valve.VR;
 using Valve.VR.InteractionSystem;
-using static Unity.VisualScripting.Member;
-
-using UnityEngine.SceneManagement;
 
 public class WeaponManager : MonoBehaviour
 {
