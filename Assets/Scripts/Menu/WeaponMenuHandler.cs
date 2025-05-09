@@ -9,7 +9,6 @@ using UnityEngine.AI;
 public class WeaponMenuHandler: MonoBehaviour
 {
     private GameManager gameManager;
-    public TextMeshProUGUI upgradeValueText;
     public Image upgradeImageUI;
     public List<Sprite> upgradeSprites;
     public List<Button> equipButtons;
@@ -22,14 +21,13 @@ public class WeaponMenuHandler: MonoBehaviour
     public List<TextMeshProUGUI> weaponNameTexts;
     public CurrencyUIHandler currencyUIHandler;
 
-    public PlayerStatManager playerStatManager;
-
     private int currentUpgradeIndex = 0;
     private string[] weaponDescriptions = { "A single shot speargun.", "A single shot harpoon gun", "A rapid fire APS rifle." };
 
     void Start()
     {
         UpdateWeaponUI(0);
+        UpdateEquippedWeaponUI();
     }
         
     private void Awake()
@@ -47,16 +45,20 @@ public class WeaponMenuHandler: MonoBehaviour
     }
 
     // uiIndex represents weapon1 or weapon2 on the menu
-    private void UpdateWeaponUI(int uiIndex = 0)
+    private void UpdateWeaponUI(int uiIndex = -1)
     {
         weaponNameTexts[currentUpgradeIndex].text = WeaponNames[currentUpgradeIndex];
-        upgradeValueText.text = weaponDescriptions[currentUpgradeIndex];
+        weaponDescriptionText.text = weaponDescriptions[currentUpgradeIndex];
         UpdateButtonUI(Weapons[currentUpgradeIndex]);
         UpdateCostUI(Weapons[currentUpgradeIndex]);
         UpdateButtonUI(Weapons[currentUpgradeIndex]);
+        if (uiIndex > -1)
+        {
+            UpdateEquippedWeaponUI();
+        }
     }
 
-    private void UpdateEquippedWeaponUI(string weaponName, int uiIndex)
+    private int getWeaponIndexByName(string weaponName)
     {
         int weaponIndex = -1;
         if (weaponName == WeaponNames[0]) //speargun
@@ -71,15 +73,40 @@ public class WeaponMenuHandler: MonoBehaviour
         {
             weaponIndex = 2;
         }
-
-        
+        return weaponIndex; 
     }
+
     /// <summary>
-    /// This versions hould only be used in an active environment. Use the string parameter on start.
+    /// Updates weapon UI representing currently equipped weapons. If you're calling this, it should only be called after updating the gameManager 
     /// </summary>
     private void UpdateEquippedWeaponUI()
     {
+        for (int i = 0; i < equipButtons.Count; i++)
+        {
+            string equippedWeaponName = gameManager.GetWeaponAtIndex(i); // i should only ever be 0 or 1
+            if (equippedWeaponName != "")
+            {
+                weaponNameTexts[i].text = GetFormattedWeaponName(equippedWeaponName);
+                weaponImageUIs[i].sprite = upgradeSprites[WeaponNames.IndexOf(equippedWeaponName)];
+            }
 
+        }
+
+    }
+
+    private string GetFormattedWeaponName(string weaponName)
+    {
+        if (weaponName == WeaponNames[0])
+        {
+            return "Spear Gun";
+        } else if (weaponName == WeaponNames[1])
+        {
+            return "Harpoon Gun";
+        } else if (weaponName == WeaponNames[2])
+        {
+            return "APS Rifle";
+        }
+        return null;
     }
 
     private void UpdateWeaponImage(int uiIndex = 0)
@@ -120,85 +147,41 @@ public class WeaponMenuHandler: MonoBehaviour
         
     }
 
-    public void BuyWeapon(int slotIndex)
+    /*
+     * TODO:
+     * When a weapon is bought:
+     * - Update equipped image UI at uiIndex (0 or 1) 
+     * - Update equipped text at uiIndex
+     * - Set Game Manager weapon based on uiIndex as appropriate weapon text
+     * 
+     */
+    public void BuyWeapon(int uiIndex)
     {
         Upgrade current = Weapons[currentUpgradeIndex];
         string weaponToBuy = "";
+        // Get weapon name by index
         if (current.isOwned || CheckUpgradeCost(current))
         {
             UpdateGameManagerCosts(current);
-            switch (currentUpgradeIndex)
-            {
-                case 0:
-                    weaponToBuy = "spearGun";
-                    break;
-
-                case 1:
-                    weaponToBuy = "harpoonGun";
-                    break;
-
-                case 2:
-                    weaponToBuy = "apsRifle";
-                    break;
-            }
+            weaponToBuy = WeaponNames[currentUpgradeIndex];
         }
         
-        
+        //Set gamemanager
         if (weaponToBuy != "")
         {
-            if (slotIndex == 1)
+            if (uiIndex == 1)
             {
                 gameManager.SetWeapon1(weaponToBuy);
                     
             }
-            else if (slotIndex == 2)
+            else if (uiIndex == 2)
             {
                 gameManager.SetWeapon2(weaponToBuy);
             }
-            UpdateWeaponUI(slotIndex);
+            UpdateWeaponUI(uiIndex);
+            UpdateEquippedWeaponUI();
         }
         
-    }
-
-    public void BuyUpgrade()
-    {
-        switch (upgradeName)
-        {
-            case "Suit":
-                if (StatValues.PlayerHPLevels[currentUpgradeIndex].isOwned || CheckUpgradeCost(StatValues.PlayerHPLevels[currentUpgradeIndex]))
-                {
-                    if (!StatValues.PlayerHPLevels[currentUpgradeIndex].isOwned)
-                    {
-                        UpdateGameManagerCosts(StatValues.PlayerHPLevels[currentUpgradeIndex]);
-                    }
-                    gameManager.SetHP((int)StatValues.PlayerHPLevels[currentUpgradeIndex].levelValue);
-                    UpdateUI();
-                }
-                break;
-            case "Oxygen":
-                if (StatValues.OxygenLevels[currentUpgradeIndex].isOwned || CheckUpgradeCost(StatValues.OxygenLevels[currentUpgradeIndex]))
-                {
-                    if (!StatValues.OxygenLevels[currentUpgradeIndex].isOwned)
-                    {
-                        UpdateGameManagerCosts(StatValues.OxygenLevels[currentUpgradeIndex]);
-                    }
-                    gameManager.SetOxygen(StatValues.OxygenLevels[currentUpgradeIndex].levelValue);
-                    UpdateUI();
-                }
-                
-                break;
-            case "SwimSpeed":
-                if (StatValues.SwimSpeedLevels[currentUpgradeIndex].isOwned || CheckUpgradeCost(StatValues.SwimSpeedLevels[currentUpgradeIndex]))
-                {
-                    if (!StatValues.SwimSpeedLevels[currentUpgradeIndex].isOwned)
-                    {
-                        UpdateGameManagerCosts(StatValues.SwimSpeedLevels[currentUpgradeIndex]);
-                    }
-                    gameManager.SetSwimSpeed(StatValues.SwimSpeedLevels[currentUpgradeIndex].levelValue);
-                    UpdateUI();
-                }
-                break;
-        }
     }
 
     private bool CheckUpgradeCost(Upgrade price)
