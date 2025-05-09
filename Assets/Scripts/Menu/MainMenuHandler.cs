@@ -32,6 +32,7 @@ public class MainMenuHandler : MonoBehaviour
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         currencyUIHandler = GameObject.Find("Currency").GetComponent<CurrencyUIHandler>();
+        
     }
 
     public void SwitchUpgrade(int direction)
