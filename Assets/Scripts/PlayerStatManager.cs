@@ -87,6 +87,7 @@ public class PlayerStatManager : MonoBehaviour
 		if (hpPercent > 0.2f)
         {
 			audioSource.loop = false;
+			audioSource.Stop();
 		}
 
 		if (hpPercent > 0.5f)
@@ -99,8 +100,9 @@ public class PlayerStatManager : MonoBehaviour
 		}
 		else
 		{
-			audioSource.loop = true;
 			audioSource.clip = playerLowHPSound;
+			audioSource.loop = true;
+			audioSource.Play();
 
 			hpIcon.sprite = redSprite;
 		}
