@@ -82,7 +82,20 @@ public class GameManager : MonoBehaviour
 		}
 		return null;
 	}
-	public static float GetSpeed()
+
+    public void setWeapon(int index, string weapon)
+    {
+        if (index == 0)
+        {
+            SetWeapon1(weapon);
+        }
+        else if (index == 1)
+        {
+            SetWeapon2(weapon);
+        }
+    }
+
+    public static float GetSpeed()
     {
 		return  Instance.swimSpeed;
     }

@@ -1020,6 +1020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   decelerationSpeed: 0.25
+  lockOnSound: {fileID: 0}
   attackRotationSpeed: 1
   attack1RangeAllTentacleStab: 8
   attack1AllTentacleStabHitbox: {fileID: 1283495658}
