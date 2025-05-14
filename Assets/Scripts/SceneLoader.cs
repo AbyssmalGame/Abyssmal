@@ -52,10 +52,10 @@ public class SceneLoader : MonoBehaviour
     {
         int lastScene = resultsManager.lastSceneIndex;
         int nextScene = lastScene + 1;
-        if (nextScene >= 5)
+        if (lastScene >= 5)
         {
-            StartCoroutine(FadeAndLoadScene(0));
-        }
+			StartCoroutine(FadeAndLoadScene(0));
+		}
         else
         {
             StartCoroutine(FadeAndLoadScene(nextScene));
