@@ -7905,7 +7905,12 @@ PrefabInstance:
     - target: {fileID: 6077722629515556578, guid: 65b8d79a561ac66408bd17c23a3c241c,
         type: 3}
       propertyPath: m_text
-      value: How to Play
+      value: How to Survive
+      objectReference: {fileID: 0}
+    - target: {fileID: 6077722629515556578, guid: 65b8d79a561ac66408bd17c23a3c241c,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 23.8
       objectReference: {fileID: 0}
     - target: {fileID: 6835631728798249079, guid: 65b8d79a561ac66408bd17c23a3c241c,
         type: 3}
@@ -9762,7 +9767,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1258550614
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15879,7 +15884,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1989786956
 RectTransform:
   m_ObjectHideFlags: 0
