@@ -11,17 +11,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8296b36abb58a56489b87f66de10d5ff,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.05
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8296b36abb58a56489b87f66de10d5ff,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.05
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8296b36abb58a56489b87f66de10d5ff,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.05
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8296b36abb58a56489b87f66de10d5ff,
         type: 3}
@@ -327,9 +327,9 @@ MonoBehaviour:
   damageAmount: 10
   attackRange: 12
   attackChargeTime: 2
-  attackSpeed: 12
-  attackCollisionDelay: 1
-  attackLagTime: 2
+  attackSpeed: 6.5
+  attackCollisionDelay: 2
+  attackLagTime: 1.7
   straightAttackSound: {fileID: 8300000, guid: aafaaa9351d13c242b875700c84ecb20, type: 3}
 --- !u!114 &6894690641430135568
 MonoBehaviour:

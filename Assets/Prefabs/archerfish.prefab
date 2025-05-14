@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 46.597, y: 0, z: -6.607}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8847564004312428514}
@@ -129,12 +129,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   decelerationSpeed: 5
   lockOnSound: {fileID: 8300000, guid: e8b90ddc44742024fa7f6428423115ae, type: 3}
-  damageAmount: 10
+  damageAmount: 5
   attackRange: 14
-  attackChargeTime: 2
+  attackChargeTime: 3
   attackSpeed: 12
   attackDuration: 1
-  attackLagTime: 3
+  attackLagTime: 4
 --- !u!114 &4303242869197960362
 MonoBehaviour:
   m_ObjectHideFlags: 0

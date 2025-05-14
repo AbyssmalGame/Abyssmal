@@ -20,8 +20,8 @@ public class LevelMenu : MonoBehaviour
         {
             bool unlocked = GameManager.Instance.IsLevelUnlocked(i);
 
-			//remove comments later when done testing
-            //buttons[i].gameObject.SetActive(unlocked);
+            //remove comments later when done testing
+            buttons[i].gameObject.SetActive(unlocked);
         }
     }
 
