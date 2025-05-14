@@ -10,6 +10,8 @@ public abstract class GroundEnemy : MonoBehaviour
 
     protected Rigidbody rb;
 
+    [System.NonSerialized] public bool isDead = false;
+
     // Start is called before the first frame update
     private void Start()
     {
