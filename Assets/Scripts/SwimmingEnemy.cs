@@ -15,6 +15,8 @@ public abstract class SwimmingEnemy : MonoBehaviour
     protected AudioSource audioSource;
     [SerializeField] protected AudioClip lockOnSound;
 
+    [System.NonSerialized] public bool isDead = false;
+
     // Start is called before the first frame update
     private void Start()
     {

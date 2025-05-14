@@ -28,7 +28,7 @@ public class SwimmingMeleeAttacker : SwimmingEnemy
     //Attack Logic Here
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player") && attackCollisionDelayTimer >= attackCollisionDelay)
+        if (collision.gameObject.CompareTag("Player") && attackCollisionDelayTimer >= attackCollisionDelay && !isDead)
         {
             rb.angularVelocity = Vector3.zero;
             Debug.Log("hit target!");

@@ -22,7 +22,7 @@ public class GroundMeleeAttacker : GroundEnemy
     //Attack Logic Here
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject == target && attackCollisionDelayTimer >= attackCollisionDelay)
+        if (collision.gameObject == target && attackCollisionDelayTimer >= attackCollisionDelay && !isDead)
         {
             attackCollisionDelayTimer = 0f;
             //Physics.IgnoreCollision(GetComponent<Collider>(), collision.collider);

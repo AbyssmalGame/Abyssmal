@@ -346,7 +346,7 @@ MonoBehaviour:
   maxHP: 5
   damageColor:
     serializedVersion: 2
-    rgba: 1677721855
+    rgba: 4278190335
   bulletHitSound: {fileID: 8300000, guid: 149eea87aff150f428439230fab31d4b, type: 3}
 --- !u!114 &-3999957094568696666
 MonoBehaviour:
@@ -363,10 +363,10 @@ MonoBehaviour:
   resultsManager: {fileID: 11400000, guid: acbc88afbd1014c47bd0e84b58961995, type: 2}
   minGold: 0
   maxGold: 3
-  minIron: 0
-  maxIron: 3
-  minDebris: 0
-  maxDebris: 3
+  minIron: 5
+  maxIron: 10
+  minDebris: 5
+  maxDebris: 10
 --- !u!82 &-9090994288109662495
 AudioSource:
   m_ObjectHideFlags: 0
