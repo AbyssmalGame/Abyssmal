@@ -327,9 +327,9 @@ MonoBehaviour:
   damageAmount: 10
   attackRange: 12
   attackChargeTime: 2
-  attackSpeed: 12
-  attackCollisionDelay: 1
-  attackLagTime: 1
+  attackSpeed: 6.5
+  attackCollisionDelay: 2
+  attackLagTime: 1.7
   straightAttackSound: {fileID: 8300000, guid: aafaaa9351d13c242b875700c84ecb20, type: 3}
 --- !u!114 &6894690641430135568
 MonoBehaviour:
