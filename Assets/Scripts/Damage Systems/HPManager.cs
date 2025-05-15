@@ -138,12 +138,12 @@ public class HPManager : MonoBehaviour
         {
             fadeDuration = 1.5f;
             StartCoroutine(FadeAway(fadeDuration, 0.08f));
+            Destroy(gameObject, fadeDuration);
         }
         else
         {
             GameObject spawner = GameObject.Find("Spawner");
             Destroy(spawner);
-
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
             foreach (GameObject enemy in enemies)
             {
@@ -154,46 +154,53 @@ public class HPManager : MonoBehaviour
                 }
             }
 
-            fadeDuration = 2.5f;
-            StartCoroutine(FadeAway(fadeDuration, 0.004f));
+            fadeDuration = 25f;
+            StartCoroutine(FadeAway(fadeDuration, 0.003f));
             float animatorTime = 0f;
-            while (animatorTime <= 5f && animator.speed > 0)
+            while (animatorTime <= 25f && animator.speed > 0)
             {
-                animator.speed -= 0.004f;
+                animator.speed -= 0.003f;
                 animatorTime += Time.deltaTime;
                 yield return null;
             }
             animator.speed = 0f;
+            Destroy(gameObject);
         }
 
-        Destroy(gameObject, fadeDuration);
     }
     IEnumerator FadeAway(float fadeDuration, float fadeIncrement)
     {
         float elapsedTime = 0;
         Renderer[] renderers = transform.GetComponentsInChildren<Renderer>();
+        foreach (Renderer r in renderers)
+        {
+            foreach (Material material in r.materials)
+            {
+                material.SetFloat("_Surface", 1.0f);
+                material.SetFloat("_Blend", 0.0f);
+                material.SetFloat("_ReceiveShadows", 0.0f);
+                material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+                material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+                material.SetInt("_ZWrite", 0);
+                material.DisableKeyword("_ALPHATEST_ON");
+                material.EnableKeyword("_ALPHABLEND_ON");
+                material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                material.renderQueue = 3000;
+            }
+            r.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        }
         while (elapsedTime < fadeDuration)
         {
             foreach (Renderer r in renderers)
             {
                 foreach (Material material in r.materials)
                 {
-                    material.SetFloat("_Surface", 1.0f);
-                    material.SetFloat("_Blend", 0.0f);
                     Color c = material.color;
                     c.a -= fadeIncrement;
                     material.color = c;
-
-                    material.SetFloat("_ReceiveShadows", 0.0f);
-                    material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-                    material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-                    material.SetInt("_ZWrite", 0);
-                    material.DisableKeyword("_ALPHATEST_ON");
-                    material.EnableKeyword("_ALPHABLEND_ON");
-                    material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
-                    material.renderQueue = 3000;
                 }
             }
+            elapsedTime += Time.deltaTime;
             yield return null;
         }
     }

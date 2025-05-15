@@ -180,8 +180,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f4d21c041361476449d617ab84b7e0dc, type: 3}
   - {fileID: 8300000, guid: 1b0c9bb7a593f204bad843bd8fe28557, type: 3}
   - {fileID: 8300000, guid: d0c5b3e3b8390e444a13358a668e8d1f, type: 3}
-  minimumTimeBetween: 10
-  maximumTimeBetween: 40
+  - {fileID: 8300000, guid: 1d97b1e922cd55b419ff7e770805f5ba, type: 3}
+  minimumTimeBetween: 5
+  maximumTimeBetween: 30
 --- !u!1 &6907975563420901894
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,8 +329,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f4d21c041361476449d617ab84b7e0dc, type: 3}
   - {fileID: 8300000, guid: 1b0c9bb7a593f204bad843bd8fe28557, type: 3}
   - {fileID: 8300000, guid: d0c5b3e3b8390e444a13358a668e8d1f, type: 3}
-  minimumTimeBetween: 10
-  maximumTimeBetween: 40
+  minimumTimeBetween: 5
+  maximumTimeBetween: 30
 --- !u!1 &7880346826420894483
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,7 +358,7 @@ Transform:
   m_GameObject: {fileID: 7880346826420894483}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.85, y: 0, z: -1.44}
+  m_LocalPosition: {x: -10.09, y: 0, z: -1.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -476,5 +477,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f4d21c041361476449d617ab84b7e0dc, type: 3}
   - {fileID: 8300000, guid: 1b0c9bb7a593f204bad843bd8fe28557, type: 3}
   - {fileID: 8300000, guid: d0c5b3e3b8390e444a13358a668e8d1f, type: 3}
-  minimumTimeBetween: 10
-  maximumTimeBetween: 40
+  - {fileID: 8300000, guid: 1d97b1e922cd55b419ff7e770805f5ba, type: 3}
+  minimumTimeBetween: 5
+  maximumTimeBetween: 30

@@ -20,6 +20,7 @@ public class KrakenAttacker : SwimmingEnemy
     {
         base.OnStart();
         animator = GetComponent<Animator>();
+        StartCoroutine(StartRoar());
     }
 
     protected override void OnUpdate()
@@ -57,6 +58,7 @@ public class KrakenAttacker : SwimmingEnemy
     private IEnumerator attack1AllTentacleStab()
     {
 
+        audioSource.PlayOneShot(lockOnSound);
         animator.SetTrigger("Attack1AllTentacleStab");
 
         float animationTime = 4.2f;
@@ -83,5 +85,11 @@ public class KrakenAttacker : SwimmingEnemy
         attack1AllTentacleStabHitboxComponent.isHitOnce = false;
 
         hostileEnemySwimmingMovement.isAttacking = false;
+    }
+
+    private IEnumerator StartRoar()
+    {
+        yield return new WaitForSeconds(17);
+        audioSource.Play();
     }
 }
