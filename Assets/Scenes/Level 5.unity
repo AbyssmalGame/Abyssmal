@@ -1329,6 +1329,7 @@ MonoBehaviour:
   attack1RangeAllTentacleStab: 8
   attack1AllTentacleStabHitbox: {fileID: 1283495658}
   attack1AllTentacleStabHitboxComponent: {fileID: 1283495659}
+  inkAttackSound: {fileID: 8300000, guid: 25740138d61830347b92b9f5cbeebec4, type: 3}
 --- !u!4 &33214176 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8508cc5de8dafa8479289e43d34c544c,
