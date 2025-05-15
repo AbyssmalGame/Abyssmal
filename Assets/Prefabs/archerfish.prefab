@@ -111,7 +111,7 @@ MonoBehaviour:
   upRaycastOffset: 0.5
   downRaycastOffset: 0.5
   idleMovementSpeed: 0.5
-  hostileDetectionDistance: 20
+  hostileDetectionDistance: 35
   minimumIdleTime: 0
   maximumIdleTime: 10
   minimumNextDistance: 1
