@@ -96,6 +96,7 @@ public class KrakenAttacker : SwimmingEnemy
         Debug.Log("Attack1AllTentacleStab Hitbox");
 
         attack1AllTentacleStabHitboxComponent.isHitboxActive = true;
+        audioSource.PlayOneShot(inkAttackSound);
         yield return new WaitForSeconds(1);
         attack1AllTentacleStabHitboxComponent.isHitboxActive = false;
         attack1AllTentacleStabHitboxComponent.isHitOnce = false;
