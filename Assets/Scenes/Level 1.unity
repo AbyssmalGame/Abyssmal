@@ -1858,7 +1858,7 @@ PrefabInstance:
     - target: {fileID: 3464861743184855701, guid: 07364a3ec88266b489eda442e68903f1,
         type: 3}
       propertyPath: spawnInterval
-      value: 15
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 4346519113278249267, guid: 07364a3ec88266b489eda442e68903f1,
         type: 3}
@@ -2427,7 +2427,7 @@ PrefabInstance:
     - target: {fileID: 3464861743184855701, guid: 07364a3ec88266b489eda442e68903f1,
         type: 3}
       propertyPath: spawnInterval
-      value: 15
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 4346519113278249267, guid: 07364a3ec88266b489eda442e68903f1,
         type: 3}
@@ -2873,7 +2873,7 @@ PrefabInstance:
     - target: {fileID: 3464861743184855701, guid: 07364a3ec88266b489eda442e68903f1,
         type: 3}
       propertyPath: spawnInterval
-      value: 15
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 4346519113278249267, guid: 07364a3ec88266b489eda442e68903f1,
         type: 3}
@@ -3675,7 +3675,7 @@ PrefabInstance:
     - target: {fileID: 3464861743184855701, guid: 07364a3ec88266b489eda442e68903f1,
         type: 3}
       propertyPath: spawnInterval
-      value: 15
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 4346519113278249267, guid: 07364a3ec88266b489eda442e68903f1,
         type: 3}
@@ -4655,7 +4655,7 @@ PrefabInstance:
     - target: {fileID: 3464861743184855701, guid: 07364a3ec88266b489eda442e68903f1,
         type: 3}
       propertyPath: spawnInterval
-      value: 15
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 4346519113278249267, guid: 07364a3ec88266b489eda442e68903f1,
         type: 3}
@@ -5736,7 +5736,7 @@ PrefabInstance:
     - target: {fileID: 3464861743184855701, guid: 07364a3ec88266b489eda442e68903f1,
         type: 3}
       propertyPath: spawnInterval
-      value: 15
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 4346519113278249267, guid: 07364a3ec88266b489eda442e68903f1,
         type: 3}
