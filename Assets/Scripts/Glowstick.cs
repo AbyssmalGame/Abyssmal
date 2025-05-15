@@ -4,22 +4,25 @@ using UnityEngine;
 
 public class Glowstick : MonoBehaviour
 {
+
+    [SerializeField] private int index;
+    
+    public GlowstickPath glowstickPath;
+
     private Renderer[] renderers;
 
     // Start is called before the first frame update
     void Start()
     {
         renderers = GetComponentsInChildren<Renderer>();
+        glowstickPath = GameObject.Find("Path")?.GetComponent<GlowstickPath>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            foreach (Renderer r in renderers)
-            {
-                r.material.color = Color.green;
-            }
+            glowstickPath.activatedGlowstick = index;
         }
     }
 }
