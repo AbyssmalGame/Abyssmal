@@ -128,6 +128,8 @@ public class KrakenAttacker : SwimmingEnemy
 
         rb.AddForce(Vector3.back * 15.0f, ForceMode.Impulse);
 
+        yield return new WaitForSeconds(1f);
+
         touchedPlayer = false;
 
         hostileEnemySwimmingMovement.isAttacking = false;
