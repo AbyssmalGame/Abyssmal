@@ -120,7 +120,7 @@ public class HPManager : MonoBehaviour
         }
         
         Quaternion startRotation = transform.rotation;
-        Quaternion targetRotation = krakenAttacker == null ? Quaternion.Euler(0f, 0f, 180f) : Quaternion.Euler(0f, 0f, 0f);
+        Quaternion targetRotation = krakenAttacker == null ? Quaternion.Euler(0f, 0f, 180f) : Quaternion.Euler(0f, startRotation.y, 0f);
 
         float rotationDuration = 1.5f;
         float elapsedTime = 0f;
