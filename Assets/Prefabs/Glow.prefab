@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8306725023296167216}
   - component: {fileID: 5848216044664074196}
   - component: {fileID: 3399484403182665413}
+  - component: {fileID: 5405278377198021706}
+  - component: {fileID: 2476432403538420193}
   m_Layer: 15
   m_Name: Glow
   m_TagString: Untagged
@@ -105,3 +107,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5405278377198021706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274873607148016606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f47bdc598c19cb499bc3c994a5e1b11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &2476432403538420193
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274873607148016606}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 98.3
+  m_Height: 64.69
+  m_Direction: 1
+  m_Center: {x: 0, y: 4.5, z: 0.000015258789}
