@@ -89,7 +89,7 @@ public class KrakenAttacker : SwimmingEnemy
 
     private IEnumerator StartRoar()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(17);
         audioSource.Play();
     }
 }

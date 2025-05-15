@@ -584,7 +584,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8508cc5de8dafa8479289e43d34c544c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 56.12
+      value: 116.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8508cc5de8dafa8479289e43d34c544c,
         type: 3}
@@ -1184,6 +1184,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8508cc5de8dafa8479289e43d34c544c,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 33214179}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8508cc5de8dafa8479289e43d34c544c,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 33214169}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8508cc5de8dafa8479289e43d34c544c,
         type: 3}
@@ -1197,10 +1201,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 33214178}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8508cc5de8dafa8479289e43d34c544c,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 33214179}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8508cc5de8dafa8479289e43d34c544c,
         type: 3}
       insertIndex: -1
@@ -1227,7 +1227,7 @@ MonoBehaviour:
   movementSpeed: 4
   rotationalDamp: 8
   obstacleAvoidanceRotation: 20
-  target: {fileID: 0}
+  target: {fileID: 1938833378}
   detectionDistance: 20
   raycastForwardOffset: -8
   leftRaycastOffset: 1
@@ -1235,7 +1235,7 @@ MonoBehaviour:
   upRaycastOffset: 1
   downRaycastOffset: 1
   idleMovementSpeed: 1
-  hostileDetectionDistance: 100
+  hostileDetectionDistance: 500
   minimumIdleTime: 0
   maximumIdleTime: 0
   minimumNextDistance: 10
@@ -1427,7 +1427,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1479,8 +1479,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50fb6e4bb1db847884cfeab5dc19d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenDamage: 1
-  damageAmount: 5
+  timeBetweenDamage: 2
+  damageAmount: 3
 --- !u!1001 &71162043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2157,7 +2157,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1938833378}
     - target: {fileID: 3464861743184855701, guid: 07364a3ec88266b489eda442e68903f1,
         type: 3}
       propertyPath: enemyPrefab
@@ -2985,17 +2985,17 @@ Terrain:
   m_Enabled: 1
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: ccd8b13a42a7808439e9cb97cf66b5c9, type: 2}
-  m_TreeDistance: 5000
-  m_TreeBillboardDistance: 50
-  m_TreeCrossFadeLength: 5
-  m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 80
-  m_DetailObjectDensity: 1
+  m_TreeDistance: 25
+  m_TreeBillboardDistance: 15
+  m_TreeCrossFadeLength: 10
+  m_TreeMaximumFullLODCount: 25
+  m_DetailObjectDistance: 0
+  m_DetailObjectDensity: 0
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
   m_HeightmapMinimumLODSimplification: 0
   m_HeightmapMaximumLOD: 0
-  m_ShadowCastingMode: 2
+  m_ShadowCastingMode: 0
   m_DrawHeightmap: 1
   m_DrawInstanced: 0
   m_DrawTreesAndFoliage: 1
@@ -3012,7 +3012,7 @@ Terrain:
   m_GroupingID: 0
   m_RenderingLayerMask: 1
   m_AllowAutoConnect: 1
-  m_EnableHeightmapRayTracing: 1
+  m_EnableHeightmapRayTracing: 0
   m_EnableTreesAndDetailsRayTracing: 0
   m_TreeMotionVectorModeOverride: 3
 --- !u!1001 &444006933
@@ -3669,7 +3669,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1938833378}
     - target: {fileID: 3464861743184855701, guid: 07364a3ec88266b489eda442e68903f1,
         type: 3}
       propertyPath: enemyPrefab
@@ -5050,7 +5050,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -5659,7 +5659,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1938833378}
     - target: {fileID: 3464861743184855701, guid: 07364a3ec88266b489eda442e68903f1,
         type: 3}
       propertyPath: enemyPrefab
@@ -8183,6 +8183,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1938833376}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1938833378 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7406823890072165530, guid: d6e46e26640c4ab4dbdf6b3478a582fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1938833376}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1972488435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8456,7 +8462,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1938833378}
     - target: {fileID: 3464861743184855701, guid: 07364a3ec88266b489eda442e68903f1,
         type: 3}
       propertyPath: enemyPrefab

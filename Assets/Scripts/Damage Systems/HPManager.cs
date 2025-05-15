@@ -154,12 +154,14 @@ public class HPManager : MonoBehaviour
                 }
             }
 
-            fadeDuration = 2.5f;
-            StartCoroutine(FadeAway(fadeDuration, 0.004f));
+            audioSource.Play();
+
+            fadeDuration = 7f;
+            StartCoroutine(FadeAway(fadeDuration, 0.009f));
             float animatorTime = 0f;
-            while (animatorTime <= 5f && animator.speed > 0)
+            while (animatorTime <= 7f && animator.speed > 0)
             {
-                animator.speed -= 0.004f;
+                animator.speed -= 0.009f;
                 animatorTime += Time.deltaTime;
                 yield return null;
             }
@@ -172,28 +174,34 @@ public class HPManager : MonoBehaviour
     {
         float elapsedTime = 0;
         Renderer[] renderers = transform.GetComponentsInChildren<Renderer>();
+        foreach (Renderer r in renderers)
+        {
+            foreach (Material material in r.materials)
+            {
+                material.SetFloat("_Surface", 1.0f);
+                material.SetFloat("_Blend", 0.0f);
+                material.SetFloat("_ReceiveShadows", 0.0f);
+                material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+                material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+                material.SetInt("_ZWrite", 0);
+                material.DisableKeyword("_ALPHATEST_ON");
+                material.EnableKeyword("_ALPHABLEND_ON");
+                material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                material.renderQueue = 3000;
+            }
+        }
         while (elapsedTime < fadeDuration)
         {
             foreach (Renderer r in renderers)
             {
                 foreach (Material material in r.materials)
                 {
-                    material.SetFloat("_Surface", 1.0f);
-                    material.SetFloat("_Blend", 0.0f);
                     Color c = material.color;
                     c.a -= fadeIncrement;
                     material.color = c;
-
-                    material.SetFloat("_ReceiveShadows", 0.0f);
-                    material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-                    material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-                    material.SetInt("_ZWrite", 0);
-                    material.DisableKeyword("_ALPHATEST_ON");
-                    material.EnableKeyword("_ALPHABLEND_ON");
-                    material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
-                    material.renderQueue = 3000;
                 }
             }
+            elapsedTime += Time.deltaTime;
             yield return null;
         }
     }
