@@ -2703,7 +2703,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHP: 100
   oxygen: 600
-  swimSpeed: 2.5
+  swimSpeed: 4
   gold: 0
   iron: 0
   debris: 0
