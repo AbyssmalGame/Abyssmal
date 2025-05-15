@@ -12,6 +12,8 @@ public class SwimmingRangedAttacker : SwimmingEnemy
 
     [SerializeField] private float attackLagTime = 0.2f;
 
+    [SerializeField] private AudioClip spraySound;
+
     private ParticleSystem rangedAttackParticles;
 
     protected override void OnStart()
@@ -60,6 +62,7 @@ public class SwimmingRangedAttacker : SwimmingEnemy
         }
 
         rangedAttackParticles.Play();
+        audioSource.PlayOneShot(spraySound);
 
         while (attackDurationTimePassed <= attackDuration)
         {
@@ -70,6 +73,8 @@ public class SwimmingRangedAttacker : SwimmingEnemy
             yield return null;
         }
         rangedAttackParticles.Stop();
+        audioSource.Stop();
+
         yield return new WaitForSeconds(attackLagTime);
 
         hostileEnemySwimmingMovement.isAttacking = false;
