@@ -23,7 +23,7 @@ public class PlayerStatManager : MonoBehaviour
 
 	[SerializeField] private AudioClip[] playerDamageSounds;
 	[SerializeField] private AudioClip playerLowHPSound;
-	private AudioSource audioSource;
+	public AudioSource audioSource;
 
 	void Start()
 	{
@@ -68,8 +68,6 @@ public class PlayerStatManager : MonoBehaviour
 		hpStat.currentValue = hpStat.currentValue >= 0 ? hpStat.currentValue : 0;
 
 		hpText.text = "" + Mathf.FloorToInt(hpStat.currentValue);
-
-		audioSource = GetComponent<AudioSource>();
 
 		UpdateHPIcon();
 		audioSource.PlayOneShot(playerDamageSounds[Random.Range(0, playerDamageSounds.Length)]);

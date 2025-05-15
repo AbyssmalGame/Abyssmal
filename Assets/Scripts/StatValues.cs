@@ -6,7 +6,7 @@ public class StatValues
 {
     public static List<Upgrade> PlayerHPLevels = new List<Upgrade> { new Upgrade(100f, 0, 0, 0, true), new Upgrade(120f, 10, 10, 10), new Upgrade(150f, 25, 25, 25), new Upgrade(200f, 40, 40, 40) };
     public static List<Upgrade> OxygenLevels = new List<Upgrade> { new Upgrade(600f, 0, 0, 0, true), new Upgrade(660f, 10, 10, 10), new Upgrade(720f, 25, 25, 25), new Upgrade(840f, 40, 40, 40) };
-    public static List<Upgrade> SwimSpeedLevels = new List<Upgrade> { new Upgrade(3.5f, 0, 0, 0, true), new Upgrade(4.3f, 10, 10, 10), new Upgrade(5.4f, 25, 25, 25), new Upgrade(6.5f, 40, 40, 40) };
+    public static List<Upgrade> SwimSpeedLevels = new List<Upgrade> { new Upgrade(4.0f, 0, 0, 0, true), new Upgrade(4.6f, 10, 10, 10), new Upgrade(5.4f, 25, 25, 25), new Upgrade(6.5f, 40, 40, 40) };
 
     public static Upgrade SpearGun = new Upgrade(0f, 0, 0, 0, true);
     public static Upgrade HarpoonGun = new Upgrade(1f, 15, 15, 15);

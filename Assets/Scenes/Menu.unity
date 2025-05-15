@@ -235,8 +235,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Glow
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5405278377198021706, guid: a263c7f3d62b15d49832d7c3ca9a9404, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2625,10 +2624,10 @@ MonoBehaviour:
   playerHP: 100
   oxygen: 600
   swimSpeed: 2.5
-  gold: 0
-  iron: 0
-  debris: 0
-  weapon1: spearGun
+  gold: 50
+  iron: 50
+  debris: 50
+  weapon1: harpoonGun
   weapon2: 
 --- !u!4 &386345836
 Transform:
@@ -8512,7 +8511,7 @@ PrefabInstance:
     - target: {fileID: 1202481127035687230, guid: 93644ffabc2b3154d85921d33614b092,
         type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1529831075484551942, guid: 93644ffabc2b3154d85921d33614b092,
         type: 3}
@@ -8532,7 +8531,7 @@ PrefabInstance:
     - target: {fileID: 2205919026336035594, guid: 93644ffabc2b3154d85921d33614b092,
         type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2373006069413174368, guid: 93644ffabc2b3154d85921d33614b092,
         type: 3}
@@ -18217,6 +18216,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2586849492358228836, guid: 28387a47e556ae746be772e556522410,
         type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1663111111476071938}
+    - target: {fileID: 2586849492358228836, guid: 28387a47e556ae746be772e556522410,
+        type: 3}
       propertyPath: sceneLoader
       value: 
       objectReference: {fileID: 1836267123}
@@ -18310,6 +18314,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d2b9598b48b4e0478ece2a1c7eb8d6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &1663111111476071938 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2829923604092392769, guid: 28387a47e556ae746be772e556522410,
+    type: 3}
+  m_PrefabInstance: {fileID: 1663111111476071928}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8821695196510581646
 PrefabInstance:
   m_ObjectHideFlags: 0

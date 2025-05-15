@@ -3212,6 +3212,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 844bc0dac8f2dac4e964bf06c9246301, type: 3}
   - {fileID: 8300000, guid: 20807a8ff3de42544b13ad93d9fc9161, type: 3}
   playerLowHPSound: {fileID: 8300000, guid: baf31a0e5a33a3f4e888f7c5646b1c55, type: 3}
+  audioSource: {fileID: 2829923604092392769}
 --- !u!114 &3166950248222139048
 MonoBehaviour:
   m_ObjectHideFlags: 0
