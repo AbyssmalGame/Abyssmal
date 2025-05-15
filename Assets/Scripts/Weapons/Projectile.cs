@@ -34,7 +34,11 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        audioSource.PlayOneShot(audioClip);
+        if (collision.gameObject.layer.ToString() == "Enemy")
+        {
+            audioSource.PlayOneShot(audioClip);
+        }
+       
 
         GameObject other = collision.gameObject;
         //Debug.Log("Collided with " + other.tag + "dealing " + damage + " damage.");
