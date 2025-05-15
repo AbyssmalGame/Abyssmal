@@ -17,6 +17,7 @@ public class KrakenAttacker : SwimmingEnemy
     private ParticleSystem inkParticles;
 
     private bool touchedPlayer = false;
+    private Vector3 touchedPlayerLocation;
 
     // Start is called before the first frame update
     protected override void OnStart()
@@ -51,6 +52,7 @@ public class KrakenAttacker : SwimmingEnemy
         {
             Debug.Log("inking...");
             touchedPlayer = true;
+            touchedPlayerLocation = collision.gameObject.transform.position;
             StartCoroutine(InkSpray());
         }
     }
@@ -110,7 +112,8 @@ public class KrakenAttacker : SwimmingEnemy
         float attackTimePassed = 0;
 
         Quaternion startRotation = transform.rotation;
-        Quaternion targetRotation = transform.rotation * Quaternion.Euler(0, 180, 0);
+        Vector3 awayDirection = transform.position - touchedPlayerLocation;
+        Quaternion targetRotation = Quaternion.LookRotation(awayDirection);
 
         while (attackTimePassed <= attackRotationSpeed)
         {
@@ -124,9 +127,7 @@ public class KrakenAttacker : SwimmingEnemy
         inkParticles.Play();
 
         rb.AddForce(Vector3.back * 15.0f, ForceMode.Impulse);
-        yield return new WaitForSeconds(1.5f);
 
-        inkParticles.Stop();
         touchedPlayer = false;
 
         hostileEnemySwimmingMovement.isAttacking = false;

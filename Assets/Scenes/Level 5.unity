@@ -1205,10 +1205,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 33214178}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8508cc5de8dafa8479289e43d34c544c,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 33214180}
   m_SourcePrefab: {fileID: 100100000, guid: 8508cc5de8dafa8479289e43d34c544c, type: 3}
 --- !u!1 &33214168 stripped
 GameObject:
@@ -1351,7 +1347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80bca953fdae7fc44bc0e1a0d268df3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 80
+  maxHP: 300
   damageColor:
     serializedVersion: 2
     rgba: 4278190335
@@ -1471,20 +1467,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &33214180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 33214168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b50fb6e4bb1db847884cfeab5dc19d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeBetweenDamage: 2
-  damageAmount: 3
 --- !u!1001 &71162043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8185,7 +8167,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sceneLoader
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 251187167}
     - target: {fileID: 3098947597319168324, guid: d6e46e26640c4ab4dbdf6b3478a582fd,
         type: 3}
       propertyPath: m_TagString
