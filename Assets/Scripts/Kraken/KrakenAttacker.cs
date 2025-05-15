@@ -14,12 +14,17 @@ public class KrakenAttacker : SwimmingEnemy
     [SerializeField] private KrakenHitbox attack1AllTentacleStabHitboxComponent;
 
     private Animator animator;
+    private ParticleSystem inkParticles;
+
+    private bool touchedPlayer = false;
+    private Vector3 touchedPlayerLocation;
 
     // Start is called before the first frame update
     protected override void OnStart()
     {
         base.OnStart();
         animator = GetComponent<Animator>();
+        inkParticles = GetComponentInChildren<ParticleSystem>();
         StartCoroutine(StartRoar());
     }
 
@@ -38,6 +43,17 @@ public class KrakenAttacker : SwimmingEnemy
         if (Physics.Raycast(hitRay, transform.forward, out hit1, attack1RangeAllTentacleStab) && hit1.collider.gameObject == target)
         {
             Attack();
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && !touchedPlayer && !isDead)
+        {
+            Debug.Log("inking...");
+            touchedPlayer = true;
+            touchedPlayerLocation = collision.gameObject.transform.position;
+            StartCoroutine(InkSpray());
         }
     }
 
@@ -83,6 +99,36 @@ public class KrakenAttacker : SwimmingEnemy
         yield return new WaitForSeconds(1);
         attack1AllTentacleStabHitboxComponent.isHitboxActive = false;
         attack1AllTentacleStabHitboxComponent.isHitOnce = false;
+
+        hostileEnemySwimmingMovement.isAttacking = false;
+    }
+
+    IEnumerator InkSpray()
+    {
+        hostileEnemySwimmingMovement.isAttacking = true;
+        hostileEnemySwimmingMovement.isMoving = false;
+        hostileEnemySwimmingMovement.isIdle = false;
+
+        float attackTimePassed = 0;
+
+        Quaternion startRotation = transform.rotation;
+        Vector3 awayDirection = transform.position - touchedPlayerLocation;
+        Quaternion targetRotation = Quaternion.LookRotation(awayDirection);
+
+        while (attackTimePassed <= attackRotationSpeed)
+        {
+            DecelerateByFrame();
+            transform.rotation = Quaternion.Slerp(startRotation, targetRotation, attackTimePassed / attackRotationSpeed);
+            attackTimePassed += Time.deltaTime;
+            yield return null;
+        }
+        transform.rotation = targetRotation;
+
+        inkParticles.Play();
+
+        rb.AddForce(Vector3.back * 15.0f, ForceMode.Impulse);
+
+        touchedPlayer = false;
 
         hostileEnemySwimmingMovement.isAttacking = false;
     }
