@@ -88,7 +88,7 @@ public class Weapon : MonoBehaviour
                 magazineObject.Eject();
             } else if (!ejectsMagazine && currentMagazine == 0)
             {
-                projectile.GetComponent<MeshRenderer>().enabled = false;
+                projectile.SetActive(false);
             }
 
             yield return new WaitForSeconds(fireCooldownSeconds);
@@ -111,12 +111,14 @@ public class Weapon : MonoBehaviour
 
     public void reload()
     {
+
         if (magazineObject != null)
         {
             magazineObject.Reload();
         } else
         {
-            projectile.GetComponent<MeshRenderer>().enabled = true;
+            projectile.SetActive(true);
+            Debug.Log("RELOADED HARPOON GUN");
         }
         currentMagazine = magazine;
         reloadSound.PlayOneShot(reloadSound.clip);
