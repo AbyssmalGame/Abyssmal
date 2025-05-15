@@ -138,12 +138,12 @@ public class HPManager : MonoBehaviour
         {
             fadeDuration = 1.5f;
             StartCoroutine(FadeAway(fadeDuration, 0.08f));
+            Destroy(gameObject, fadeDuration);
         }
         else
         {
             GameObject spawner = GameObject.Find("Spawner");
             Destroy(spawner);
-
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
             foreach (GameObject enemy in enemies)
             {
@@ -154,21 +154,19 @@ public class HPManager : MonoBehaviour
                 }
             }
 
-            audioSource.Play();
-
-            fadeDuration = 7f;
-            StartCoroutine(FadeAway(fadeDuration, 0.009f));
+            fadeDuration = 25f;
+            StartCoroutine(FadeAway(fadeDuration, 0.003f));
             float animatorTime = 0f;
-            while (animatorTime <= 7f && animator.speed > 0)
+            while (animatorTime <= 25f && animator.speed > 0)
             {
-                animator.speed -= 0.009f;
+                animator.speed -= 0.003f;
                 animatorTime += Time.deltaTime;
                 yield return null;
             }
             animator.speed = 0f;
+            Destroy(gameObject);
         }
 
-        Destroy(gameObject, fadeDuration);
     }
     IEnumerator FadeAway(float fadeDuration, float fadeIncrement)
     {
@@ -189,6 +187,7 @@ public class HPManager : MonoBehaviour
                 material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
                 material.renderQueue = 3000;
             }
+            r.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
         }
         while (elapsedTime < fadeDuration)
         {

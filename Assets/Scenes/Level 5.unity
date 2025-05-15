@@ -584,7 +584,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8508cc5de8dafa8479289e43d34c544c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 116.6
+      value: 177.56
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8508cc5de8dafa8479289e43d34c544c,
         type: 3}
@@ -2525,9 +2525,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b159391706d6c9443aababecfdca53cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerGO: {fileID: 0}
+  PlayerGO: {fileID: 1938833378}
   resultsManager: {fileID: 11400000, guid: acbc88afbd1014c47bd0e84b58961995, type: 2}
-  fadeScreen: {fileID: 0}
+  fadeScreen: {fileID: 1938833379}
 --- !u!4 &251187168
 Transform:
   m_ObjectHideFlags: 0
@@ -5012,9 +5012,9 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 100
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 3
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -5050,7 +5050,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.5
+      value: 0.3
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -5065,7 +5065,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.06944445
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -8189,6 +8189,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1938833376}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1938833379 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6151159353156328600, guid: d6e46e26640c4ab4dbdf6b3478a582fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1938833376}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 877c43c46e9606341ab65bd31e34096e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1972488435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8668,10 +8680,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1938833377}
     m_Modifications:
+    - target: {fileID: 596385266779522502, guid: 40450dc28afb446419940d80addee720,
+        type: 3}
+      propertyPath: maximumTimeBetween
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 919958633533052486, guid: 40450dc28afb446419940d80addee720,
         type: 3}
       propertyPath: m_Name
       value: Creature Audio Ambience
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476661450026159399, guid: 40450dc28afb446419940d80addee720,
+        type: 3}
+      propertyPath: maximumTimeBetween
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357156881044911899, guid: 40450dc28afb446419940d80addee720,
+        type: 3}
+      propertyPath: maximumTimeBetween
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8055109353543447303, guid: 40450dc28afb446419940d80addee720,
         type: 3}

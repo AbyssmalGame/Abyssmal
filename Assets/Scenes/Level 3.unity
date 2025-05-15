@@ -2094,6 +2094,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Creature Audio Ambience
       objectReference: {fileID: 0}
+    - target: {fileID: 5049672885854787690, guid: 40450dc28afb446419940d80addee720,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049672885854787690, guid: 40450dc28afb446419940d80addee720,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 8055109353543447303, guid: 40450dc28afb446419940d80addee720,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2143,6 +2153,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714250142888520056, guid: 40450dc28afb446419940d80addee720,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714250142888520056, guid: 40450dc28afb446419940d80addee720,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8750769292211715187, guid: 40450dc28afb446419940d80addee720,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8750769292211715187, guid: 40450dc28afb446419940d80addee720,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
