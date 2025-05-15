@@ -12,6 +12,7 @@ public class KrakenAttacker : SwimmingEnemy
     
     [SerializeField] private CapsuleCollider attack1AllTentacleStabHitbox;
     [SerializeField] private KrakenHitbox attack1AllTentacleStabHitboxComponent;
+    [SerializeField] private AudioClip inkAttackSound;
 
     private Animator animator;
     private ParticleSystem inkParticles;
@@ -50,7 +51,6 @@ public class KrakenAttacker : SwimmingEnemy
     {
         if (collision.gameObject.CompareTag("Player") && !touchedPlayer && !isDead)
         {
-            Debug.Log("inking...");
             touchedPlayer = true;
             touchedPlayerLocation = collision.gameObject.transform.position;
             StartCoroutine(InkSpray());
@@ -125,6 +125,7 @@ public class KrakenAttacker : SwimmingEnemy
         transform.rotation = targetRotation;
 
         inkParticles.Play();
+        audioSource.PlayOneShot(inkAttackSound);
 
         rb.AddForce(Vector3.back * 15.0f, ForceMode.Impulse);
 

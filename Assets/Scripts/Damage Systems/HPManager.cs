@@ -17,6 +17,8 @@ public class HPManager : MonoBehaviour
     private Rigidbody rb;
     private Animator animator;
 
+    private bool isDead = false;
+
     private void Start()
     {
         currentHP = maxHP;
@@ -34,8 +36,9 @@ public class HPManager : MonoBehaviour
         if (hpBeforeHit > 0)
         {
             DamageFlash();
-            if (currentHP <= 0)
+            if (currentHP <= 0 && !isDead)
             {
+                isDead = true;
                 Die();
             }
         }
